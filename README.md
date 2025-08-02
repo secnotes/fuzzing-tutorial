@@ -48,6 +48,19 @@
 
 ### NDSS
 
+#### 2025
+
+- [Automatic Library Fuzzing through API Relation Evolvement, 2025](https://www.ndss-symposium.org/ndss-paper/automatic-library-fuzzing-through-api-relation-evolvement/) - 通过 API 列表的组合调用进行测试。为了解决隐式API调用规范的问题提出了**关系学习阶段**，即通过更改 API 调用顺序观察执行状态的变化来推断API 关系。作者来自香港大学。
+- [Blackbox Fuzzing of Distributed Systems with Multi-Dimensional Inputs and Symmetry-Based Feedback Pruning, 2025](https://www.ndss-symposium.org/ndss-paper/blackbox-fuzzing-of-distributed-systems-with-multi-dimensional-inputs-and-symmetry-based-feedback-pruning/) - 第一个用于分布式系统的覆盖引导 Fuzzer，[DistFuzz 已开源](https://github.com/zouyonghao/DistFuzz)，作者来自北京航空航天大学。
+- [DUMPLING: Fine-grained Differential JavaScript Engine Fuzzing, 2025](https://www.ndss-symposium.org/ndss-paper/dumpling-fine-grained-differential-javascript-engine-fuzzing/) - 一个针对 V8 引擎的 JS Fuzzer。传统 JS Fuzzer 是对输入进行插桩，而 DUMPLING 直接对 JS 引擎插桩，粒度精细，[已开源](https://github.com/two-heart/dumpling-artifact-evaluation)。作者来自[洛桑联邦理工学院](http://www.baidu.com/link?url=Of8YlLI4kY82aXoBJ3qXHZIW4XzCtb69cuF4oCHoomcvVav1tM4xRjBM9zloiyew7ZVnF6QkeGcck-0SRwfmyPaTkZ2v9hz9xzURBTgFqHAgHStcP6HrkE4ued3xfskRNH56uzxZKsur9nJyeVU6pZuVxgPz1JX_4uWCNUHwxtC)。
+- [FUZZUER: Enabling Fuzzing of UEFI Interfaces on EDK-2, 2025](https://www.ndss-symposium.org/ndss-paper/fuzzuer-enabling-fuzzing-of-uefi-interfaces-on-edk-2/) - FUZZUER，这是一种用于 EDK-2（一种典型且广泛使用的 UEFI 实现）上 UEFI 接口的覆盖引导模糊测试技术，暂未见开源，作者来自普渡大学。
+- [ICSQuartz: Scan Cycle-Aware and Vendor-Agnostic Fuzzing for Industrial Control Systems, 2025](https://www.ndss-symposium.org/ndss-paper/icsquartz-scan-cycle-aware-and-vendor-agnostic-fuzzing-for-industrial-control-systems/) - 首个原生支持IEC 61131-3结构化文本（ST，一种标准化可编程逻辑控制器编程语言）的模糊测试工具，[ISCQuartz](https://github.com/momalab/ICSQuartz) 已开源，作者来自纽约大学阿布扎比分校。
+- [MALintent: Coverage Guided Intent Fuzzing Framework for Android, 2025](https://www.ndss-symposium.org/ndss-paper/malintent-coverage-guided-intent-fuzzing-framework-for-android/) - MALintent 是第一个对已编译的闭源 Android 应用程序应用灰盒模糊测试的 **Intent Fuzz** 工具，[已开源](https://github.com/sslab-gatech/MALintent)。MALintent 首先使用静态分析找到应用 Intent 相关组件，然后使用 Java Virtual Machine Tools Interface (JVMTI) 实现二进制插桩。实际上我们也有开发过类似的 Intent Fuzz，但是并没有使用覆盖反馈技术。因此，这里的插桩技术值得学习。作者来自佐治亚理工学院。
+- [Moneta: Ex-Vivo GPU Driver Fuzzing by Recalling In-Vivo Execution States, 2025](https://www.ndss-symposium.org/ndss-paper/moneta-ex-vivo-gpu-driver-fuzzing-by-recalling-in-vivo-execution-states/) - 一个针对 GPU 的 Fuzz 方案，不需要物理设备，Moneta 未见开源，作者来自延世大学。
+- [QMSan: Efficiently Detecting Uninitialized Memory Errors During Fuzzing, 2025](https://www.ndss-symposium.org/ndss-paper/qmsan-efficiently-detecting-uninitialized-memory-errors-during-fuzzing/) - 使用 QEMU 实现的专门针对未初始化内存漏洞的 Fuzzer，[QMSan](https://github.com/heinzeen/qmsan) 已开源，作者来自罗马第一大学。
+- [TWINFUZZ: Differential Testing of Video Hardware Acceleration Stacks, 2025](https://www.ndss-symposium.org/ndss-paper/twinfuzz-differential-testing-of-video-hardware-acceleration-stacks/) - 一种基于通过间接代理目标对硬件加速视频解码堆栈进行差异化测试的线束设计和测试技术。工具原型 [twinfuzz](https://github.com/CISPA-SysSec/twinfuzz) 已开源。作者来自CISPA 亥姆霍兹信息安全中心。
+- [Truman: Constructing Device Behavior Models from OS Drivers to Fuzz Virtual Devices, 2025](https://www.ndss-symposium.org/ndss-paper/truman-constructing-device-behavior-models-from-os-drivers-to-fuzz-virtual-devices/) - 一个针对 QEMU 虚拟化设备进行 Fuzz 的工具，详细[中文解读](https://zhuanlan.zhihu.com/p/1892291730214199900)，作者来自清华大学。
+
 #### 2024
 
 - [DeepGo: Predictive Directed Greybox Fuzzing, 2024](https://www.ndss-symposium.org/ndss-paper/deepgo-predictive-directed-greybox-fuzzing/) - 一种名为 DeepGo 的预测式定向性灰盒 Fuzzing 方法，通过结合历史和预测信息，利用深度神经网络和强化学习引导模糊测试达到目标路径，优化测试效率。作者来自国防科技大学计算机学院。
