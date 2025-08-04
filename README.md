@@ -1,9 +1,9 @@
 
 
 # Recent Papers/Blogs/Tools Related to Fuzzing
-[<img src="logo/logo.png" align="right" width="30%">](https://github.com/liyansong2018/fuzzing-tutorial)
+[<img src="logo/logo.png" align="right" width="30%">](https://github.com/secnotes/fuzzing-tutorial)
 
-> Curated list of classic fuzzing books, papers about fuzzing at information security top conferences over the years, commonly used fuzzing tools, and resources that can help us use fuzzer easily. → [English](https://liyansong2018.github.io/fuzzing-tutorial/README_en)
+> Curated list of classic fuzzing books, papers about fuzzing at information security top conferences over the years, commonly used fuzzing tools, and resources that can help us use fuzzer easily. → [English](https://secnotes.github.io/fuzzing-tutorial/index_en.html)
 
 本项目收录了经典的 fuzzing 书籍、历年安全顶会上有关 fuzzing 的经典论文、常用的 fuzzing 工具、可以快速入手 fuzzing 工具的博客，如果你有更多资源，欢迎贡献。
 
@@ -388,7 +388,7 @@
 
 ## Contribute
 
-如果你看到了认为比较好的有关模糊测试的资源，欢迎贡献本项目！请阅读[贡献指南](https://github.com/liyansong2018/fuzzing-tutorial/blob/main/CONTRIBUTING.md)。
+如果你看到了认为比较好的有关模糊测试的资源，欢迎贡献本项目！请阅读[贡献指南](https://github.com/secnotes/fuzzing-tutorial/blob/main/CONTRIBUTING.md)。
 
 ## License
 
