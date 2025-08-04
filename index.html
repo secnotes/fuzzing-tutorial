@@ -1,0 +1,849 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+
+
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/*打印页边距设置*/
+@media print {
+  #write {
+    padding: 0 !important;
+  }
+
+}
+
+#write {
+  max-width: 950px;
+  font-size: 1.1rem;
+  color: rgb(0, 0, 0);
+  line-height: 1.6;
+  word-spacing: 0px;
+  letter-spacing: 0px;
+  word-break: break-word;
+  word-wrap: break-word;
+  text-align: justify;
+
+  font-family: 'Cantarell', 'SourceHanSerifCN';
+  margin-bottom: 20rem;
+}
+
+#write .md-math-block,
+#write .md-rawblock,
+#write p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+#write p {
+  text-align: left;
+  line-height: 1.5em;
+}
+
+/* TOC */
+
+ .md-toc-content {
+  font-family: 'SourceHanSerifCN';
+}
+
+.md-toc-content:empty:before {
+  color: rgb(181,54,41);
+}
+
+#write div.md-toc-tooltip {
+  font-family: 'SourceHanSerifCN';
+  color: rgb(181,54,41);
+  position: static;
+  margin-top: 10px;
+  background-color: #f6f8fa;
+  line-height: 1.6rem;
+  padding: 0.3rem 0.75rem;
+  border-top: none;
+  border-radius: .5rem;
+}
+
+.md-toc:focus .md-toc-content {
+  border-color: #ffffff;
+  margin: 9px -1px;
+  margin-top: 9px;
+}
+
+.md-toc .md-toc-content {
+  border-color: #ffffff;
+  margin: 10px 0px;
+  margin-top: 10px;
+}
+
+/* 分割线hr */
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 2px solid rgb(181,54,41);
+  border-radius: 2px;
+}
+
+img {
+  /* 避免图片在导出时被断开 */
+  page-break-inside: avoid;
+}
+
+strong {
+  font-weight: 900;
+}
+
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+/* typora 编写模式 */
+#typora-source {
+  font-family: "Cantarell", "SourceHanSerifCN";
+  line-height: 2em;
+}
+
+/* Sidebar */
+ #typora-sidebar {
+  font-family: 'Cantarell', 'SourceHanSerifCN';
+  height: 100%;
+  color: #40464f;
+  font-size: 0.92rem;
+  background-color:  #ffffff;
+}
+
+#sidebar-content.sidebar-content {
+  margin-top: .5rem;
+}
+
+/* Sidebar - FileNode */
+
+.active-tab-files #info-panel-tab-file .info-panel-tab-border,
+.active-tab-outline #info-panel-tab-outline .info-panel-tab-border,
+.ty-show-search #info-panel-tab-search .info-panel-tab-border {
+  border-radius: 10px;
+  height: 1px;
+  background-color: rgb(181,54,41);
+}
+
+.file-node-content {
+  color: rgb(181,54,41);
+  line-height: 1.6rem;
+}
+
+span.file-node-title-name-part {
+  color: #40464f;
+}
+
+span.file-node-title-ext-part {
+  color: #40464f;
+}
+
+.file-node-icon {
+  padding-right: 0.2rem;
+}
+
+.file-tree-node.active>.file-node-background {
+  border-left: 4px solid rgb(181,54,41);
+  border-color: rgb(181,54,41);
+}
+
+/* Sidebar - Outline */
+
+#outline-content {
+  height: 100%;
+  overflow-x: hidden;
+  line-height: 1.6rem;
+  font-size: .96rem;
+}
+
+#outline-content .outline-active,
+.pin-outline .outline-active {
+  color: rgb(181,54,41);
+}
+
+.outline-item {
+  padding-left: 2em;
+}
+
+.outline-item>.outline-expander:before {
+  transform: translateY(-1px) !important;
+}
+
+/* Meta Block */
+
+pre.md-meta-block {
+  font-family: 'JetBrainsMono';
+  color: rgb(181,54,41);
+  background: #f6f8fa;
+  padding: 1.5rem;
+  margin: -37px 0rem 3.8rem;
+  filter: drop-shadow(#e3e8f0 0px 3px 3px);
+}
+
+pre.md-fences-advanced.md-focus .md-fences-adv-panel {
+  border-radius: .8rem;
+}
+
+/* Scrollbar */
+
+#outline-content::-webkit-scrollbar {
+  width: .5rem;
+}
+
+#file-library::-webkit-scrollbar {
+  width: .5rem;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgb(181,54,41);
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+#write > h3.md-focus:before,
+#write > h4.md-focus:before,
+#write > h5.md-focus:before,
+#write > h6.md-focus:before,
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+  color: inherit;
+  border: inherit;
+  border-radius: inherit;
+  position: inherit;
+  left: initial;
+  float: none;
+  top: initial;
+  font-size: inherit;
+  padding-left: inherit;
+  padding-right: inherit;
+  vertical-align: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/* Header */
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+  font-family: 'SourceHanSerifCN';
+  padding: 0px;
+  color: rgb(181,54,41);
+}
+
+#write h1 {
+  text-align: center;
+}
+
+#write h2 {
+  background-color: rgb(181,54,41);
+  color: #ffffff;
+  padding: 1px 12.5px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+#write h2 a {
+  color: #ffffff;
+  border-bottom-color: #ffffff !important;
+}
+
+#write h2 strong {
+  color: #ffffff;
+}
+
+#write h2 code {
+  color: #ffffff;
+  background-color: rgb(181,54,41);
+}
+
+#write h1 {
+  font-size: 2rem;
+}
+
+#write h2 {
+  font-size: 1.5rem;
+}
+
+#write h3 {
+  font-size: 1.4rem;
+}
+
+#write h4 {
+  font-size: 1.2rem;
+}
+
+#write h5 {
+  font-size: 1.1rem;
+}
+
+#write h6 {
+  font-size: 1.1rem;
+}
+
+#write h1 {
+  padding-top: 0.9rem;
+  margin-bottom: 2.3rem;
+}
+
+#write h2 {
+  margin: .3em 0;
+}
+
+#write h3 {
+  margin: 1em 0 1em;
+}
+
+#write h4 {
+  margin: 0.8em 0 0.8em;
+}
+
+#write h5 {
+  margin: 0.6em 0 0.6em;
+}
+
+#write h6 {
+  margin: 0.4em 0 0.4em;
+}
+
+/* List */
+::marker {
+  font-weight: bold;
+  color: rgb(181,54,41,0.8);
+}
+
+li.md-list-item {
+  margin: 0.4rem 0;
+}
+
+#write ul,
+#write ol {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 20px;
+}
+
+#write ul {
+  list-style-type: disc;
+}
+
+#write em {
+  padding: 0 3px 0 0;
+}
+
+#write ul ul {
+  list-style-type: square;
+}
+
+#write ol {
+  list-style-type: decimal;
+}
+
+#write li section {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: 1.7rem;
+  text-align: justify;
+  color: #40464f;
+  font-weight: 500;
+}
+
+/* Checkbox */
+#write input[type=checkbox] {
+  width: 0;
+}
+
+.task-list-item input::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0px; 
+  bottom: -1px;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1.5px solid rgb(181,54,41);
+  border-radius: 2px;
+  background-color: #fdfdfd;
+  margin-top: -0.4rem;
+}
+
+/* 勾选后的样式 */
+.task-list-item input:checked::before {
+  background-color: rgb(181,54,41); 
+  border: 1.5px solid rgb(181,54,41); 
+}
+
+/* 勾选后的勾号 */
+.task-list-item input:checked::after {
+  content: '';
+  position: absolute;
+  left: 5.2px; /* 根据需要调整 */
+  bottom: 2.5px; /* 根据需要调整 */
+  width: 7px; /* 根据需要调整 */
+  height: 12px; /* 根据需要调整 */
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+
+/* Table */
+ #write table {
+  display: table;
+  text-align: justify;
+  overflow-x: auto;
+  border-collapse: collapse;
+  border-spacing: 0px;
+  font-size: 1em;
+  margin: 0px 0px 20px;
+  width: 100%;
+}
+
+#write tbody {
+  border: 0;
+}
+
+#write table tr {
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+#write table tr th,
+#write table tr td {
+  font-size: 1rem;
+  border: 1px solid #d9dfe4;
+  padding: 5px 10px;
+  text-align: justify;
+}
+
+#write table tr th {
+  font-family: SourceHanSerifCN;
+  text-align: center;
+  min-width: 10rem;
+  font-weight: bold;
+  color: rgb(181,54,41);
+}
+
+#write table tr td:hover,
+#write table tr th:hover {
+  background-color: #f6f8fa;
+}
+
+table td {
+  min-width: 32px;
+}
+
+.md-table-resize-popover {
+  width: auto !important;
+}
+
+/* Quote */
+blockquote {
+  display: block;
+  font-size: 12pt;
+  overflow: auto;
+  border-left: 3px solid rgb(181,54,41);
+  padding: 15px 30px 15px 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background: white;
+  box-shadow: 2px 2px 5px #eef2f5;
+  border-radius: 2px;
+  font-family: 'Cantarell','SourceHanSerifCN';
+}
+
+
+/* 行内代码 */
+code {
+  font-family: "JetBrainsMono";
+}
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code,
+p code,
+li code {
+  color: rgb(181,54,41);
+  background-color: #fefefe;
+  font-family: 'Cantarell', 'SourceHanSerifCN';
+  text-align: justify;
+  vertical-align: baseline;
+  box-shadow: 1px 1px 5px #c8d3df;
+  padding: 2px;
+  /* 圆角 */
+  border-radius: 2px;
+}
+
+/* 代码块样式 */
+/* code fences */
+
+.md-fences:after {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background-color: #ff374b;
+  border-radius: 6px;
+  z-index: 999999;
+  box-shadow: 20px 0 #ffc600, 40px 0 #00e03d;
+}
+
+.CodeMirror.cm-s-inner {
+  margin-top: 15px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.cm-s-inner.CodeMirror {
+  padding: 1.5rem .8rem;
+  color: #4f5467;
+  font-family: 'JetBrainsMono';
+  font-weight: 900;
+  font-size: 1em;
+  border-radius: 10px;
+  background-color: #f6f8fa;
+  /* border: 1px solid #eef2f5;*/
+  line-height: 1.6rem;
+}
+
+/* 去除数字后的线 */
+.cm-s-inner .CodeMirror-gutters {
+  background-color: #f6f8fa;
+  border: none;
+}
+
+/*  Code Block - Color Scheme */
+
+ .cm-s-inner .cm-keyword {
+  color: rgb(181,54,41) !important;
+}
+
+.cm-s-inner .cm-operator {
+  color: rgb(177, 103, 95) !important;
+}
+
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-builtin,
+.cm-s-inner .cm-header,
+.cm-s-inner .cm-tag,
+.cm-s-inner .cm-property,
+.cm-s-inner .cm-quote {
+  color: #b9218e !important;
+}
+
+.cm-s-inner .cm-variable-2 {
+  color: #7aadad !important;
+}
+
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type,
+.cm-s-inner .cm-atom {
+  color: rgb(234, 130, 128) !important;
+}
+
+.cm-s-inner .cm-number {
+  color: rgb(155, 30, 27) !important;
+}
+
+.cm-s-inner .cm-def,
+.cm-s-inner .cm-qualifier {
+  color: rgb(72, 13, 12) !important;
+}
+
+.cm-s-inner .cm-string {
+  color: #6f42c2 !important;
+}
+
+.cm-s-inner .cm-string-2 {
+  color: rgb(204, 71, 23) !important;
+}
+
+.cm-s-inner .cm-comment {
+  color: #9a9a9a !important;
+}
+
+.cm-s-inner .cm-meta {
+  color: rgb(222, 44, 16) !important;
+}
+
+.cm-s-inner .cm-attribute {
+  color: #8f6aa8 !important;
+}
+
+.cm-s-inner .cm-error {
+  color: rgba(255, 255, 255, 1) !important;
+  background-color: #b9218e40 !important;
+}
+
+.cm-s-inner .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+  border-left: 1px solid var(--primary-color);
+  z-index: 3;
+}
+
+.cm-s-inner div.CodeMirror-selected {
+  background: rgba(167, 178, 189, 0.2) !important;
+}
+
+.cm-s-inner.CodeMirror-focused div.CodeMirror-selected {
+  background: rgba(167, 178, 189, 0.2) !important;
+}
+
+.cm-s-inner .CodeMirror-selected,
+.cm-s-inner .CodeMirror-selectedtext {
+  background-color: rgba(167, 178, 189, 0.0) !important;
+}
+
+.cm-s-inner .CodeMirror-line::-moz-selection,
+.cm-s-inner .CodeMirror-line>span::-moz-selection,
+.cm-s-inner .CodeMirror-line>span>span::-moz-selection {
+  background-color: rgba(167, 178, 189, 0.2);
+}
+
+.cm-s-inner .CodeMirror-line::selection,
+.cm-s-inner .CodeMirror-line>span::selection,
+.cm-s-inner .CodeMirror-line>span>span::selection {
+  background-color: rgba(167, 178, 189, 0.2);
+}
+
+.md-rawblock .md-rawblock-tooltip {
+  inset: auto 0.3rem auto auto;
+  transform: translateY(-120%);
+}
+
+
+
+
+</style><title>README</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#recent-papersblogstools-related-to-fuzzing">Recent Papers/Blogs/Tools Related to Fuzzing</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#table-of-contents">Table of Contents</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#books">Books</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#other">Other</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#ndss">NDSS</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2025">2025</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2024">2024</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2023">2023</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2022">2022</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2021">2021</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2020-⤵">2020 ⤵ </a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#usenix-security">USENIX Security</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2024-2">2024</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2023-2">2023</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2022-2">2022</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2021-2">2021</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2020">2020</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2019-⤵">2019 ⤵ </a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#ieee-sp">IEEE S&amp;P</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2024-3">2024</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2023-3">2023</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2022-3">2022</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2021-3">2021</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2020-2">2020</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2019-⤵-2">2019 ⤵ </a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#acm-ccs">ACM CCS</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2024-4">2024</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2023-4">2023</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2022-⤵">2022 ⤵ </a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#tools">Tools</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#变异器">变异器</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#二进制">二进制</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#api协议">API/协议</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#固件">固件</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#blogs">Blogs</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#contribute">Contribute</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#license">License</a></div><ul class="outline-children"></ul></li></ul></li></div></div><div id='write'  class=''><p>&nbsp;</p><h1 id='recent-papersblogstools-related-to-fuzzing'><span>Recent Papers/Blogs/Tools Related to Fuzzing</span></h1><p><a href='https://github.com/liyansong2018/fuzzing-tutorial'><img src="logo/logo.png" align="right" width="30%"></a></p><blockquote><p><span>Curated list of classic fuzzing books, papers about fuzzing at information security top conferences over the years, commonly used fuzzing tools, and resources that can help us use fuzzer easily. → </span><a href='https://liyansong2018.github.io/fuzzing-tutorial/README_en'><span>English</span></a></p></blockquote><p><span>本项目收录了经典的 fuzzing 书籍、历年安全顶会上有关 fuzzing 的经典论文、常用的 fuzzing 工具、可以快速入手 fuzzing 工具的博客，如果你有更多资源，欢迎贡献。</span></p><hr /><h2 id='table-of-contents'><span>Table of Contents</span></h2><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n1231"><a class="md-toc-inner" href="#recent-papersblogstools-related-to-fuzzing">Recent Papers/Blogs/Tools Related to Fuzzing</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1237"><a class="md-toc-inner" href="#table-of-contents">Table of Contents</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1239"><a class="md-toc-inner" href="#books">Books</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1245"><a class="md-toc-inner" href="#other">Other</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1266"><a class="md-toc-inner" href="#ndss">NDSS</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1267"><a class="md-toc-inner" href="#2025">2025</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1289"><a class="md-toc-inner" href="#2024">2024</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1305"><a class="md-toc-inner" href="#2023">2023</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1319"><a class="md-toc-inner" href="#2022">2022</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1333"><a class="md-toc-inner" href="#2021">2021</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1343"><a class="md-toc-inner" href="#2020-⤵">2020 ⤵ </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1363"><a class="md-toc-inner" href="#usenix-security">USENIX Security</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1364"><a class="md-toc-inner" href="#2024-2">2024</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1386"><a class="md-toc-inner" href="#2023-2">2023</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1424"><a class="md-toc-inner" href="#2022-2">2022</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1454"><a class="md-toc-inner" href="#2021-2">2021</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1466"><a class="md-toc-inner" href="#2020">2020</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1482"><a class="md-toc-inner" href="#2019-⤵">2019 ⤵ </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1496"><a class="md-toc-inner" href="#ieee-sp">IEEE S&amp;P</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1497"><a class="md-toc-inner" href="#2024-3">2024</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1519"><a class="md-toc-inner" href="#2023-3">2023</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1541"><a class="md-toc-inner" href="#2022-3">2022</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1553"><a class="md-toc-inner" href="#2021-3">2021</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1565"><a class="md-toc-inner" href="#2020-2">2020</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1575"><a class="md-toc-inner" href="#2019-⤵-2">2019 ⤵ </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1593"><a class="md-toc-inner" href="#acm-ccs">ACM CCS</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1594"><a class="md-toc-inner" href="#2024-4">2024</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1634"><a class="md-toc-inner" href="#2023-4">2023</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1654"><a class="md-toc-inner" href="#2022-⤵">2022 ⤵ </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1690"><a class="md-toc-inner" href="#tools">Tools</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1692"><a class="md-toc-inner" href="#变异器">变异器</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1698"><a class="md-toc-inner" href="#二进制">二进制</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1724"><a class="md-toc-inner" href="#api协议">API/协议</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1740"><a class="md-toc-inner" href="#固件">固件</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1764"><a class="md-toc-inner" href="#blogs">Blogs</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1822"><a class="md-toc-inner" href="#contribute">Contribute</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1824"><a class="md-toc-inner" href="#license">License</a></span></p></div><h2 id='books'><span>Books</span></h2><ul><li><p><a href='https://www.fuzzingbook.org/'><span>The Fuzzing Book</span></a><span> (2019)：该书以原理+代码练习为基础，从 0 到 1 完成一个模糊测试框架，结合实际的练习，如果想编写自己的测试框架，可以参考本书。</span></p></li><li><p><a href='https://www.amazon.com/Fuzzing-Software-Security-Testing-Assurance/dp/1608078507/'><span>Fuzzing for Software Security Testing and Quality Assurance</span></a><span> (2018)：本书将模糊测试的思想引入软件开发生命周期，事实上很多高效的 fuzzing 测试往往在开发阶段就已经考虑到，该书探讨了 fuzz 工具的发展，不仅包括一些新兴开源工具，也涵盖诸多商用的 fuzzer，如何为软件开发项目选择合适的 fuzzer 也是本书的主题之一。</span></p></li></ul><h2 id='other'><span>Other</span></h2><p><span>本章收录安全顶会和一些期刊上的经典论文，大而全不是我们的目的，只是想选择其中一些技术价值比较高或者比较新颖的文章，方便后续的学习。</span></p><ul><li><p><a href='https://ieeexplore.ieee.org/document/8863940'><span>The Art, Science, and Engineering of Fuzzing: A Survey</span></a><span> (2019)：韩国科学技术研究院学者提出的一个通用 fuzz 模型，包含很多 fuzz 相关概念，在介绍 fuzz 技术的基础上，有一个包含 60+ fuzz 工具的对比，如果想知道更多 fuzz 工具，也许可以从该表中找到。</span></p></li><li><p><a href='https://cybersecurity.springeropen.com/articles/10.1186/s42400-018-0002-y'><span>Fuzzing: a survey</span></a><span> (2018)：清华大学相关机构发表在 </span><a href='https://cybersecurity.springeropen.com/'><em><span>Cybersecurity</span></em></a><span> 上的一篇关于 fuzzing 技术的调查。尽管论文中有一些值得商榷的描述，但是该论文可以让我们大概了解 fuzzing 历史、原理以及技术分类。</span></p></li><li><p><a href='http://www.cs.umd.edu/~mwh/papers/fuzzeval.pdf'><span>Evaluating Fuzz Testing, 2018</span></a><span>：美国马里兰大学学者在 CCS 2018 上的一篇论文，总结近些年 fuzzing 的发展，分析了安全顶会上提出的多个工具，涵盖了 fuzzing 完整的生命周期，是一篇不错的 survery。</span></p></li><li><p><a href='https://arxiv.org/pdf/1812.00140.pdf'><span>Fuzzing: Art, Science, and Engineering, 2018</span></a><span>：一个非常详尽的 survery，包括各个工具的对比，也涵盖了 fuzzing 的各个阶段。</span></p></li><li><p><a href='https://ieeexplore.ieee.org/document/8371326'><span>Fuzzing: State of the art, 2018</span></a><span>：国人发表在 </span><a href='https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=24'><span>IEEE Transactions on Reliability</span></a><span>  上的论文，可以大概了解 fuzzing 思想，但是分析并不深入，相比上面两篇文章，有一定的差距。</span></p></li><li><p><a href='https://github.com/lcatro/Source-and-Fuzzing'><span>Source-and-Fuzzing</span></a><span> (2019)： 一些阅读源码和 fuzzing 的经验，涵盖黑盒与白盒测试，一系列文章对 fuzz 的分析较为深入，值得一看。</span></p></li><li><p><a href='https://www.youtube.com/watch?v=qTTwqFRD1H8'><span>Effective File Format Fuzzing – Thoughts, Techniques and Results</span></a><span> (Blackhat Europe 2015)：作者主要分享多年来对多个开源和商用软件的 fuzz 方法，包括 Adobe Reader、 Wireshark、 Hex-Rays IDA Pro 等软件。</span></p></li><li><p><a href='https://www.jstage.jst.go.jp/article/transinf/E104.D/11/E104.D_2021NGP0005/_pdf'><span>CoLaFUZE: Coverage-Guided and Layout-Aware Fuzzing for Android Drivers</span></a><span> (2021)，</span><em><span>南方电网数字电网研究院有限公司</span></em><span> 的 Tianshi Mu 等人介绍了CoLaFUZE，一个覆盖率引导和布局感知的模糊工具，用于自动生成有效输入和探索驱动程序代码。用于模糊测试</span><strong><span>安卓驱动程序</span></strong><span>。</span></p></li><li><p><a href='https://arxiv.org/pdf/2112.07143'><span>Better Pay Attention Whilst Fuzzing</span></a><span> (2022), 浙江大学 Shunkai Zhu 等人提出的 ATTuzz，用于解决现有 fuzzing 工具的两个局限性，缺乏对程序的全面分析和缺乏有效的变异策略。通过深度学习提高覆盖率。</span></p></li></ul><h2 id='ndss'><span>NDSS</span></h2><h3 id='2025'><span>2025</span></h3><ul><li><p><a href='https://www.ndss-symposium.org/ndss-paper/automatic-library-fuzzing-through-api-relation-evolvement/'><span>Automatic Library Fuzzing through API Relation Evolvement, 2025</span></a><span> - 通过 API 列表的组合调用进行测试。为了解决隐式API调用规范的问题提出了</span><strong><span>关系学习阶段</span></strong><span>，即通过更改 API 调用顺序观察执行状态的变化来推断API 关系。作者来自香港大学。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/blackbox-fuzzing-of-distributed-systems-with-multi-dimensional-inputs-and-symmetry-based-feedback-pruning/'><span>Blackbox Fuzzing of Distributed Systems with Multi-Dimensional Inputs and Symmetry-Based Feedback Pruning, 2025</span></a><span> - 第一个用于分布式系统的覆盖引导 Fuzzer，</span><a href='https://github.com/zouyonghao/DistFuzz'><span>DistFuzz 已开源</span></a><span>，作者来自北京航空航天大学。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/dumpling-fine-grained-differential-javascript-engine-fuzzing/'><span>DUMPLING: Fine-grained Differential JavaScript Engine Fuzzing, 2025</span></a><span> - 一个针对 V8 引擎的 JS Fuzzer。传统 JS Fuzzer 是对输入进行插桩，而 DUMPLING 直接对 JS 引擎插桩，粒度精细，</span><a href='https://github.com/two-heart/dumpling-artifact-evaluation'><span>已开源</span></a><span>。作者来自</span><a href='http://www.baidu.com/link?url=Of8YlLI4kY82aXoBJ3qXHZIW4XzCtb69cuF4oCHoomcvVav1tM4xRjBM9zloiyew7ZVnF6QkeGcck-0SRwfmyPaTkZ2v9hz9xzURBTgFqHAgHStcP6HrkE4ued3xfskRNH56uzxZKsur9nJyeVU6pZuVxgPz1JX_4uWCNUHwxtC'><span>洛桑联邦理工学院</span></a><span>。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/fuzzuer-enabling-fuzzing-of-uefi-interfaces-on-edk-2/'><span>FUZZUER: Enabling Fuzzing of UEFI Interfaces on EDK-2, 2025</span></a><span> - FUZZUER，这是一种用于 EDK-2（一种典型且广泛使用的 UEFI 实现）上 UEFI 接口的覆盖引导模糊测试技术，暂未见开源，作者来自普渡大学。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/icsquartz-scan-cycle-aware-and-vendor-agnostic-fuzzing-for-industrial-control-systems/'><span>ICSQuartz: Scan Cycle-Aware and Vendor-Agnostic Fuzzing for Industrial Control Systems, 2025</span></a><span> - 首个原生支持IEC 61131-3结构化文本（ST，一种标准化可编程逻辑控制器编程语言）的模糊测试工具，</span><a href='https://github.com/momalab/ICSQuartz'><span>ISCQuartz</span></a><span> 已开源，作者来自纽约大学阿布扎比分校。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/malintent-coverage-guided-intent-fuzzing-framework-for-android/'><span>MALintent: Coverage Guided Intent Fuzzing Framework for Android, 2025</span></a><span> - MALintent 是第一个对已编译的闭源 Android 应用程序应用灰盒模糊测试的 </span><strong><span>Intent Fuzz</span></strong><span> 工具，</span><a href='https://github.com/sslab-gatech/MALintent'><span>已开源</span></a><span>。MALintent 首先使用静态分析找到应用 Intent 相关组件，然后使用 Java Virtual Machine Tools Interface (JVMTI) 实现二进制插桩。实际上我们也有开发过类似的 Intent Fuzz，但是并没有使用覆盖反馈技术。因此，这里的插桩技术值得学习。作者来自佐治亚理工学院。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/moneta-ex-vivo-gpu-driver-fuzzing-by-recalling-in-vivo-execution-states/'><span>Moneta: Ex-Vivo GPU Driver Fuzzing by Recalling In-Vivo Execution States, 2025</span></a><span> - 一个针对 GPU 的 Fuzz 方案，不需要物理设备，Moneta 未见开源，作者来自延世大学。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/qmsan-efficiently-detecting-uninitialized-memory-errors-during-fuzzing/'><span>QMSan: Efficiently Detecting Uninitialized Memory Errors During Fuzzing, 2025</span></a><span> - 使用 QEMU 实现的专门针对未初始化内存漏洞的 Fuzzer，</span><a href='https://github.com/heinzeen/qmsan'><span>QMSan</span></a><span> 已开源，作者来自罗马第一大学。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/twinfuzz-differential-testing-of-video-hardware-acceleration-stacks/'><span>TWINFUZZ: Differential Testing of Video Hardware Acceleration Stacks, 2025</span></a><span> - 一种基于通过间接代理目标对硬件加速视频解码堆栈进行差异化测试的线束设计和测试技术。工具原型 </span><a href='https://github.com/CISPA-SysSec/twinfuzz'><span>twinfuzz</span></a><span> 已开源。作者来自CISPA 亥姆霍兹信息安全中心。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/truman-constructing-device-behavior-models-from-os-drivers-to-fuzz-virtual-devices/'><span>Truman: Constructing Device Behavior Models from OS Drivers to Fuzz Virtual Devices, 2025</span></a><span> - 一个针对 QEMU 虚拟化设备进行 Fuzz 的工具，详细</span><a href='https://zhuanlan.zhihu.com/p/1892291730214199900'><span>中文解读</span></a><span>，作者来自清华大学。</span></p></li></ul><h3 id='2024'><span>2024</span></h3><ul><li><p><a href='https://www.ndss-symposium.org/ndss-paper/deepgo-predictive-directed-greybox-fuzzing/'><span>DeepGo: Predictive Directed Greybox Fuzzing, 2024</span></a><span> - 一种名为 DeepGo 的预测式定向性灰盒 Fuzzing 方法，通过结合历史和预测信息，利用深度神经网络和强化学习引导模糊测试达到目标路径，优化测试效率。作者来自国防科技大学计算机学院。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/enclavefuzz-finding-vulnerabilities-in-sgx-applications/'><span>EnclaveFuzz: Finding Vulnerabilities in SGX Applications, 2024</span></a><span> - Fuzz 对象是使用了因特尔 SGX 技术的软件，</span><a href='https://github.com/vul337/EnclaveFuzz'><span>已开源</span></a><span>，文章来自中国科学院信息工程研究所的 Liheng Chen。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/large-language-model-guided-protocol-fuzzing/'><span>Large Language Model guided Protocol Fuzzing, 2024</span></a><span> - 研究人员开发了一款以大模型为指导的协议 Fuzz，通过 AI 训练 RFC 文档包含的协议规范，</span><a href='https://github.com/ChatAFLndss/ChatAFL'><span>ChatAFL 已开源</span></a><span>，文章来自新加坡国立大学的 Ruijie Meng。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/mock-optimizing-kernel-fuzzing-mutation-with-context-aware-dependency/'><span>MOCK: Optimizing Kernel Fuzzing Mutation with Context-aware Dependency, 2024</span></a><span> - 通过捕获系统调用的状态关系，优化 Linux syscall 模糊测试效率。针对 Linux 内核的 Fuzz 工具，</span><a href='https://github.com/m0ck1ng/mock'><span>待开源</span></a><span>，文章来自浙江大学 Jiacheng Xu。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/predictive-context-sensitive-fuzzing/'><span>Predictive Context-sensitive Fuzzing, 2024</span></a><span> - 一种</span><strong><span>新颖的统计覆盖率</span></strong><span>的思路。目前大多数 Fuzz 工具都是通过边（edge）作为覆盖引导，edge coverage 是函数的控制流，只考虑代码执行而忽略内部程序状态。本文使用程序分析领域的上下文敏感（context-sensitivity）作为覆盖率统计，结合 calling-context 和 edge coverage，</span><a href='https://github.com/eurecom-s3/predictive-cs-fuzzing'><span>已开源</span></a><span>，文章来自罗马大学的 Pietro Borrello。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/reqsminer-automated-discovery-of-cdn-forwarding-request-inconsistencies-and-dos-attacks-with-grammar-based-fuzzing/'><span>ReqsMiner: Automated Discovery of CDN Forwarding Request Inconsistencies and DoS Attacks with Grammar-based Fuzzing, 2024</span></a><span> - 针对 CDN 请求不一致的 Fuzz 工具，</span><a href='https://github.com/Konano/ReqsMiner'><span>已开源</span></a><span>，工作来自清华大学张超团队。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/shapfuzz-efficient-fuzzing-via-shapley-guided-byte-selection/'><span>ShapFuzz: Efficient Fuzzing via Shapley-Guided Byte Selection, 2024</span></a><span> - 一种指导字节变异的新颖方案，优化变异算法，</span><a href='https://github.com/ShapFuzz/ShapFuzz'><span>已开源</span></a><span>，在 AFL++ 基础之上增加了一个新的 </span><code>-w</code><span> 命令选项，来自清华大学网络与信息安全实验室。</span></p></li></ul><h3 id='2023'><span>2023</span></h3><ul><li><p><a href='https://www.ndss-symposium.org/ndss-paper/assessing-the-impact-of-interface-vulnerabilities-in-compartmentalized-software/'><span>Assessing the Impact of Interface Vulnerabilities in Compartmentalized Software, 2023</span></a><span> - 针对上下文隔离的 API 接口（CIV，这是作者定义的一个概念，主要是指沙箱等隔离环境，应用划分、隔离后，应用的不同部分之间在交互时的控制和数据依赖关系，会在 interface 引入新的漏洞）进行 Fuzzing 的方案。Github 文档描述非常详细，</span><a href='https://github.com/conffuzz/conffuzz'><span>已开源</span></a><span>，当前作者已针对  Okular/ImageMagick/Apache/exif  等诸多软件进行了模糊测试。该项研究来自曼彻斯特大学。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/fuzzilli-fuzzing-for-javascript-jit-compiler-vulnerabilities/'><span>FUZZILLI: Fuzzing for JavaScript JIT Compiler Vulnerabilities, 2023</span></a><span> - 谷歌Project Zero安全团队开发的针对 Javascript JIT 引擎进行 Fuzzing 的工具。</span><a href='https://github.com/googleprojectzero/fuzzilli'><span>已开源</span></a><span>。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/no-grammar-no-problem-towards-fuzzing-the-linux-kernel-without-system-call-descriptions/'><span>No Grammar, No Problem: Towards Fuzzing the Linux Kernel without System-Call Descriptions, 2023</span></a><span> - 不用像 Syzkaller 那样编写复杂的系统调用描述，即可对内核进行 Fuzzing 的工具。</span><a href='https://github.com/BUseclab/FuzzNG'><span>FuzzNG 已开源</span></a><span>。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/darwin-survival-of-the-fittest-fuzzing-mutators/'><span>DARWIN: Survival of the Fittest Fuzzing Mutators, 2023</span></a><span> - 来自于上海交通大学的文章，改进优化 AFL 变异算法，通过实验证明比原生 AFL 多出 66% 的安全漏洞，</span><a href='https://github.com/TUDA-SSL/DARWIN'><span>已开源</span></a><span>，很好奇为啥叫 DARWIN 的软件或者工具这么多🐶。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/loki-state-aware-fuzzing-framework-for-the-implementation-of-blockchain-consensus-protocols/'><span>LOKI: State-Aware Fuzzing Framework for the Implementation of Blockchain Consensus Protocols, 2023</span></a><span> - 针对区块链共识协议实现模糊测试的方法，来自清华大学，未见开源。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/obsan-an-out-of-bound-sanitizer-to-harden-dnn-executables/'><span>OBSan: An Out-Of-Bound Sanitizer to Harden DNN Executables, 2023</span></a><span> - 来自香港大学的研究，针对深度神经网络相关程序的模糊测试，请注意，并不是将神经网络应用在 Fuzzing 中，而是针对神经网络相关应用进行 Fuzzing，</span><a href='https://github.com/yanzuochen/obsan'><span>已开源</span></a><span>。</span></p></li></ul><h3 id='2022'><span>2022</span></h3><ul><li><p><a href='https://www.ndss-symposium.org/ndss-paper/auto-draft-248/'><span>Semantic-Informed Driver Fuzzing Without Both the Hardware Devices and the Emulators</span></a><span> (2022): </span><em><span>西安交通大学</span></em><span> ，</span><em><span>赵文佳</span></em><span> 等人提出了一种无设备驱动程序模糊测试系统 DR .FUZZ，它不需要硬件设备对驱动程序进行 Fuzzing。DR .FUZZ 的核心是一种</span><strong><span>语义通知机制</span></strong><span>，它有效地生成输入以正确构造相关数据结构，以在驱动初始化时通过“验证链”，从而实现后续的无设备驱动程序模糊测试。 </span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/auto-draft-199/'><span>MobFuzz: Adaptive Multi-objective Optimization in Gray-box Fuzzing</span></a><span> (2022) : 国防科技大学  提出了一种用于多目标优化 (MOO) 的灰盒模糊器，称为 MobFuzz。</span></p></li><li><p><a href='https://hernan.de/research/papers/firmwire-ndss22-hernandez.pdf'><span>FirmWire: Transparent Dynamic Analysis for Cellular Baseband Firmware</span></a><span> (2022) : 美国佛罗里达大学开发的工具 </span><a href='https://github.com/FirmWire/FirmWire'><span>FirmWire</span></a><span>，是一个支持三星和联发科的全系统</span><strong><span>基带</span></strong><span>固件分析平台。它支持对基带固件映像进行模糊测试、模拟和调试。</span></p></li><li><p><a href='https://nesa.zju.edu.cn/download/lcy_pdf_ems_ndss22.pdf'><span>EMS: History-Driven Mutation for Coverage-based Fuzzing</span></a><span> (2022): 浙江大学</span><em><span>吕晨阳</span></em><span>  提出的一种新颖的变异方案，通过分析历史测试用例，发现一些已经尝试过的用例仍有可能触发新的独特路径。提出了一种轻量级、高效的 Probabilistic Byte Orientation Model（PBOM）模型，基于此提出了一个新的历史驱动的变异框架 EMS，发现了多个新的 CVE。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/auto-draft-198/'><span>Context-Sensitive and Directional Concurrency Fuzzing for Data-Race Detection</span></a><span> (2022) : 清华大学相关团队 开发了一个名为 CONZZER 的新型并发模糊测试框架，以有效地探索线程交错并检测难以发现的</span><strong><span>数据竞争</span></strong><span>。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/auto-draft-273/'><span>datAFLow: Towards a Data-Flow-Guided Fuzzer</span></a><span> (2022):  </span><em><span>澳大利亚国立大学</span></em><span>  开发的 DATAFLOW，这是一个由轻量级数据流分析驱动的灰盒模糊器。</span></p></li></ul><h3 id='2021'><span>2021</span></h3><ul><li><p><a href='https://www.ndss-symposium.org/ndss-paper/favocado-fuzzing-the-binding-code-of-javascript-engines-using-semantically-correct-test-cases/'><span>Favocado: Fuzzing the Binding Code of JavaScript Engines Using Semantically Correct Test Cases, 2021</span></a><span>：美国亚利桑那州立大学师生提出一种对 </span><strong><span>JS 引擎</span></strong><span>中绑定层代码进行 fuzzing 的工具：</span><a href='https://github.com/favocado/Favocado'><span>Favocado</span></a><span>。作者在对在4个不同的JavaScript运行时系统fuzz时，发现了61个新的bug，其中33个是安全漏洞，13个已经被CVE收录。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/winnie-fuzzing-windows-applications-with-harness-synthesis-and-fast-cloning/'><span>WINNIE : Fuzzing Windows Applications with Harness Synthesis and Fast Cloning, 2021</span></a><span>： 利用合成和快速克隆对 </span><strong><span>Windows 应用程序</span></strong><span>进行模糊测试 ， </span><em><span>佐治亚理工学院</span></em><span> 的作者构建了一个端到端 </span><a href='https://github.com/sslab-gatech/winnie'><span>WINNIE</span></a><span> 系统，包含两个组件：可从二进制文件中自动合成工具的生成器，以及一个高效的 Windows forkserver。 对比工具： WinAFL 。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/pgfuzz-policy-guided-fuzzing-for-robotic-vehicles/'><span>PGFUZZ: Policy-Guided Fuzzing for Robotic Vehicles, 2021</span></a><span>：普度大学 </span><em><span>Hyungsub Kim</span></em><span> 等人设计的一个针对机器车辆（ Robotic vehicles, RVs）fuzzing 工具，即 </span><a href='https://github.com/purseclab/PGFUZZ'><span>PGFUZZ</span></a><span>，应用场景较为有限。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/reinforcement-learning-based-hierarchical-seed-scheduling-for-greybox-fuzzing/'><span>Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing, 2021</span></a><span>： </span><em><span>加州大学河滨分校</span></em><span> 华人团队通过引入多级覆盖和设计了基于强化学习的分层调度器，保留更多有价值的种子。即更加细粒度衡量代码覆盖率和更加合理的种子调度策略。</span></p></li></ul><h3 id='2020-⤵'><span>2020 ⤵ </span></h3><ul><li><p><a href='https://www.unexploitable.systems/publication/kimhfl/'><span>HFL: Hybrid Fuzzing on the Linux Kernel</span></a><span> (2020)：美国</span><a href='https://www.baidu.com/link?url=sn1QvZgfhW08eCz3smcHQsKmxmvdxUVfs90iYf52Qk_F7JedSab1kMqjelKzllZ-P1N3hOHeNCA6tKlSfhfjRdKefUtwi5pzYrjN-fcKWKG&amp;wd=&amp;eqid=fda401e6000301af00000006604737c0'><em><span>俄勒冈州</span></em><span>立大学</span></a><span>提出的一个新兴混合 fuzz 工具。据作者所属，HFL 代码覆盖率分别比 Moonshine 和 Syzkaller 高出15%和26%，并发现 20+ 个内核漏洞。该工具好像没有开源。</span></p></li><li><p><a href='https://www.researchgate.net/publication/339164746_HotFuzz_Discovering_Algorithmic_Denial-of-Service_Vulnerabilities_Through_Guided_Micro-Fuzzing'><span>HotFuzz: Discovering Algorithmic Denial-of-Service Vulnerabilities Through Guided Micro-Fuzzing</span></a><span> (2020)：美国波士顿大学开发的 HotFuzz，这是一个用于自动发现 Java 库中 AC （算法复杂性）漏洞框架 。</span></p></li><li><p><a href='https://www.ndss-symposium.org/wp-content/uploads/2020/02/24422.pdf'><span>Not All Coverage Measurements Are Equal: Fuzzing by Coverage Accounting for Input Prioritization</span></a><span> (2020)：中科院软件所开发的  </span><a href='https://github.com/TortoiseFuzz/TortoiseFuzz'><span>TortoiseFuzz</span></a><span> ，设计了一种新的模糊输入优化方案，发现了 20+ 0 day 漏洞。</span></p></li><li><p><a href='https://people.cs.kuleuven.be/~stijn.volckaert/papers/2019_NDSS_PeriScope.pdf'><span>PeriScope: An Effective Probing and Fuzzing Framework for the Hardware-OS Boundary</span></a><span> (2019)：加州大学研发的一个名为 PeriScope 的 fuzz 工具，主要针对内核与硬件的边界部分，该工具好像没有开源。</span></p></li><li><p><a href='https://www.ndss-symposium.org/wp-content/uploads/2018/07/bar2018_14_Hsu_paper.pdf'><span>INSTRIM: Lightweight Instrumentation for Coverage-guided Fuzzing</span></a><span> (2018)：台湾大学，学术研究，探讨了覆盖导向模糊的轻量级检测方法。</span></p></li><li><p><a href='#'><span>IOTFUZZER: Discovering Memory Corruptions in IoT Through App-based Fuzzing</span></a><span> (2018)：见固件章节。</span></p></li><li><p><a href='http://s3.eurecom.fr/docs/ndss18_muench.pdf'><span>What You Corrupt Is Not What You Crash: Challenges in Fuzzing Embedded Devices</span></a><span>：嵌入式固件 fuzzing 的一些难点，固件的 fuzz 往往得不到反馈，该论文基于Avatar 和 PANDA 设计了六种不同启发式算法，提高嵌入式系统 fuzz 效率。</span></p></li><li><p><a href='https://lifeasageek.github.io/papers/han:meds.pdf'><span>Enhancing Memory Error Detection for Large-Scale Applications and Fuzz Testing</span></a><span> (2018)：韩国科学技术研究院对内存错误检测算法的研究。</span></p></li><li><p><a href='https://www.ndss-symposium.org/wp-content/uploads/2017/09/ndss201702A-1LeePaper.pdf'><span>DELTA: A Security Assessment Framework for Software-Defined Networks</span></a><span> (2017)：韩国科学技术研究院对 SDN 设计的安全评估框架。</span></p></li></ul><h2 id='usenix-security'><span>USENIX Security</span></h2><h3 id='2024-2'><span>2024</span></h3><ul><li><p><a href='https://www.usenix.org/conference/usenixsecurity24/presentation/schilling'><span>A Binary-level Thread Sanitizer or Why Sanitizing on the Binary Level is Hard, 2024</span></a><span> - 二进制 </span><a href='https://github.com/CISPA-SysSec/binary-tsan'><span>TSAN</span></a><span>（已开源），这是一种实现针对 Linux x86_64 二进制目标的数据竞争检测器。目前，已有 RETROWRITE 将 ASAN 白盒插桩应用于二进制插桩，但是还没有关于 MSAN/UBSAN/TSAN 的二进制实现。本文就是实现了一个 TSAN 的黑盒插桩工具。论文来自</span><em><span>亥姆霍兹信息安全中心</span></em><span>  Joschua Schilling。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity24/presentation/xiang-yi'><span>Critical Code Guided Directed Greybox Fuzzing for Commits, 2024</span></a><span> - 研究员提出了一种定向灰盒模糊测试器 </span><a href='https://github.com/He1loNice/WAFLGo'><span>WAFLGO</span></a><span>（已开源），用于</span><strong><span>从 commit 中识别 bug</span></strong><span>。论文来自</span><em><span>浙江大学</span></em><span> 。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity24/presentation/lindenmeier'><span>EL3XIR: Fuzzing COTS Secure Monitors, 2024</span></a><span> - 一种针对 ARM TrustZone 的 TEE 的引用监视器，即安全内核的 Fuzz 框架，</span><a href='https://github.com/HexHive/EL3XIR'><span>EL3XIR</span></a><span> 已开源。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity24/presentation/asmita'><span>Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing, 2024</span></a><span> - 顾名思义，通过利用大语言模型（LLM）生成目标特定的初始种子来增强模糊测试。</span><strong><span>利用大模型 Fuzz</span></strong><span> 实现挖掘嵌入式系统中 Busybox 的漏洞。研究者使用 OpenAI 的 GPT-4 模型生成初始种子。论文来自</span><em><span>加州大学戴维斯分校</span></em><span>。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity24/presentation/bulekov'><span>HYPERPILL: Fuzzing for Hypervisor-bugs by leveraging the Hardware Virtualization Interface, 2024</span></a><span> - 利用硬件虚拟化接口对 Hypervisor 虚拟机监视器进行 Fuzz。</span><a href='https://github.com/HexHive/HyperPill'><span>HyperPill</span></a><span>，研究来自</span><em><span>洛桑联邦理工学院</span></em><span>。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity24/presentation/chesser'><span>MultiFuzz: A Multi-Stream Fuzzer For Testing Monolithic Firmware, 2024</span></a><span> - 一个针对</span><strong><span>固件 MMIO</span></strong><span> 的 Fuzz 方案，利用多输入流改进 Fuzz，需要固件仿真平台的支持，貌似基于 </span><a href='https://github.com/MultiFuzz/MultiFuzz'><span>Fuzzware</span></a><span>，因此，是基于已有仿真平台所做的 Fuzz 改进。研究来自</span><em><span>阿德莱德大学</span></em><span>。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity24/presentation/li-penghui'><span>SDFuzz: Target States Driven Directed Fuzzing, 2024</span></a><span> - 这是一种由目标状态驱动的高效定向模糊测试工具，SDFuzz。基于一个新的概念目标状态，由目标状态和静态分析驱动 Fuzz，少走弯路，研究来自</span><em><span>清华大学网络与信息安全实验室的张超团队</span></em><span>，未见开源。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity24/presentation/mera'><span>SHiFT: Semi-hosted Fuzz Testing for Embedded Applications, 2024</span></a><span> - 一个</span><strong><span>针对 MCU 固件</span></strong><span>的 Fuzz 方案，与之前工作不太相同的是，</span><a href='https://github.com/RiS3-Lab/SHiFT'><span>SHiFT</span></a><span> 采用半托管方案，非全仿真，避免不必要的外设模拟，研究者特意强调方案已开源。论文来自</span><em><span>东北大学</span></em><span>。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity24/presentation/yang-yupeng'><span>Towards Generic Database Management System Fuzzing, 2024</span></a><span> - 没太多好说的，一个针对数据库的 Fuzz 工具，主要将针对关系型数据库的 Fuzz 扩展到非关系型数据库。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity24/presentation/borkar'><span>WhisperFuzz: White-Box Fuzzing for Detecting and Locating Timing Vulnerabilities in Processors, 2024</span></a><span> - 用于检测和定位处理器中时序漏洞的白盒模糊测试，</span><em><span>WhisperFuzz</span></em><span> 在 RISC-V 处理器中检测到 12 个新的时序漏洞。研究来自</span><em><span>印度理工学院马德拉斯</span></em><span>分校的 Pallavi Borkar，未见开源。</span></p></li></ul><h3 id='2023-2'><span>2023</span></h3><ul><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/bars'><span>Fuzztruction: Using Fault Injection-based Fuzzing to Leverage Implicit Domain Knowledge, 2023</span></a><span> -  </span><em><span>波鸿鲁尔大学</span></em><span>  Nils Bars，提出一种新颖的模糊测试方案，不是变异种子，而是根据源码中的编码含义，变异数据生成器，甚至是注入错误，绕过一些判断，以便输入的用例几乎是预期的格式。这样的数据绕过了初始解析。</span><a href='https://github.com/fuzztruction/fuzztruction'><span>工具原型已开源</span></a><span>，提供了 Docker 虚拟机环境，10G+，感兴趣的同学如果想尝试此工具，请注意预留足够的磁盘空间。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/jiang-zu-ming'><span>DynSQL: Stateful Fuzzing for Database Management Systems with Complex and Valid SQL Query Generation, 2023</span></a><span> -  </span><em><span>苏黎世联邦理工学院</span></em><span>  Zu-Ming Jiang，一个完全自动化的模糊测试框架 DynSQL，用于测试各种 DBMS 数据库管理系统。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/wang-junjie'><span>FuzzJIT: Oracle-Enhanced Fuzzing for JavaScript Engine JIT Compiler, 2023</span></a><span> -  </span><em><span>天津大学</span></em><span>  Junjie Wang，针对 Javascript 引擎的 JIT 编译器的模糊测试工具。</span><a href='https://github.com/SpaceNaN/fuzzjit'><span>FuzzJIT</span></a><span>，已开源。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/peng'><span>GLeeFuzz: Fuzzing WebGL Through Error Message Guided Mutation, 2023</span></a><span> -  </span><em><span>普渡大学</span></em><span>  Hui Peng，WebGL 是一组用于 GPU 加速图形的标准化 JavaScript API，通过分析 Chrome 的 WebGL 实现以识别发出错误的语句之间的依赖关系和被拒绝的输入部分，并使用此信息来指导输入变异，这就是 </span><a href='https://github.com/HexHive/GLeeFuzz'><span>GLeeFuzz</span></a><span>，已开源。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/zhang-cen'><span>Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation, 2023</span></a><span> -  </span><em><span>南洋理工大学</span></em><span>  Cen Zhang，提出了 RUBICK，这是一种自动引导的控制流敏感模糊驱动程序，公开资料较少，论文还未正式发布。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/li-wen'><span>PolyFuzz: Holistic Greybox Fuzzing of Multi-Language Systems, 2023</span></a><span> -  </span><em><span>华盛顿州立大学</span></em><span>  Wen Li，</span><a href='https://github.com/Daybreak2019/PolyFuzz'><span>POLYFUZZ</span></a><span>，已开源，这是一种灰盒模糊器，它通过跨语言覆盖反馈和跨语言（不同片段）程序输入和分支谓词之间的语义关系的显式建模，对给定的多语言系统进行整体模糊。POLYFUZZ 是可扩展的，支持以不同语言组合编写的多语言代码，例如 C、Python、Java。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/shi-ji'><span>AIFORE: Smart Fuzzing Based on Automatic Input Format Reverse Engineering, 2023</span></a><span> -  </span><em><span>中国科学院信息工程研究所</span></em><span>  Ji Shi，自动输入格式逆向工程代表了一种有吸引力但具有挑战性的学习格式的方法，而本文就是为了解决程序的输入格式，提出的一种名为 AIFORE 模糊测试解决方案，通过对输入格式的逆向，结合神经网络模型学习，推断程序输入格式。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/zhao-yudi'><span>Remote Code Execution from SSTI in the Sandbox: Automatically Detecting and Exploiting Template Escape Bugs, 2023</span></a><span> -  </span><em><span>复旦大学</span></em><span>  Yudi Zhao，PHP 模板引擎模糊测试工具，</span><a href='https://github.com/seclab-fudan/TEFuzz'><span>TEFuzz 已开源</span></a><span>。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/chen-xingman'><span>MTSan: A Feasible and Practical Memory Sanitizer for Fuzzing COTS Binaries, 2023</span></a><span> -  </span><em><span>清华大学</span></em><span>  Xingman Chen，张超团队，提出了一种硬件辅助内存消杀器 MTSan，用于二进制模糊测试，并在 AArch64 上实现了 MTSan 原型。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/xu-jinyan'><span>MorFuzz: Fuzzing Processor via Runtime Instruction Morphing enhanced Synchronizable Co-simulation, 2023</span></a><span> -  </span><em><span>浙江大学</span></em><span>  Jinyan Xu，提出了一种针对处理器（RISC-V）的模糊测试工具 </span><a href='https://github.com/sycuricon/MorFuzz'><span>MorFuzz</span></a><span>，工具已开源。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/lyu'><span>MINER: A Hybrid Data-Driven Approach for REST API Fuzzing, 2023</span></a><span> -  </span><em><span>浙江大学</span></em><span>  Chenyang Lyu，一种新的混合数据驱动解决方案，利用神经网络模型预测关键请求参数，提高序列模板中请求的生成质量，</span><a href='https://github.com/puppet-meteor/MINER'><span>MINER</span></a><span> 工具原型已开源。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/yin'><span>KextFuzz: Fuzzing macOS Kernel EXTensions on Apple Silicon via Exploiting Mitigations, 2023</span></a><span> -  </span><em><span>清华大学</span></em><span>  Tingting Yin，张超团队，提出了第一个智能模糊解决方案 KextFuzz，用于检测运行在 Apple Silicon 上的最新 macOS 驱动漏洞。</span><a href='https://github.com/vul337/KextFuzz'><span>KextFuzz</span></a><span> 未开源。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/kim-jiwon'><span>Intender: Fuzzing Intent-Based Networking with Intent-State Transition Guidance, 2023</span></a><span> -  </span><em><span>普渡大学</span></em><span>  Jiwon Kim，这是第一个 IBN 语义感知模糊测试框架。Intender 利用网络拓扑信息和意图操作依赖性 (IOD) 来有效生成测试输入。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/yuan-ming'><span>DDRace: Finding Concurrency UAF Vulnerabilities in Linux Drivers with Directed Fuzzing, 2023</span></a><span> -  </span><em><span>清华大学</span></em><span>  Ming Yuan，张超团队，提出了第一个并发定向灰盒模糊测试解决方案 DDRACE，可有效地在 Linux 驱动程序中发现并发 UAF 漏洞。</span><a href='https://github.com/vul337/DDRace'><span>DDRace</span></a><span> 未开源。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/wang-dawei'><span>CarpetFuzz: Automatic Program Option Constraint Extraction from Documentation for Fuzzing, 2023</span></a><span> -  </span><em><span>中国科学院信息工程研究所</span></em><span>  Dawei Wang，利用自然语言处理（NLP）自动从程序文档中提取选项描述并分析关系（例如，冲突、在过滤掉无效组合并只留下有效组合进行模糊测试之前，请先检查选项之间的依赖关系），实现了一个名为 CarpetFuzz 的工具并评估了其性能。</span><a href='https://github.com/waugustus/CarpetFuzz'><span>CarpetFuzz</span></a><span> 已开源。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/cho'><span>BoKASAN: Binary-only Kernel Address Sanitizer for Effective Kernel Fuzzing, 2023</span></a><span> -  </span><em><span>延世大学</span></em><span>  Mingi Cho，开发的一种无需源码编译的黑盒二进制 Kernel Address Sanitizer (KASAN)。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/luo-zhengxiong'><span>Bleem: Packet Sequence Oriented Fuzzing for Protocol Implementations, 2023</span></a><span> - </span><em><span>清华大学</span></em><span> Zhengxiong Luo，提出了 Bleem，一种面向数据包序列的用于协议实现漏洞检测的黑盒模糊器。Bleem 不关注单个数据包的生成，而是在序列级别生成数据包，解决协议模糊测试中无状态反馈的问题。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/fu-yu-fu'><span>autofz: Automated Fuzzer Composition at Runtime, 2023</span></a><span> - </span><em><span>佐治亚理工学院</span></em><span> Yu-Fu Fu，出了一种自动化的非侵入式元模糊器，称为 autofz，通过动态组合最大限度地发挥现有最先进模糊器的优势，即自动选择什么样的模糊器，</span><a href='https://github.com/sslab-gatech/autofz'><span>autofz</span></a><span> 已开源。</span></p></li></ul><h3 id='2022-2'><span>2022</span></h3><ul><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/myung'><span>MundoFuzz: Hypervisor Fuzzing with Statistical Coverage Testing and Grammar Inference, 2022</span></a><span> -  针对 Hypervisor 的模糊测试工具 MundoFuzz，来自于韩国</span><em><span>首尔国立大学</span></em><span> 的 Cheolwoo Myung 等人。</span></p></li><li><p><a href='https://arxiv.org/abs/2201.09941'><span>TheHuzz: Instruction Fuzzing of Processors Using Golden-Reference Models for Finding Software-Exploitable Vulnerabilities, 2022</span></a><span> - 一种基于新颖的基于硬件的</span><strong><span>指令集模糊测试</span></strong><span>工具，TheHuzz，来自于美国</span><em><span>得克萨斯农工大学</span></em><span> 。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/bulekov'><span>Morphuzz: Bending (Input) Space to Fuzz Virtual Devices, 2022</span></a><span> -  MORPHUZZ 是第一种自动引发现代云中现实世界虚拟设备的复杂 I/O 行为的方法，来自于美国</span><em><span>波士顿大学</span></em><span> 。 </span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/scharnowski'><span>Fuzzware: Using Precise MMIO Modeling for Effective Firmware Fuzzing, 2022</span></a><span> -  使用精准的MMIO建模提高</span><strong><span>固件模糊测试</span></strong><span>效率，来自于</span><em><span>波鸿鲁尔大学</span></em><span> 。一种针对 </span><strong><span>ARM Cortex-M MCU 固件</span></strong><span>进行 Fuzz 的工具，使用 Unicore Engine 仿真，MMIO 寄存器作为 Fuzz 入口，已开源 </span><a href='https://github.com/fuzzware-fuzzer/fuzzware'><span>Fuzzware</span></a><span>。  </span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/kim'><span>FuzzOrigin: Detecting UXSS vulnerabilities in Browsers through Origin Fuzzing, 2022</span></a><span> - 通过 Origin Fuzzing 检测浏览器中的 UXSS 漏洞，来自于</span><em><span>三星</span></em><span>的研究，已开源 </span><a href='https://github.com/compsec-snu/fuzzorigin'><span>FuzzOrigin</span></a><span>。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/shen-zekun'><span>Drifuzz: Harvesting Bugs in Device Drivers from Golden Seeds, 2022</span></a><span> -  一种针对 </span><strong><span>WiFi 和以太网</span></strong><span>驱动程序的无硬件混合模糊测试工具，来自于</span><em><span>纽约大学</span></em><span>，已开源 </span><a href='https://github.com/buszk/drifuzz-concolic'><span>Drifuzz</span></a><span>。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/trippel'><span>Fuzzing Hardware Like Software, 2022</span></a><span> - 像软件一样对硬件进行模糊测试，来自于</span><em><span>密歇根大学</span></em><span> 的 Timothy Trippel ， 讲述如何将 RTL 设计的硬件转换为软件模型，并利用覆盖率引导的软件模糊器（如 </span><a href='https://github.com/google/AFL'><span>AFL</span></a><span>）自动生成测试用例以进行硬件验证，已开源 </span><a href='https://github.com/googleinterns/hw-fuzzing'><span>hw-fuzzing</span></a><span> 。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/garbelini'><span>BrakTooth: Causing Havoc on Bluetooth Link Manager via Directed Fuzzing, 2022</span></a><span> - 来自新加坡科技与设计大学的安全研究人员，他们发现了一个新的</span><strong><span>蓝牙芯片安全漏洞</span></strong><span> “BrakTooth”，这一漏洞影响了包括英特尔、高通和德州仪器在内的11家供应商的13款蓝牙芯片组，PoC已开源</span><a href='https://github.com/Matheus-Garbelini/braktooth_esp32_bluetooth_classic_attacks'><span>braktooth_esp32_bluetooth_classic_attacks</span></a><span>，此团队曾在两年前也实现了另外一个 BLE Fuzzing 工具，即 SweynTooth。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/krupp'><span>AmpFuzz: Fuzzing for Amplification DDoS Vulnerabilities, 2022</span></a><span> - 用于</span><strong><span>流量放大攻击</span></strong><span>即 DDoS 漏洞的模糊测试，来自于</span><em><span>CISPA 亥姆霍兹信息安全中心</span></em><span>，已开源 </span><a href='https://github.com/cispa/ampfuzz'><span>AmpFuzz</span></a><span> 。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/cloosters'><span>SGXFuzz: Efficiently Synthesizing Nested Structures for SGX Enclave Fuzzing, 2022</span></a><span> - 针对 Intel 的 SGX 的模糊测试方案，来自于</span><em><span>杜伊斯堡-埃森大学</span></em><span> ，已开源 </span><a href='https://github.com/uni-due-syssec/sgxfuzz'><span>sgxfuzz</span></a><span>。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/jabiyev'><span>FRAMESHIFTER: Manipulating HTTP/2 Frame Sequences with Fuzzing, 2022</span></a><span> -  专为 HTTP/2 开发了一种新颖的基于语法的 fuzzer ，并发现 HTTP/2 到 HTTP/1 转换异常的安全隐患，来自于美国</span><em><span>东北大学</span></em><span>，已开源  </span><a href='https://github.com/bahruzjabiyev/frameshifter'><span>frameshifter</span></a><span> 。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/zhang-zenong'><span>FIXREVERTER: A Realistic Bug Injection Methodology for Benchmarking Fuzz Testing, 2022</span></a><span> - 比较理论的 Fuzzing 方法改进，较为理论，暂时没有关注细节，来自于</span><em><span>德克萨斯大学达拉斯分校的</span></em><span>Zenong Zhang  。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/zhao-bodong'><span>StateFuzz: System Call-Based State-Aware Linux Driver Fuzzing, 2022</span></a><span> -  也是一个 Fuzzing 方法改进，代码覆盖率引导的模糊测试在测试具备复杂状态的程序（比如网络协议程序、内核驱动）时存在局限，即fuzzer缺乏指导来遍历程序状态因此，作者认为对这些程序，需要使用状态敏感的模糊测试 。来自于 </span><em><span>清华大学网络科学与网络空间研究所</span></em><span> ，即将开源 </span><a href='https://github.com/vul337/StateFuzz'><span>StateFuzz</span></a><span> 。</span></p></li><li><p><a href='https://www.usenix.org/system/files/sec22summer_zou.pdf'><span>SyzScope: Revealing High-Risk Security Impacts of Fuzzer-Exposed Bugs inLinux kernel, 2022</span></a><span> - </span><a href='https://www.baidu.com/link?url=JVR9rCnFswT1Ft9lScNrOtEb1bYGYD0nzwMxhblwu6kgXGLdQ2hvaqCOFaYe8ejpLkVJliC0cbCVr_wZJUeU5hM7Lt6ujuE--2GD1B3FtBJgFshjSsRNZAZRuZIlQqnsTvns6y6BWL5PLfeL0jWi0d3JUpINvTBZdhT23WL4KSj-WZGMAEqSH4GIsdDJ7P9NDQru9vgB3_LTw6kCge1CVa&amp;wd=&amp;eqid=ae66d9730006e7190000000661eb9bc2'><em><span>加利福尼亚大学河滨分校</span></em></a><span>  Xiaochen Zou 等人开发了 SyzScope，用于评估内核 bug 的影响等级。</span></p></li></ul><h3 id='2021-2'><span>2021</span></h3><ul><li><p><a href='https://www.usenix.org/conference/usenixsecurity21/presentation/lee-gwangmu'><span>Constraint-guided Directed Greybox Fuzzing, 2021</span></a><span>：约束引导的定向灰盒模糊测试（ constraint-guided DGF ）， 满足一系列约束而不仅仅是到达目标点，将约束定义为目标点和数据条件的组合，并按指定顺序驱动种子满足约束，来自于韩国</span><em><span>首尔国立大学</span></em><span> 。</span></p></li><li><p><a href='https://www.usenix.org/biblio-6129'><span>UNIFUZZ: A Holistic and Pragmatic Metrics-Driven Platform for Evaluating Fuzzers, 2021</span></a><span>：浙江大学提出一个指标驱动的 fuzzer 评估平台， 设计和开发了 UNIFUZZ，这是一个开源和指标驱动的平台，用于以全面和定量的方式评估模糊器。具体而言，UNIFUZZ 迄今为止已经整合了 35 个可用的模糊器、20 个真实世界程序的基准和六类性能指标，没有发现工具开源地址。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity21/presentation/schumilo'><span>Nyx: Greybox Hypervisor Fuzzing using Fast Snapshots and Affine Types, 2021</span></a><span>：德国波鸿鲁尔大学设计并实现了 </span><a href='https://github.com/RUB-SysSec'><span>RUB-SysSec</span></a><span>/</span><strong><a href='https://github.com/RUB-SysSec/Nyx'><span>Nyx</span></a></strong><span>，用于在云端虚拟机管理程序进行 fuzzing，这是一种高度优化、覆盖引导的虚拟机管理程序模糊器。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity21/presentation/nagy'><span>Breaking Through Binaries: Compiler-quality Instrumentation for Better Binary-only Fuzzing, 2021</span></a><span>： </span><em><span>弗吉尼亚理工大学</span></em><span>   Stefan Nagy  等人研究实现了</span><strong><span>编译器级别的纯黑盒二进制</span></strong><span> fuzzing 工具，即 ZAFL，一个将编译器 fuzzing 属性移植到二进制的工具。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity21/presentation/fioraldi'><span>The Use of Likely Invariants as Feedback for Fuzzers, 2021</span></a><span>： 法国通信系统工程师学校与研究中心 提出了一种新的反馈机制，通过考虑程序变量和常量之间的关系来</span><strong><span>增加代码覆盖率</span></strong><span>。在名为 </span><a href='https://github.com/eurecom-s3'><span>eurecom-s3</span></a><span>/</span><strong><a href='https://github.com/eurecom-s3/invscov'><span>invscov</span></a></strong><span> 的原型中实现了该技术，该原型基于 LLVM 以及 AFL++。</span></p></li></ul><h3 id='2020'><span>2020</span></h3><ul><li><p><a href='https://www.usenix.org/conference/usenixsecurity20/presentation/fiterau-brostean'><span>Analysis of DTLS Implementations Using Protocol State Fuzzing</span></a><span> (2020)：瑞典</span><a href='https://www.baidu.com/link?url=xRk-x5EtMxr6AhX3qTQWGiC1pbZmfh8mem1x9_o2MuZAhAFm5haijjK1M21ZlPbJGARysEoJZmQxijhoCzPmXOnj135atLDX4m9thgw0MEI2u47O-pk1BH4bTKSYGCdYnbTL6FL18ZDlCKLg8ypFHq&amp;wd=&amp;eqid=8278386e000070bd000000056047391c'><em><span>乌普萨拉大学</span></em></a><span> 对 DTLS 实现的首次全面分析，提出的 </span><a href='https://github.com/tls-attacker/TLS-Attacker'><span>TLS-Attacker</span></a><span>  是一个用于分析TLS实现的开源框架。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity20/presentation/yue'><span>EcoFuzz: Adaptive Energy-Saving Greybox Fuzzing as a Variant of the Adversarial Multi-Armed Bandit</span></a><span> (2020)： </span><a href='https://github.com/MoonLight-SteinsGate/EcoFuzz'><span>EcoFuzz</span></a><span> 是国防科技大学师生开发的基于 AFL 的自适应节能灰盒模糊器。 基于AFL 的基础上，开发了独特的自适应调度算法以及基于概率的搜索策略，根据结果，EcoFuzz 可以减少 AFL 32％的用例，从而达到 AFL 214％的路径覆盖率。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity20/presentation/liu'><span>FANS: Fuzzing Android Native System Services via Automated Interface Analysis</span></a><span> (2020)：清华大学张超团队联合 360  提出了一种基于自动生成的模糊测试解决方案 FANS，以查找 Android 系统原生服务中的漏洞，作者</span><a href='http://netsec.ccert.edu.cn/people/iromise/'><span>刘保证</span></a><span>开发的 Native Service Fuzz 工具 fans </span><a href='https://github.com/iromise/fans'><span>开源连接</span></a><span>，能够根据源码自动推测 Native Service 的接口和入参，进行 fuzzing，工具的限制是需要 AOSP 的编译环境。 </span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity20/presentation/jiang'><span>Fuzzing Error Handling Code using Context-Sensitive Software Fault Injection</span></a><span> (2020)： 清华大学蒋祖明和白佳举提出了一个名为 FIFUZZ 的新模糊测试框架，检测异常处理。FIFUZZ 的核心是上下文相关的软件故障注入（SFI）方法，该方法可以有效地覆盖不同调用上下文中的错误处理代码，以查找隐藏在具有复杂上下文的错误处理代码中的深层错误。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity20/presentation/ispoglou'><span>FuzzGen: Automatic Fuzzer Generation, 2020</span></a><span>： Kyriakos Ispoglou 等人提出的对库接口进行分析的工具。 这是一种用于在给定环境中自动合成复杂库的模糊器的工具。</span><a href='https://github.com/HexHive/FuzzGen'><span>FuzzGen</span></a><span> 利用</span><em><span>整个系统分析</span></em><span>来推断库的接口，并专门为该库合成模糊器。FuzzGen 不需要人工干预，可以应用于各种库。此外，生成的模糊器利用LibFuzzer 来实现更好的代码覆盖率并暴露库深处的错误。 </span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity20/presentation/gan'><span>GREYONE: Data Flow Sensitive Fuzzing, 2020</span></a><span>：清华大学张超团队提出的另外一个一种数据流敏感的模糊解决方案 GREYONE。思想可观，由于并没有开源，落地比较困难。</span></p></li><li><p><a href='https://www.usenix.org/conference/atc20/presentation/garbelini'><span>SweynTooth: Unleashing Mayhem over Bluetooth Low Energy, 2020</span></a><span> - 来自新加坡科技与设计大学的安全研究人员，他们使用了 Noridc nRF52840 实现低成本的 </span><strong><span>BLE 全栈模糊测试</span></strong><span>工具，PoC 已开源  </span><a href='https://github.com/Matheus-Garbelini/sweyntooth_bluetooth_low_energy_attacks'><span>sweyntooth_bluetooth_low_energy_attacks</span></a><span>。</span></p></li></ul><h3 id='2019-⤵'><span>2019 ⤵ </span></h3><ul><li><p><a href='https://www.usenix.org/conference/usenixsecurity19/presentation/jung'><span>Fuzzification: Anti-Fuzzing Techniques, 2019</span></a><span>： </span><em><span>佐治亚理工学院</span></em><span> 学者提出的一个对抗 fuzzing 的手段，主要是防止安全人员对自己的产品进行 fuzzing，这个视角比较新颖，值得一看。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity19/presentation/guler'><span>AntiFuzz: Impeding Fuzzing Audits of Binary Executables, 2019</span></a><span>：同样是一个对抗 fuzzing 的方案，只不过引入了 不同的技术保护二进制可执行文件，防止被 fuzzing。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity18/presentation/pailoor'><span>MoonShine: Optimizing OS Fuzzer Seed Selection with Trace Distillation, 2018</span></a><span>：哥伦比亚大学团队开发的 </span><a href='https://github.com/shankarapailoor/moonshine'><span>MoonShine</span></a><span>，这是一种新颖的策略，可从真实程序的系统调用中提取 fuzz 种子。作为对 Syzkaller 的扩展， MoonShin 能够将 Syzkaller 的 Linux 内核代码覆盖率平均提高 13％。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity18/presentation/yun'><span>QSYM : A Practical Concolic Execution Engine Tailored for Hybrid Fuzzing, 2018</span></a><span>：</span><em><span>佐治亚理工学院</span></em><span> 学者设计了一种快速的，称为 </span><a href='https://github.com/sslab-gatech/qsym'><span>QSYM</span></a><span> 的 Conolic 执行引擎，支持混合 fuzzing。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/serebryany'><span>OSS-Fuzz - Google&#39;s continuous fuzzing service for open source software, 2017</span></a><span>：谷歌的 OSS-Fuzz 框架，没什么好说的，主要是帮助开发人员在开发阶段引入的框架，继承多个 fuzz 工具。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/schumilo'><span>kAFL: Hardware-Assisted Feedback Fuzzing for OS Kernels, 2017</span></a><span>：对于内核的 fuzzing，崩溃往往会导致系统重启，内核中的任意一个错误都可能带来深远影响。  </span><em><span>波鸿鲁尔大学的</span></em><span>谢尔盖·舒米舒等人提出的独立于</span><em><span>操作系统</span></em><span>和</span><em><span>硬件辅助的方式</span></em><span>解决了覆盖指导的内核模糊问题：利用虚拟机管理程序和英特尔的 </span><em><span>Processor Trace</span></em><span>（PT）技术。 </span></p></li></ul><h2 id='ieee-sp'><span>IEEE S&amp;P</span></h2><h3 id='2024-3'><span>2024</span></h3><ul><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2024/313000a011/1RjE9PjiDss'><span>AFGen: Whole-Function Fuzzing for Applications and Libraries, 2024</span></a><span> - AFGen（全函数模糊测试应用和库）是一种用于应用程序和库的全函数模糊测试工具。它是一种基于符号执行的模糊测试技术，通过符号执行进行静态分析，</span><a href='https://github.com/Marsman1996/AFGen'><span>代码即将开源</span></a><span>，作者来自于中国科学院大学的</span><a href='https://www.computer.org/csdl/search/default?type=author&amp;givenName=Yuwei&amp;surname=Liu'><span>刘雨薇</span></a><span>。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2024/313000a109/1Ub23heRtUA'><span>Chronos: Finding Timeout Bugs in Practical Distributed Systems by Deep-Priority Fuzzing with Transient Delay, 2024</span></a><span> - Chronos的目标是提供一个实用的工具，帮助开发者发现并解决分布式系统中的超时错误。通过深度优先模糊测试和瞬时延迟模拟，与上面一篇论文一样，感觉较为学术化，作者来自清华大学的</span><a href='https://www.computer.org/csdl/search/default?type=author&amp;givenName=Yuanliang&amp;surname=Chen'><span>Yuanliang Chen</span></a><span>。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2024/313000a096/1Ub234bjuWA'><span>DY Fuzzing: Formal Dolev-Yao Models Meet Cryptographic Protocol Fuzz Testing, 2024</span></a><span> - 一个针对密码学算法库进行模糊测试的模型，如针对 OpenSSL/wolfSSL，作者为独立研究员</span><a href='https://www.computer.org/csdl/search/default?type=author&amp;givenName=Max&amp;surname=Ammann'><span>Max Ammann</span></a><span>，已经有基于 DY 模型实现了 </span><strong><span>TLS Fuzz</span></strong><span> 的工具，</span><a href='https://github.com/tlspuffin/tlspuffin'><span>tlspuffin</span></a><span>。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2024/313000a127/1Ub23HQTJ1C'><span>LABRADOR: Response Guided Directed Fuzzing for Black-box IoT Devices, 2024</span></a><span> - 又是一个针对固件黑盒 Fuzz 的工具，来自于信息工程大学的</span><a href='https://www.computer.org/csdl/search/default?type=author&amp;givenName=Hangtian&amp;surname=Liu'><span>Hangtian Liu</span></a><span>，也是张超团队的工作。相比 SNIPUZZ、BOOFUZZ 和 FIRM-AFL 能够发现更多的漏洞，同时是 SaTC 发现的漏洞的 8.57 倍。与以前工作不同的是，</span><strong><span>LABRADOR 似乎不需要进行固件仿真</span></strong><span>，而是在真机上进行 Fuzz 测试，通过网络响应来推断固件的执行跟踪，并推导出测试的代码覆盖率，未见开源。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2024/313000a040/1RjEaeMELbq'><span>Predecessor-aware Directed Greybox Fuzzing, 2024</span></a><span> - 属于定向模糊测试的范畴，提出了一种 Predecessor-aware Directed Greybox Fuzzing (PDGF) 方法，并将 DGF 视为一种路径搜索问题，是一种结合了先前路径感知的灰盒模糊测试技术，较为学术。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2024/313000a051/1RjEaqzRsfC'><span>SATURN: Host-Gadget Synergistic USB Driver Fuzzing, 2024</span></a><span> - 针对 USB 协议的 Fuzz 工具，来自清华大学</span><a href='https://www.computer.org/csdl/search/default?type=author&amp;givenName=Yiru&amp;surname=Xu'><span>Yiru Xu</span></a><span>。工具已开源：</span><a href='https://github.com/THU-WingTecher/Saturn'><span>Saturn</span></a><span>。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2024/313000a137/1Ub23V26Svm'><span>SoK: Prudent Evaluation Practices for Fuzzing, 2024</span></a><span> - 一篇来自</span><em><span>德国CISPA亥姆霍兹信息安全中心</span></em><span>的有趣论文。在 2018~2023 年安全顶会公开发表的 289 篇有关 Fuzzing 的论文中，74% 的论文公开了源码，60% 的论文工程代码受到了评估，</span><strong><span>各项 Fuzzing 研究论文发现的 CVE 的数量和质量存疑</span></strong><span>，并表达观点，CVE 不是主要影响 Fuzzer 质量的标准。作者对其中的 8 篇进行深入评估，</span><strong><span>并对这些论文的研究结果提出质疑</span></strong><span>。让人遗憾的是，这 8 篇数据有问题的论文均来自国内。包括 </span><em><span>深圳大学、中国科学院大学、上海交大、奇安信&amp;天津大学，国防科大、华盛顿州立大学（留学生）、中科学信工所、中国科学院大学国家计算机网络入侵防护中心</span></em><span>。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2024/313000a070/1RjEaG9OpTa'><span>SyzTrust: State-aware Fuzzing on Trusted OS Designed for IoT Devices, 2024</span></a><span> - 针对 TEE 设计的模糊测试工具，基于 Syzkaller，在开发板上测试，因此 TEE 需要能够运行在开发板环境上，作者来自浙江大学，工具已开源，</span><a href='https://github.com/SyzTrust/syztrust'><span>SyzTrust</span></a><span>。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2024/313000a059/1RjEaxqvmQ8'><span>Titan: Efficient Multi-target Directed Greybox Fuzzing, 2024</span></a><span> - 一篇较为学术的研究定向模糊测试的沦陷，来自香港科技大学。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2024/313000a024/1RjEa0y9RMQ'><span>To Boldly Go Where No Fuzzer Has Gone Before: Finding Bugs in Linux&#39; Wireless Stacks through VirtIO Devices, 2024</span></a><span> - 一种基于 VirtIO 设备驱动程序的新型模糊测试工具 </span><a href='https://github.com/cyruscyliu/virtfuzz-evaluation'><span>VirtFuzz</span></a><span>，从真实设备收集数据，在虚拟环境进行 Fuzz，德国达姆施塔特工业大学安全移动网络实验室（SEEMOO）</span><a href='https://www.computer.org/csdl/search/default?type=author&amp;givenName=Sönke&amp;surname=Huster'><span>Sönke Huster</span></a><span>。</span></p></li></ul><h3 id='2023-3'><span>2023</span></h3><ul><li><p><a href='https://www.computer.org/csdl/pds/api/csdl/proceedings/download-article/1Nrc0AgBCgM/pdf'><span>DEVFUZZ: Automatic Device Model-Guided Device Driver Fuzzing, 2023</span></a><span> - 针对驱动的模糊测试，文章指出 </span><a href='https://github.com/lzto/afl-proxy.git'><span>DEVFUZZ</span></a><span>(已开源) 针对 PCI、USB、RadpiIO、I2C 总线，且不需要实际设备，通过符号执行模拟硬件设备，文章来源 </span><a href='http://www.baidu.com/link?url=CNFrDbfV-OGIsAIhXj42MU2R4vvrYFYJs-YoF5tOj1hpIrk9bHzvCM_KeFSpAtV4oGV69Yf3gnwfyEk_FURhr1QOoL9__9c2EqaKnaJdSFXvWa7SJ1Qn___SfZhMFX2oa3yr0jPlOAnHsOqUuyYxEEXiGFIobGIbUTM2fM3JFLSZ9faRv8nRNultM2fefeqTAoWfkzTQ8F09Yp3WdacPYa'><span>纽约州立大学石溪分校</span></a><span>。这似乎与 </span><strong><span>ARM-M 固件仿真</span></strong><span>有关，且使用了 S2E，感兴趣的同学可以阅读华科周威老师 2021 年在 Usenix 上发表的论文 Fuzzware，后续“固件章节有收录”。</span></p></li><li><p><a href='https://arxiv.org/abs/2304.04233'><span>ODDFUZZ: Discovering Java Deserialization Vulnerabilities via Structure-Aware Directed Greybox Fuzzing, 2023</span></a><span> - 一种针对 Java 反序列化漏洞的新颖混合解决方案 ODDFUZZ，尚未开源，来自于扬州大学曹思聪。</span></p></li><li><p><a href='https://cs.uwaterloo.ca/~m285xu/assets/publication/fast-paper.pdf'><span>Finding Specification Blind Spots via Fuzz Testing, 2023</span></a><span> - 形式化验证与 Fuzz 测试，一篇学术型论文，来自</span><a href='http://mp.weixin.qq.com/s?__biz=Mzg5ODUxMzg0Ng==&amp;mid=2247486356&amp;idx=1&amp;sn=93f9480433a00b58b39a088a5f1962d1&amp;chksm=c060254df717ac5b8faf31069f41b4fc08ba4769ce9327ae5946822cc5db94f481db7d1c8179&amp;scene=21#wechat_redirect'><span>加拿大滑铁卢大学徐萌研究组</span></a><span>的博士生纪儒，非我擅长的领域，感兴趣可以阅读一下。</span></p></li><li><p><a href='https://www.computer.org/csdl/pds/api/csdl/proceedings/download-article/1Js0Ek1SE6c/pdf'><span>RSFuzzer: Discovering Deep SMI Handler Vulnerabilities in UEFI Firmware with Hybrid Fuzzing, 2023</span></a><span> - 一种针对 UEFI 固件混合灰盒模糊测试技术。RSFUZZER 能够学习输入接口和格式信息，并探测由调用多个 SMI 处理程序触发的深层隐藏漏洞。来自中国科学院信息工程研究所霍玮研究组，未发现开源。</span></p></li><li><p><a href='https://www.computer.org/csdl/pds/api/csdl/proceedings/download-article/1NrbZrWlldK/pdf'><span>SegFuzz: Segmentizing Thread Interleaving to Discover Kernel Concurrency Bugs through Fuzzing, 2023</span></a><span> - 一个用于内核并发漏洞的模糊测试框架</span><a href='https://github.com/casys-kaist/segfuzz.git'><span>SegFuzz</span></a><span>(已开源)。众所周知，条件竞争类的漏洞很难通过传统 Fuzz 实现 ，但是使用方法似乎没有详细介绍，文章来自韩国科学技术院 Dae R. Jeong。</span></p></li><li><p><a href='https://www.computer.org/csdl/pds/api/csdl/proceedings/download-article/1Js0DBwgpwY/pdf'><span>SelectFuzz: Efficient Directed Fuzzing with Selective Path Exploration, 2023</span></a><span> - 文章主要描述如何提升定向模糊测试（DGF）的效率和准确性，从而提升检测软件漏洞的有效性。</span><a href='https://github.com/cuhk-seclab/SelectFuzz'><span>SelectFuzz</span></a><span>(已开源) 通过选择性路径探索来提高 DGF 的有效性，从代码上看，工具原型也是基于 AFL，文章来自香港大学 </span><a href='https://www.computer.org/csdl/search/default?type=author&amp;givenName=Changhua&amp;surname=Luo'><span>Changhua Luo</span></a><span>。</span></p></li><li><p><a href='https://www.computer.org/csdl/pds/api/csdl/proceedings/download-article/1He7XWu6nJe/pdf'><span>TEEzz: Fuzzing Trusted Applications on COTS Android Devices, 2023</span></a><span> - </span><strong><span>针对 TEE 的 Fuzzing 工具</span></strong><span>，如何在不知道设备运行的操作系统的情况下，直接分析raw memory dump 来获取更多运行时信息，作者使用真实设备，而非仿真，适配了三种流行的 TEE 实现：Qualcomm 安全执行环境 (QSEE) ，用于包括流行的 Nexus 和 Pixel 系列；TrustedCore (TC) ，用于华为设备；开放式可移植可信执行环境 (OPTEE) ，这是基于 TZ 的 TEE 的实际参考实现，来自于洛桑联邦理工学院 </span><a href='https://www.computer.org/csdl/search/default?type=author&amp;givenName=Marcel&amp;surname=Busch'><span>Marcel Busch</span></a><span>。</span></p></li><li><p><a href='https://www.computer.org/csdl/pds/api/csdl/proceedings/download-article/1He7YBzoF0c/pdf'><span>UTOPIA: Automatic Generation of Fuzz Driver using Unit Tests, 2023</span></a><span> - 来自于三星工程师的 </span><a href='https://github.com/Samsung/UTopia.git'><span>UTOPIA</span></a><span>，一种开源工具和分析算法，可以从现有的单元测试中自动合成有效的模糊测试驱动程序。</span></p></li><li><p><a href='https://www.computer.org/csdl/pds/api/csdl/proceedings/download-article/1Nrc0ztdpDy/pdf'><span>VIDEZZO: Dependency-aware Virtual Device Fuzzing, 2023</span></a><span> - 文章来自于浙江大学的</span><a href='https://www.computer.org/csdl/search/default?type=author&amp;givenName=Qiang&amp;surname=Liu'><span>刘强</span></a><span>，针对</span><strong><span>虚拟机的模糊测试</span></strong><span>，目前，</span><a href='https://github.com/HexHive/ViDeZZo'><span>ViDeZZo</span></a><span>(已开源) 支持 QEMU（6.1.50 及更高版本）和 VirtualBox (C++)，涵盖音频、存储、网络、USB 和图形虚拟设备，并涵盖 i386、x86_64、ARM 和 AArch64 版本。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2023/933600a116/1He7XPiaynS'><span>Toss a Fault to Your Witcher: Applying Grey-box Coverage-Guided Mutational Fuzzing to Detect SQL and Command Injection Vulnerabilities, 2023</span></a><span> - 首个使用 AFL Fuzz Web 应用程序的工具，它利用突变模糊测试来探索 Web 应用程序和故障升级来检测命令和 SQL 注入漏洞。</span><a href='https://github.com/sefcom/Witcher'><span>Witcher</span></a><span> 已开源。</span></p></li></ul><h3 id='2022-3'><span>2022</span></h3><ul><li><p><a href='https://www.cs.ucr.edu/~heng/pubs/jigsaw_sp22.pdf'><span>JIGSAW: Efficient and Scalable Path Constraints Fuzzing, 2022</span></a><span> -  将路径约束编译为本地函数，提高分支翻转率的 fuzzer，来自于美国加州大学 Ju Chen，工具已开源 </span><a href='https://github.com/R-Fuzz/jigsaw'><span>JIGSAW</span></a><span>。</span></p></li><li><p><a href='http://www.wingtecher.com/themes/WingTecherResearch/assets/papers/sp22.pdf'><span>PATA: Fuzzing with Path Aware Taint Analysis, 2022</span></a><span> -  清华大学软件学院软件系统安全保障小组， 这篇论文主要讨论了在 fuzzing 中</span><strong><span>路径感知的污点分析技术</span></strong><span>（path-aware taint analysis）的应用。</span></p></li><li><p><a href='https://ieeexplore.ieee.org/document/9833593'><span>FuzzUSB: Hybrid Stateful Fuzzing of USB Gadget Stacks, 2022</span></a><span> -  混合fuzzing技术在USB上的应用，来自于美国普林斯顿大学的 </span><a href='https://ieeexplore.ieee.org/author/37087006508'><span>Kyungtae Kim</span></a><span> 。</span></p></li><li><p><a href='https://arxiv.org/abs/2203.12064'><span>Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis, 2022</span></a><span> - 美国哥伦比亚大学，Dongdong She 等人使用图论中心性分析进行模糊测试的有效种子调度，此方案被称为 </span><a href='https://github.com/Dongdongshe/K-Scheduler'><span>K-Scheduler</span></a><span>，已开源。</span></p></li><li><p><a href='https://qingkaishi.github.io/public_pdfs/SP22.pdf'><span>BEACON: Directed Grey-Box Fuzzing with Provable Path Pruning, 2022</span></a><span> - 香港科技大学 Heqing Huang 等人实现的一种称之为 BEACON 的</span><strong><span>定向模糊测试</span></strong><span>。这是基于 LLVM 灰盒 Fuzzer，需要将输入源代码编译为 LLVM 位代码，进行静态分析。分析后插桩，LLVM 位代码被编译为可执行二进制文件，可以与各种模糊引擎集成。未见开源。</span></p></li></ul><h3 id='2021-3'><span>2021</span></h3><ul><li><p><a href='https://ieeexplore.ieee.org/document/9519470'><span>DiFuzzRTL: Differential Fuzz Testing to Find CPU Bugs, 2021</span></a><span>：韩国首尔大学，</span><a href='https://github.com/compsec-snu/difuzz-rtl'><span>DifuzzRTL</span></a><span>，一种专门发现 CPU RTL 漏洞的 fuzz 工具，已开源。</span></p></li><li><p><a href='https://ieeexplore.ieee.org/document/9519407'><span>StochFuzz: Sound and Cost-effective Fuzzing of Stripped Binaries by Incremental and Stochastic Rewriting, 2021</span></a><span>： 普渡大学及中国人民大学的华人团队开发了一种新的 fuzz 技术，被称为  incremental and stochastic rewriting ，优于 afl-unicorn，利用更低的开销，提高了</span><strong><span>黑盒二进制 fuzzing</span></strong><span> 的效率，相关工具已开源：</span><a href='https://github.com/ZhangZhuoSJTU'><span>ZhangZhuoSJTU</span></a><span>/</span><strong><a href='https://github.com/ZhangZhuoSJTU/StochFuzz'><span>StochFuzz</span></a></strong><span>。</span></p></li><li><p><a href='https://ieeexplore.ieee.org/document/9519448'><span>NtFuzz: Enabling Type-Aware Kernel Fuzzing on Windows with Static Binary Analysis, 2021</span></a><span>： 韩国科学技术院 (KAIST)  Jaeseung Cho 等人提出的一个静态二进制分析器，可以自动推断出 Windows 系统调用，该分析器被整合到 </span><a href='https://github.com/SoftSec-KAIST'><span>SoftSec-KAIST</span></a><span>/</span><strong><a href='https://github.com/SoftSec-KAIST/NTFuzz'><span>NTFuzz</span></a></strong><span>，一个 </span><strong><span>Windows 系统调用</span></strong><span> fuzzing 框架，首次将静态二进制分析技术与 Windows 内核的 fuzzing 技术相结合。</span></p></li><li><p><a href='https://ieeexplore.ieee.org/document/9519432'><span>Diane: Identifying Fuzzing Triggers in Apps to Generate Under-constrained Inputs for IoT Devices, 2021</span></a><span>： 加州大学圣巴巴拉分校 Nilo Redini 等人通过使用网络流量和控制目标物联网设备的应用程序的混合分析来解决输入生成问题 ，工具名为 </span><a href='https://github.com/ucsb-seclab'><span>ucsb-seclab</span></a><span>/</span><strong><a href='https://github.com/ucsb-seclab/diane'><span>diane</span></a></strong><span>，已开源， 与 IoTFuzzer 较为相似，弥补了 IoTFuzzer 的一些缺点。</span></p></li><li><p><a href='https://ieeexplore.ieee.org/document/9519403'><span>One Engine to Fuzz &#39;em All: Generic Language Processor Testing with Semantic Validation, 2021</span></a><span>： 佐治亚理工学院 Yongheng Chen 等人提出了一个通用 fuzzing 框架（</span><a href='https://github.com/s3team'><span>s3team</span></a><span>/</span><strong><a href='https://github.com/s3team/Polyglot'><span>Polyglot</span></a></strong><span> ），目的是为了探索不同编程语言的处理器而生成高质量的模糊测试用例，实现各个语言之间的通用性和适用性。 相比于当前最先进的通用型 fuzz：包括基于变异的 fuzzer </span><strong><span>AFL</span></strong><span> 以及混合型 fuzzer </span><strong><span>QSYM</span></strong><span> 和基于语法的 fuzzer </span><strong><span>Nautilus</span></strong><span> 能够更有效地生成高质量的测试用例。</span></p></li></ul><h3 id='2020-2'><span>2020</span></h3><ul><li><p><a href='https://www.syssec.ruhr-uni-bochum.de/media/emma/veroeffentlichungen/2020/02/27/IJON-Oakland20.pdf'><span>IJON: Exploring Deep State Spaces via Fuzzing, 2020</span></a><span>： 通过改造 AFL 探测程序的空间状态，发现更多程序行为，并拿游戏&quot;超级玛丽&quot;来作演示。 作者对超级玛丽作了修改，使所有的键盘命令都可以从标准输入中读取，并且马里奥只能不停地向右跑，只要停下来就死掉，这个设计主要是为节省时间。 </span></p></li><li><p><a href='https://www.cc.gatech.edu/~mxu80/pubs/xu:krace.pdf'><span>Krace: Data Race Fuzzing for Kernel File Systems, 2020</span></a><span>：介绍了 KRACE，一个端到端的模糊框架，它将并发方面引入基于覆盖引导的文件系统 fuzzing 中。</span></p></li><li><p><a href='https://qingkaishi.github.io/public_pdfs/SP2020.pdf'><span>Pangolin:Incremental Hybrid Fuzzing with Polyhedral Path Abstraction, 2020</span></a><span>： 香港科技大学，混合 fuzing 结合了符号执行与模糊测试的优点，已经逐渐成为基于覆盖引导的 fuzzing 技术的重要发展方向之一。尽管在实现高覆盖率方面取得了巨大进展，但众所周知，混合模糊仍然存在效率问题。  将约束求解后对信息重用起来，是有可能实现 Constrained Mutation 和 Guided Constraint Solving，从而</span><strong><span>提升混合 fuzz 效率</span></strong><span>。 </span></p></li><li><p><a href='https://www.semanticscholar.org/paper/RetroWrite%3A-Statically-Instrumenting-COTS-Binaries-Dinesh-Burow/845cafb153b0e4b9943c6d9b6a7e42c14845a0d6'><span>RetroWrite: Statically Instrumenting COTS Binaries for Fuzzing and Sanitization, 2020</span></a><span>：该团队开发了一种</span><strong><span>二进制重写工具 retrowrite</span></strong><span> 用于支持 AFL 和 ASAN，并证明它可以在保持精度的同时达到编译器级的性能。使用 retrowriter 重写用于覆盖引导的二进制文件在性能上与编译器检测的二进制文件相同，性能比基于 defaultQEMU 的检测高出 4.5 倍。该工具已开源：</span><a href='https://github.com/HexHive/retrowrite/' target='_blank' class='url'>https://github.com/HexHive/retrowrite/</a><span>，同时限制非常多，比如目标二进制只能是 x86_64 架构，必须包含符号表等。</span></p></li></ul><h3 id='2019-⤵-2'><span>2019 ⤵ </span></h3><ul><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2019/666000b122/19skgbGVFEQ'><span>Full-speed Fuzzing: Reducing Fuzzing Overhead through Coverage-guided Tracing, 2019</span></a><span>：  弗吉尼亚理工大学 ，创建了一个基于静态二进制工具或 Dyninst 的实现，称为 </span><a href='https://github.com/FoRTE-Research/UnTracer-AFL'><span>UnTracer</span></a><span> ，该工具能够</span><strong><span>降低 fuzzing 开销</span></strong><span>，从而提高速度。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2019/666000a594/19skfLYOpaw'><span>Fuzzing File Systems via Two-Dimensional Input Space Exploration, 2019</span></a><span>： 本文的作者佐治亚理工学院的许文及作者所在的研究组，长期从事二进制相关研究。 本工作实现了一个基于反馈进化的 fuzzer——</span><a href='https://github.com/sslab-gatech/janus'><span>JANUS</span></a><span>，</span><strong><span>通用文件系统 fuzzer</span></strong><span>，可以高效的探索文件系统的两个维度的输入空间。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2019/666000a900/19skg5XghG0'><span>NEUZZ: Efficient Fuzzing with Neural Program Smoothing, 2019</span></a><span>： 哥伦比亚大学落地项目，</span><strong><span>利用神经网络来模拟程序的分支行为</span></strong><span>。 </span><a href='https://github.com/Dongdongshe/neuzz'><span>neuzz</span></a><span> 通过有策略地修改现有 seeds 的一些 bytes 以期来产生 interesting seeds 从而能触发未执行过的 edge。而这个策略要借助神经网络才能得以具体实施。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2019/666000a296/19skfwZLirm'><span>Razzer: Finding Kernel Race Bugs through Fuzzing, 2019</span></a><span>：韩国科学技术院 (KAIST) DR Jeong  设计并提出了</span><strong><span>针对内核中的数据竞争类型漏洞的模糊测试（fuzzing）工具 Razzer</span></strong><span> 。 </span><a href='https://github.com/compsec-snu/razzer'><span>Razzer</span></a><span> 的两阶段模糊测试基于Syzkaller。确定性调度程序是使用 QEMU / KVM 实现的。</span></p></li><li><p><a href='http://web.cs.ucdavis.edu/~hchen/paper/chen2018angora.pdf'><span>Angora: Efficient Fuzzing by Principled Search, 2018</span></a><span>：上海交通大学 peng chen 等人开发的 </span><a href='https://github.com/AngoraFuzzer/Angora'><span>Angora</span></a><span>，主要目标是</span><strong><span>提高分支覆盖率，不使用符号执行的方法来解决路径约束</span></strong><span> 。 该工具目前活跃度较高，一直处于稳定更新中。</span></p></li><li><p><a href='http://chao.100871.net/papers/oakland18.pdf'><span>CollAFL: Path Sensitive Fuzzing, 2018</span></a><span>：清华大学张超团队对AFL中的 coverage inaccuracy 和 seed </span><strong><span>选择策略做了改进</span></strong><span>，改进后的工具称为 </span><a href='https://github.com/batgui/collafl'><span>CollAFL</span></a><span>。</span></p></li><li><p><a href='https://nebelwelt.net/publications/files/18Oakland.pdf'><span>T-Fuzz: fuzzing by program transformation, 2018</span></a><span>： Purdue University 的 Peng Hui 等人研发的 </span><a href='https://github.com/HexHive/T-Fuzz'><span>T-fuzz</span></a><span> 通过</span><strong><span>去掉 santiy check 来提高覆盖率</span></strong><span>。T-fuzz 利用覆盖率来引导产生输入。当不能访问到新的路径时，T-fuzz会去掉 check，以保证 fuzz 能继续进行，发现新的路径和 bug。 </span></p></li><li><p><a href='https://www.ieee-security.org/TC/SP2017/papers/42.pdf'><span>Skyfire: Data-Driven Seed Generation for Fuzzing, 2017</span></a><span>： 针对</span><strong><span>处理高度结构化输入</span></strong><span>的程序(比如解析XML的引擎程序)，本文提出了一种</span><strong><span>种子生成方法</span></strong><span>，通过大量样本训练</span><strong><span>带概率的上下文有关文法</span></strong><span>，通过训练好的文法，自动生成符合程序输入要求的种子，用于后续的Fuzz。 </span></p></li></ul><h2 id='acm-ccs'><span>ACM CCS</span></h2><h3 id='2024-4'><span>2024</span></h3><ul><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3670276'><span>LIFTFUZZ: Validating Binary Lifters through Context-aware Fuzzing with GPT, 2024</span></a><span>:  所谓的 binay lifter，就是将二进制转化为统一的中间语言（IR），这是在逆向工程中常见的一种方式，LiftFuzz 是一个利用指令上下文感知模糊测试来验证 binary lifeter 的新框架。LiftFuzz 利用汇编语言模型来学习指令之间的交互，并利用这些知识生成测试用例，作者来自香港中文大学的周雨桐，说要开源，但是一直没有</span><a href='https://github.com/zyt755/LIFTFUZZ'><span>开源</span></a><span>。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3670278'><span>https://github.com/zyt755/LIFTFUZZ, 2024</span></a><span>:  浙江大学张明雪团队，设计了一种新的解决方案 FuzzCache，它引入了一种基于软件的数据缓存机制，通过将数据库和网络请求中的数据存储到缓存中，规避了重复且昂贵的数据读取操作，也就是说 FuzzCache 用于提高 Web Fuzz 的效率。</span><a href='https://github.com/secureweb/fuzzcache'><span>FuzzCache</span></a><span> 已开源。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3670320'><span>RANsacked: A Domain-Informed Approach for Fuzzing LTE and 5G RAN-Core Interfaces, 2024</span></a><span>:  针对 LTE/5G 空口平台 RAN-Core 的 Fuzz，其中衍生的 </span><a href='https://github.com/fics/asnfuzzgen'><span>ASNFuzzGen</span></a><span> 已开源，来自佛罗里达大学的学者，这种针对蜂窝网的研究过于学术化，工业界关注不多。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3670342'><span>RIoTFuzzer: Companion App Assisted Remote Fuzzing for Detecting Vulnerabilities in IoT Devices, 2024</span></a><span>:  利用设备配套的 App，对 IoT 设备进行 Fuzz。其实跟 IoT 关系不大，主要思路就是利用 App 逆向，找到设备远控等数据包的格式，生成对应的测试用例。论文对应的</span><a href='https://github.com/kzLiu2017/RIoTFuzzer'><span>脚本</span></a><span>已开源，作者来自东南大学。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3670348'><span>On Understanding and Forecasting Fuzzers Performance with Static Analysis, 2024</span></a><span>:  将编译时提取的静态分析特征与各种模糊测试技术的性能结果相关联，为特定程序提出定制的模糊测试器配置，作者是欧洲通信学院的华人。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3643659.3648562'><span>FOX: Coverage-guided Fuzzing as Online Stochastic Control, 2024</span></a><span>:  提高覆盖引导的边缘覆盖率算法，当前算法已在 AFL++ 上实现，已</span><a href='https://github.com/FOX-Fuzz/FOX'><span>开源</span></a><span>，这种针对 AFL 算法改进的论文近些年层出不穷，有些还是值得一看，该研究来自香港科技大学的Dongdong She。</span></p></li><li><p><a href='https://arxiv.org/abs/2312.17677'><span>Prompt Fuzzing for Fuzz Driver Generation, 2024</span></a><span>:  通过迭代地生成模糊驱动来探索未发现的库代码，PromptFuzz 的核心思想就是通过覆盖指导指导 LLM 生成所需的模糊驱动，并利用程序错误预言保证其有效性，使用了 ChatGPT prompt 生成 Harness，但是其引入了三种新的后端处理思路来将 LLM 生成的错误harness 进行剔除，该研究来自腾讯安全大数据实验室。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3690209'><span>DarthShader: Fuzzing WebGPU Shader Translators &amp; Compilers, 2024</span></a><span>:  针对 Web GPU 着色器翻译器和编译器的模糊测试项目，</span><a href='https://github.com/wgslfuzz/darthshader'><span>darthshader</span></a><span> 已开源，开箱即用，研究来自 CISPA 亥姆霍兹信息安全中心。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3690216'><span>Collapse Like A House of Cards: Hacking Building Automation System Through Fuzzing, 2024</span></a><span>:  针对楼栋自动化系统 BAS 的 Fuzz 测试，没什么好说的，就是一个比较新颖的领域，研究来自德雷塞尔大学的张悦。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3690228'><span>OSmart: Whitebox Program Option Fuzzing, 2024</span></a><span>:  OSmart 是一个自动推断程序的选项，并组合各种选项，进行 Fuzz 的方案，通过分析程序的选项处理逻辑，可以更智能地生成测试用例，可惜暂时没有看到开源，研究来自中国科学院软件研究所。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3690229'><span>Program Environment Fuzzing, 2024</span></a><span>:  论文将程序运行所需要的环境都视为外部入口，进行 Fuzz 测试，对整个交互过程进行全面覆盖，包括网络服务器、图形界面应用、编译器等在内的任何 Linux 用户模式软件，</span><a href='https://github.com/GJDuck/EnvFuzz'><span>EnvFuzz</span></a><span> 已开源，几个月前曾尝试过这个工具，可以实现一键 Fuzz，但是分析崩溃需要耗费大量时间，研究来自新加坡国立大学。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3690231'><span>ProphetFuzz: Fully Automated Prediction and Fuzzing of High-Risk Option Combinations with Only Documentation via Large Language Model, 2024</span></a><span>:  提出了一种基于大型语言模型（LLM）的全自动工具 ProphetFuzz，用于预测应用程序的高风险选项组合并进行模糊测试。</span><a href='https://github.com/NASP-THU/ProphetFuzz'><span>ProphetFuzz</span></a><span> 已开源，来自‌北京中关村实验室。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3690232'><span>Leveraging Binary Coverage for Effective Generation Guidance in Kernel Fuzzing, 2024</span></a><span>:  一种使用内核二进制覆盖率反馈对内核进行 Fuzz 的方案，工具原型 KBinCov 未见开源，作者通过集成在 Syzkaller 中，对比原始的 kov，研究来自清华大学。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3690237'><span>Toss a Fault to BpfChecker: Revealing Implementation Flaws for eBPF runtimes with Differential Fuzzing, 2024</span></a><span>:  论文提出了一个差分模糊测试框架 BpfChecker，用于检测 eBPF 运行时中的实现缺陷。它利用 eBPF 程序作为输入，对各种 eBPF 运行时中的关键状态进行差分测试以发现实现缺陷，获得了 80 万刀的奖励！</span><a href='https://github.com/blocksecteam/BpfChecker'><span>BpfChecker</span></a><span> 已开源，作者来自浙江大学。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3690274'><span>No Peer, no Cry: Network Application Fuzzing via Fault Injection, 2024</span></a><span>:  通过故障注入，迫使目标进程进入一种奇怪的状态，进行 Fuzz。这项研究似乎拓展了故障注入的概念，说实话，看了一段内容，还是没太理解研究中所描述的故障注入，看起来是进行一些数据包微调。</span><a href='https://github.com/fuzztruction/fuzztruction-net-experiments'><span>Fuzztruction-Net</span></a><span> 原型已开源。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3690278'><span>Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing, 2024</span></a><span>:  确实是一项开创性的研究，通过二进制修补绕过崩溃代码，继续 Fuzz，虽然思想我们很容易理解，但是之前未见到自动化工具，</span><a href='https://github.com/sefcom/flakjack'><span>FlakJack</span></a><span> 就这么实现了，已开源，研究来自亚利桑那州立大学。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3690320'><span>CountDown: Refcount-guided Fuzzing for Exposing Temporal Memory Errors in Linux Kernel, 2024</span></a><span>:  为了主动触发与引用计数相关的 UAF 错误，论文提出了一种新型的引用计数引导内核模糊器 CountDown。CountDown 从内核执行中收集各种引用计数操作，并根据常访问的引用计数重塑系统调用关系。研究来自美国宾夕法尼亚州立大学斯泰特科利奇分校华人，未见开源。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3690336'><span>Fuzzing JavaScript Engines with a Graph-based IR, 2024</span></a><span>:  基于图的中间表示 FlowIR 直接将 JS 控制流和数据流表示为变异目标，即针对 JS 引擎的 Fuzz，研究来自国防科技大学，未见开源。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3658644.3690376'><span>CrossFire: Fuzzing macOS Cross-XPU Memory on Apple Silicon, 2024</span></a><span>:  论文提出了 CrossFire，这是第一个针对 Apple Silicon XPU 的模糊测试器，研究来自浙江大学，未见开源。</span></p></li></ul><h3 id='2023-4'><span>2023</span></h3><ul><li><p><a href='https://dl.acm.org/doi/10.1145/3576915.3616594'><span>DSFuzz: Detecting Deep State Bugs with Dependent State Exploration, 2023</span></a><span>:  基于深度学习研究状态机与代码路径的关系，简言之就是一个针对状态机建模，以提高代码覆盖率，接近千禧年出生的华人</span><a href='[Yinxi Liu](https://yinxi.site/)'><span>Yinxi Liu</span></a><span>。</span></p></li><li><p><a href='https://arxiv.org/abs/2309.03006'><span>Fuzz on the Beach: Fuzzing Solana Smart Contracts, 2023</span></a><span>:  Solana 是一种构建数字货币，如分布式工具的平台，而本文就是对这个平台诞生的智能合约的 Fuzz，来自德国的杜伊斯堡-埃森大学。</span></p></li><li><p><a href='https://mengrj.github.io/files/CCS23.pdf'><span>Greybox Fuzzing of Distributed Systems, 2023</span></a><span>:  针对分布式系统（如 Redis）的灰盒 Fuzz 工具，</span><a href='https://github.com/dsfuzz/mallory'><span>已开源</span></a><span>，环境使用 Docker，可以自己构建，Jepsen + Mallory，新加坡国立大学 Ruijie Meng。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3576915.3616610'><span>HOPPER: Interpretative Fuzzing for Libraries, 2023</span></a><span>:  一项比较有意思的研究，一种新的 API Fuzz 工具，不需要像开发那样对 API 的用法了如指掌，而只需要知道 Hopper 如何使用。目前的局限性是只针对 C 而非 C++ 语言编写的库，</span><a href='https://github.com/FuzzAnything/Hopper'><span>Hopper 开源地址</span></a><span>，</span><a href='http://www.baidu.com/link?url=aWqSg8WuLS7zTXIhjBtwYRtDkRYa9FBRmZWPvPgPJ6x5cZJO7SHTqM_YAqot7DF1LdMA6fwn0IJGpbWxnGHsfglRNqwnqNY5tH1I_LyyH0Gt78Po_-Jbb0O2e0dXJH7pyLfzX4YfzOgNJNNEcFS6AbdYK4AP_wRnMMHAXgZiv9zHGFa84udhi8xZfIY5pvkJnOP3Wi7-uzNkugatATRZ6K'><span>腾讯安全大数据实验室</span></a><span>。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3576915.3616636'><span>Profile-guided System Optimizations for Accelerated Greybox Fuzzing, 2023</span></a><span>:  优化 AFL 的持久模式和 Fork 系统调用，提升 Fuzz 效率，美国犹他大学，改进后的 </span><a href='AFL/AFL++ 分支代码'><span>AFL/AFL++ 分支代码</span></a><span>。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3576915.3623103'><span>NestFuzz: Enhancing Fuzzing with Comprehensive Understanding of Input Processing Logic, 2023</span></a><span>:  复旦大学系统软件与安全实验室研究成果，专门针对开源工具进行 Fuzz 的工具 </span><a href='https://github.com/fdu-sec/NestFuzz'><span>NestFuzz</span></a><span>，仍然是基于 AFL 改进的工具，提出了一种新颖的数据结构，即输入处理树，它可以表示输入格式的整体结构。在模糊测试的第二阶段，NestFuzz 设计了一种级联依赖性感知突变策略。基于已识别的依赖关系，每当 NestFuzz 改变（字段或结构级别）输入时，它都会级联改变其他受影响的字段或子结构以维持结构有效性。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3576915.3623146'><span>SyzDirect: Directed Greybox Fuzzing for Linux Kernel, 2023</span></a><span>:  仍然是来自于复旦大学系统软件与安全实验室，好在他们的工具都已开源：</span><a href='https://github.com/seclab-fudan/SyzDirect'><span>SyzDirect</span></a><span>，基于 Syzkaller 的改进。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3576915.3623166'><span>PyRTFuzz: Detecting Bugs in Python Runtimes via Two-Level Collaborative Fuzzing, 2023</span></a><span>:  顾名思义，就是一个用于检测 Python 运行时中的错误的模糊测试工具。它采用了两级模糊的方法，即单元测试级别的模糊和运行时级别的模糊，</span><a href='https://github.com/awen-li/PyRTFuzz'><span>PyRTFuzz 已开源</span></a><span>，</span><a href='https://awen-li.github.io/'><span>作者简介</span></a><span>。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3576915.3624373'><span>Poster: Combining Fuzzing with Concolic Execution for IoT Firmware Testing, 2023</span></a><span>：又是一个针对 </span><strong><span>IoT 固件的 Fuzz</span></strong><span> 工具。在以前固件模糊测试的基础上结合了符号执行。但是其限制仍然是目标固件要支持全系统仿真。因此，本篇论文仍然没有解决固件 Fuzz 测试的核心问题，即仿真，作者来自于韩国世宗大学。</span></p></li></ul><h3 id='2022-⤵'><span>2022 ⤵ </span></h3><ul><li><p><a href='https://dl.acm.org/doi/10.1145/3548606.3559367'><span>SFuzz: Slice-based Fuzzing for Real-Time Operating Systems, 2022</span></a><span>:  基于切片的新型模糊器 SFuzz，用于检测 RTOS 中的安全漏洞，来自上海交通大学。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3548606.3560602'><span>LibAFL: A Framework to Build Modular and Reusable Fuzzers, 2022</span></a><span>:   </span><strong><span>LibAFL</span></strong><span>，这是一个构建模块化和可重用模糊器的框架，来自于谷歌的个人研究者，已开源 </span><strong><a href='https://github.com/AFLplusplus/LibAFL'><span>LibAFL</span></a></strong><span>。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3548606.3560624'><span>JIT-Picking: Differential Fuzzing of JavaScript Engines, 2022</span></a><span>: JavaScript 引擎的模糊测试，来自德国 </span><em><span>波鸿鲁尔大学</span></em><span>。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3548606.3560648'><span>MC2: Rigorous and Efficient Directed Greybox Fuzzing, 2022</span></a><span>: 复杂性理论框架，将定向灰盒模糊测试作为一个 oracle 引导的搜索问题，一个较为学术型的 Fuzz 改进，来自美国纽约哥伦比亚大学。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/favocado-fuzzing-the-binding-code-of-javascript-engines-using-semantically-correct-test-cases/'><span>Favocado: Fuzzing the Binding Code of JavaScript Engines Using Semantically Correct Test Cases, 2021</span></a><span>：美国亚利桑那州立大学师生提出一种对 </span><strong><span>JS 引擎</span></strong><span>中绑定层代码进行 fuzzing 的工具：</span><a href='https://github.com/favocado/Favocado'><span>Favocado</span></a><span>。作者在对在4个不同的JavaScript运行时系统fuzz时，发现了61个新的bug，其中33个是安全漏洞，13个已经被CVE收录。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/winnie-fuzzing-windows-applications-with-harness-synthesis-and-fast-cloning/'><span>WINNIE : Fuzzing Windows Applications with Harness Synthesis and Fast Cloning, 2021</span></a><span>： 利用合成和快速克隆对 </span><strong><span>Windows 应用程序</span></strong><span>进行模糊测试 ， </span><em><span>佐治亚理工学院</span></em><span> 的作者构建了一个端到端 </span><a href='https://github.com/sslab-gatech/winnie'><span>WINNIE</span></a><span> 系统，包含两个组件：可从二进制文件中自动合成工具的生成器，以及一个高效的 Windows forkserver。 对比工具： WinAFL 。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/pgfuzz-policy-guided-fuzzing-for-robotic-vehicles/'><span>PGFUZZ: Policy-Guided Fuzzing for Robotic Vehicles, 2021</span></a><span>：普度大学 </span><em><span>Hyungsub Kim</span></em><span> 等人设计的一个针对机器车辆（ Robotic vehicles, RVs）fuzzing 工具，即 </span><a href='https://github.com/purseclab/PGFUZZ'><span>PGFUZZ</span></a><span>，应用场景较为有限。</span></p></li><li><p><a href='https://www.ndss-symposium.org/ndss-paper/reinforcement-learning-based-hierarchical-seed-scheduling-for-greybox-fuzzing/'><span>Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing, 2021</span></a><span>： </span><em><span>加州大学河滨分校</span></em><span> 华人团队通过引入多级覆盖和设计了基于强化学习的分层调度器，保留更多有价值的种子。即更加细粒度衡量代码覆盖率和更加合理的种子调度策略。</span></p></li><li><p><a href='https://acmccs.github.io/papers/p2123-corinaA.pdf'><span>DIFUZE: Interface Aware Fuzzing for Kernel Drivers, 2017</span></a><span> ： 圣塔芭芭拉大学的 Jake Corina 等提出的一个 seed 生成方案。通过</span><strong><span>优化种子生成</span></strong><span>，同样也可以达到提高 fuzzing 效率的效果。经过验证，</span><a href='https://github.com/ucsb-seclab/difuze'><span>DIFUZE</span></a><span> 相较于现有的 fuzzer 在 ioctl() 接口上，确实存在着明显的优势。这也是显然的，DIFUZE 相较于其他的工具在 fuzzing这样一个需要超大信息量的接口上提供了足够的信息，支撑它挖掘出大于其他工具几个数量级的信息量。</span></p></li><li><p><a href='https://files.sri.inf.ethz.ch/website/papers/ccs19-ilf.pdf'><span>Learning to Fuzz from Symbolic Execution with Application to Smart Contracts, 2019</span></a><span>：苏黎世联邦理工学院 Jingxuan He 等人提出了一种从符号执行中学习 fuzzer 的新方法，将其应用于智能合约中。</span></p></li><li><p><a href='https://web.cs.ucdavis.edu/~hchen/paper/chen2019matryoshka.pdf'><span>Matryoshka: fuzzing deeply nested branches, 2019</span></a><span>： 字节跳动人工智能实验室，灰盒fuzz近年来取得了令人瞩目的进展，从基于启发式的随机变异进化到求解单个分支约束。但是，它们很难解决包含深度嵌套条件语句的路径约束。作者开发了一个工具 Matryoshka1 实现深层次嵌套路径的覆盖。</span></p></li><li><p><a href='https://chenbihuan.github.io/paper/ccs18-chen-hawkeye.pdf'><span>Hawkeye: Towards a Desired Directed Grey-box Fuzzer, 2018</span></a><span>：新加坡南洋理工大学，Hawkeye 是一个定向模糊测试技术，本文提出 4 个定向型 fuzzer 的特性并进行改进：考虑所有到达目标点的路径，不管长短；平衡静态分析的开销和实用性；合理分配能量；适应性变异策略。</span></p></li><li><p><a href='http://daramg.gift/paper/han-ccs2017.pdf'><span>IMF: Inferred Model-based Fuzzer, 2017</span></a><span>：现有的内核模糊技术涉及将随机输入值输入到内核 API 函数中。然而，这样一个简单方法并没有揭示内核代码深处潜在的 bug，作者提出 IMF 模型，利用API函数调用之间的推断依赖模型来发现内核的深层缺陷。</span></p></li><li><p><a href='https://www.informatics.indiana.edu/xw7/papers/p2139-you.pdf'><span>SemFuzz: Semantics-based Automatic Generation of Proof-of-Concept Exploits, 2017</span></a><span>： 印第安纳大学伯明顿分校华人研发的 SemFuzz，这是一种利用漏洞相关文本（如 CVE 报告和 Linux git 日志）来指导 PoC 攻击自动生成的新技术。</span></p></li><li><p><a href='https://dl.acm.org/citation.cfm?id=3134020'><span>Directed Greybox Fuzzing, 2017</span></a><span>： 2017 年 Bohme 提出了 DGF 的概念，并且完成了名为 AFLGo 的工具，即定向模糊测试。</span></p></li><li><p><a href='https://arxiv.org/pdf/1708.08437.pdf'><span>SlowFuzz: Automated Domain-Independent Detection of Algorithmic Complexity Vulnerabilities, 2017</span></a><span>：主要讲述 fuzzing 中正则表达式带来的问题，并实现了相应的改进算法。</span></p></li><li><p><a href='https://acmccs.github.io/papers/p2123-corinaA.pdf'><span>DIFUZE: Interface Aware Fuzzing for Kernel Drivers, 2017</span></a><span>： 圣塔芭芭拉大学的 Jake Corina  设计并完成了</span><strong><span>针对用户态与内核驱动关键接口 ioctl() 的 fuzzing 工具 DIFUZE</span></strong><span>， </span><a href='https://github.com/ucsb-seclab/difuze'><span>DIFUZE</span></a><span> 首先对内核代码进行静态分析，完成interface 的 recovery，获取 interface 的关键信息，并基于这些有效的信息去生成更加合理的 fuzzing 输入，得到一个更好的 fuzzing 效果。  </span></p></li></ul><h2 id='tools'><span>Tools</span></h2><p><span>这里收录常见并且实用的工具，多数工具经过笔者实践，具有一定的普适性。也有一些优秀但是很久没有维护更新，并且适用场景非常有限的工具，未包含在其中。</span></p><h3 id='变异器'><span>变异器</span></h3><ul><li><p><a href='https://gitlab.com/akihe/radamsa'><span>Radamsa</span></a><span> ：Radamsa 是用于健壮性测试的测试用例生成器。通过读取有效数据的样本文件并从中生成令人感兴趣的不同输出来工作。 </span></p></li><li><p><a href='https://github.com/samhocevar/zzuf'><span>zzuf</span></a><span> ：一个 fuzzer 的输入程序，作为一个优秀的开源项目，已经有不少国外的大型项目引入 zzuf，作为各种畸形数据的生成。</span></p></li></ul><h3 id='二进制'><span>二进制</span></h3><ul><li><p><a href='https://www.youtube.com/watch?v=OheODvF0884'><span>afl-unicorn: Fuzzing The &#39;Unfuzzable&#39; </span></a><span>： </span><a href='https://www.battelle.org/cyber'><span>Battelle</span></a><span> 在  </span><strong><span>ShmooCon 2018</span></strong><span> 上发布的一个工具，已经有大佬将演讲视频添加</span><a href='https://www.bilibili.com/video/av83051615/'><span>中文字幕</span></a><span>并上传到 B 站上。该</span><a href='https://github.com/Battelle/afl-unicorn'><span>工具</span></a><span> 弥补了 afl 的不足，可以对任意二进制代码片段进行 fuzz，作为一个完全使用</span><strong><span>黑盒进行 fuzz</span></strong><span> 的工具，afl-unicorn 也保留了 afl 原有的代码覆盖率统计，根据反馈对种子进行变异，从而提高代码覆盖。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3319535.3354249'><span>Intriguer: Field-Level Constraint Solving for Hybrid Fuzzing</span></a><span>：韩国延世大学发布在安全顶会 </span><strong><span>CCS 2019</span></strong><span> 上的一篇关于 fuzzer 性能改进的文章。该团队提出了一个基于 AFL，名为 </span><a href='https://github.com/seclab-yonsei/intriguer'><span>Intriguer</span></a><span> 的新型</span><strong><span>混合 fuzzer</span></strong><span>。通过污点分析和指令跟踪，经过笔者实践，该工具能够覆盖更深层次的代码路径。但是同时也存在 bug，会在 </span><code>/tmp</code><span> 目录下生成大量冗余文件。</span></p></li><li><p><a href='https://www.usenix.org/system/files/woot19-paper_maier.pdf'><span>Unicorefuzz: On the Viability of Emulation for Kernelspace Fuzzing</span></a><span> ：柏林工业大学学者发表在安全顶会  </span><strong><span>USENIX Security &#39;19</span></strong><span>  上的一篇关于 </span><strong><span>fuzzing 内核</span></strong><span>的文章。相对于 syzkaller， </span><a href='https://github.com/fgsect/unicorefuzz'><span>unicorefuzz</span></a><span> 配置更加简单，能够 fuzz 路径较深的一些函数。</span></p></li><li><p><a href='http://llvm.org/docs/LibFuzzer.html'><span>libFuzzer</span></a><span> ：谷歌开发的一个基于覆盖引导的 fuzzer，主要针对库提供的</span><strong><span>接口</span></strong><span>进行 fuzzing。</span></p></li><li><p><a href='https://github.com/google/honggfuzz'><span>Honggfuzz</span></a><span>：同样是谷歌开发的一个类似于 afl 的工具，只是 honggfuzz 基于反馈驱动，多线程和多进程，fuzz 速度相比于 afl 有一个质的飞跃。</span></p></li><li><p><a href='https://github.com/google/syzkaller'><span>syzkaller</span></a><span>：优秀的</span><strong><span>内核 fuzz</span></strong><span> 工具，可以针对各种</span><strong><span>驱动接口</span></strong><span>进行 fuzzing。</span></p></li><li><p><a href='https://github.com/andreafioraldi/frida-fuzzer'><span>frida-fuzzer</span></a><span>： Frida-Fuzzer 是一款针对 API 的内存模糊测试框架，该工具的设计和开发灵感来源于 afl/afl++，Frida-Fuzzer 的当前版本支持在 GNU/Linux x86_64 和 Android x86——64 平台上运行。 </span></p></li><li><p><a href='https://github.com/googleprojectzero/winafl'><span>winafl</span></a><span>：afl 的一个分支项目，将 afl 用于Windows 平台。</span></p></li><li><p><a href='https://github.com/kernelslacker/trinity'><span>trinity</span></a><span>：Linux system call fuzzer，对于 </span><strong><span>Linux 系统调用</span></strong><span>的模糊测试工具。</span></p></li><li><p><a href='https://github.com/hfiref0x/NtCall64'><span>NtCall64</span></a><span>：Windows NT x64 syscall fuzzer，基于 NtCall 的 </span><strong><span>Windows 系统调用</span></strong><span>模糊测试工具。</span></p></li><li><p><a href='https://github.com/k0keoyo/kDriver-Fuzzer'><span>kDriver-Fuzzer</span></a><span>：基于 ioctlbf 框架编写的驱动漏洞挖掘工具 kDriver Fuzzer，</span><strong><span>驱动 fuzzer</span></strong><span>。</span></p></li><li><p><a href='https://github.com/bitblaze-fuzzball/fuzzball'><span>fuzzball</span></a><span>：FuzzBALL是基于 BitBlaze Vine 库的x86（和少许ARM）二进制代码的</span><strong><span>符号执行</span></strong><span>工具 </span></p></li></ul><h3 id='api协议'><span>API/协议</span></h3><ul><li><p><a href='https://github.com/OpenRCE/sulley'><span>Sulley</span></a><span>/</span><a href='https://github.com/jtpereyda/boofuzz'><span>Boofuzz</span></a><span>：Sulley 是一个模糊测试框架。主要用于协议的 fuzz，如今已经不再维护。 </span><a href='https://github.com/jtpereyda/boofuzz'><span>Boofuzz</span></a><span> 是古老的 </span><a href='https://github.com/OpenRCE/sulley'><span>Sulley</span></a><span> 模糊测试框架的分支和后续版本。除了大量错误修复外，boofuzz 扩展更多新特性。</span></p></li><li><p><a href='https://github.com/nccgroup/fuzzowski'><span>fuzzowski</span></a><span>：基于 boofuzz 的网络协议模糊测试工具，基于 sulley 的数据变异。</span></p></li><li><p><a href='https://github.com/MozillaSecurity/peach'><span>Peach</span></a><span>：Peach 是 Michael  团队开发的一个模糊测试框架，最初为开源软件，后续部分核心测试套</span><strong><span>商用</span></strong><span>发布。Peach 专注于文件格式的 fuzz，同时针对各种协议的 fuzz 也十分友好。</span></p></li><li><p><a href='https://www.synopsys.com/software-integrity/security-testing/fuzz-testing.html'><span>Defensics</span></a><span>： Defensics 是一个基于变异的 fuzzing </span><strong><span>商用</span></strong><span>工具，简单而强大，广泛支持各种协议，具有成熟的测试套，也具有较强扩展性，用户可以通过模板创建属于自己的测试套。</span></p></li><li><p><a href='https://beyondsecurity.com/bestorm-and-the-sdl.html?cn-reloaded=1'><span>bsSTORM</span></a><span>：</span><strong><span>商用工具</span></strong><span>，覆盖完整的软件生命周期，看上去更擅长协议 fuzz。</span></p></li><li><p><a href='https://github.com/Fuzzapi/API-fuzzer'><span>API-fuzzer</span></a><span>：使用常见的渗透测试技术和已知漏洞对一些网络 </span><strong><span>API</span></strong><span> 请求进行 fuzz。</span></p></li><li><p><a href='https://github.com/googleprojectzero/domato'><span>domato</span></a><span> ：googleprojectzero 开发的一个专门用于浏览器的黑盒 fuzz 工具，用法简单，通过让浏览器访问生成各种随机的前端页面，观察浏览器的状态。</span></p></li></ul><h3 id='固件'><span>固件</span></h3><ul><li><p><a href='https://www.usenix.org/conference/usenixsecurity24/presentation/mera'><span>SHiFT: Semi-hosted Fuzz Testing for Embedded Applications, 2024</span></a><span> - 一个</span><strong><span>针对 MCU 固件</span></strong><span>的 Fuzz 方案，与之前工作不太相同的是，</span><a href='https://github.com/RiS3-Lab/SHiFT'><span>SHiFT</span></a><span> 采用半托管方案，非全仿真，避免不必要的外设模拟，研究者特意强调方案已开源。论文来自</span><em><span>东北大学</span></em><span>。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity24/presentation/chesser'><span>MultiFuzz: A Multi-Stream Fuzzer For Testing Monolithic Firmware, 2024</span></a><span> - 一个针对固件 MMIO 的 Fuzz 方案，利用多输入流改进 Fuzz，需要固件仿真平台的支持，貌似基于 </span><a href='https://github.com/MultiFuzz/MultiFuzz'><span>Fuzzware</span></a><span>，因此，是基于已有仿真平台所做的 Fuzz 改进。研究来自</span><em><span>阿德莱德大学</span></em><span>。</span></p></li><li><p><a href='https://www.computer.org/csdl/proceedings-article/sp/2024/313000a127/1Ub23HQTJ1C'><span>LABRADOR: Response Guided Directed Fuzzing for Black-box IoT Devices, 2024</span></a><span> - 又是一个针对固件黑盒 Fuzz 的工具，来自于信息工程大学的</span><a href='https://www.computer.org/csdl/search/default?type=author&amp;givenName=Hangtian&amp;surname=Liu'><span>Hangtian Liu</span></a><span>，也是张超团队的工作。相比 SNIPUZZ、BOOFUZZ 和 FIRM-AFL 能够发现更多的漏洞，同时是 SaTC 发现的漏洞的 8.57 倍。与以前工作不同的是，</span><strong><span>LABRADOR 似乎不需要进行固件仿真</span></strong><span>，而是在真机上进行 Fuzz 测试，通过网络响应来推断固件的执行跟踪，并推导出测试的代码覆盖率，未见开源。</span></p></li><li><p><a href='https://dl.acm.org/doi/10.1145/3576915.3624373'><span>Poster: Combining Fuzzing with Concolic Execution for IoT Firmware Testing, 2023</span></a><span>：又是一个针对 </span><strong><span>IoT 固件的 Fuzz</span></strong><span> 工具。在以前固件模糊测试的基础上结合了符号执行。但是其限制仍然是目标固件要支持全系统仿真。因此，本篇论文仍然没有解决固件 Fuzz 测试的核心问题，即仿真，作者来自于韩国世宗大学。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/seidel'><span>Forming Faster Firmware Fuzzers, 2023</span></a><span> - </span><em><span>柏林工业大学</span></em><span> Lukas Seidel 提出一种针对 </span><strong><span>ARM Cortex-M MCU</span></strong><span> 固件进行 Fuzz 的工具，</span><a href='https://github.com/pr0me/SAFIREFUZZ'><span>SAFIREFUZZ</span></a><span> 已开源，论文总结了过去的 MCU Fuzz 类型，并展现 SAFIREFUZZ 与众不同的地方：SAFIREFUZZ 运行在与目标固件架构相同的操作系统上（例如树莓派），节省了以前的工具使用 QEMU TCG 带来的性能损失，且不需要使用 softmmu，显著提升模糊测试效率。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity23/presentation/angelakopoulos'><span>FirmSolo: Enabling dynamic analysis of binary Linux-based IoT kernel modules, 2023</span></a><span> - </span><em><span>波士顿大学</span></em><span> Ioannis Angelakopoulos 工程师介绍的另外一种 IoT 固件模糊测试解决方案 FirmSolo。以经典的 Firmadyne 为例，传统固件模拟工具专注于用户空间的仿真和测试。而 FirmSole 可以提取固件的内核模块元信息，生成一个可以由 Qemu 加载的新内核，进而可以对这些内核模块进行模糊测试，已开源 </span><a href='https://github.com/BUseclab/FirmSolo'><span>FirmSole </span></a><span>。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity22/presentation/scharnowski'><span>Fuzzware: Using Precise MMIO Modeling for Effective Firmware Fuzzing, 2022</span></a><span> -  使用精准的 MMIO 建模提高固件模糊测试效率，来自于</span><em><span>波鸿鲁尔大学</span></em><span> 。一种针对 </span><strong><span>ARM Cortex-M MCU 固件</span></strong><span>进行 Fuzz 的工具，使用 </span><strong><span>Unicore Engine</span></strong><span> 仿真，MMIO 寄存器作为 Fuzz 入口，已开源 </span><a href='https://github.com/fuzzware-fuzzer/fuzzware'><span>Fuzzware</span></a><span>。 </span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity21/presentation/zhou'><span>Automatic Firmware Emulation through Invalidity-guided Knowledge Inference, 2021</span></a><span> - 华中科技大学周威老师团队开发的 μEmu，使用</span><strong><span>符号执行</span></strong><span>获取</span><strong><span>模拟固件映像</span></strong><span>所需信息，支持 </span><strong><span>ARM Cortex-M MCU 固件</span></strong><span>，基于 </span><strong><span>S2E</span></strong><span>（符号执行平台）设计和开发的，已开源 </span><a href='https://github.com/MCUSec/uEmu'><span>μEmu</span></a><span>。</span></p></li><li><p><a href='https://www.ndss-symposium.org/wp-content/uploads/2018/02/ndss2018_01A-1_Chen_paper.pdf'><span>IOTFUZZER: Discovering Memory Corruptions in IoT Through App-based Fuzzing</span></a><span>：香港大学  Jiongyi Chen  发表在 </span><strong><span>NDSS 2018</span></strong><span> 上的一篇关于固件 fuzzing 的文章，作者借助 IoT 设备的移动端 App 设计了一个黑盒模糊测试工具 </span><a href='https://github.com/zyw-200/IOTFuzzer_Full'><span>IOTFuzzer</span></a><span> 分析 IoT 设备上的内存错误漏洞。通过测试了 17 个不同的 IoT 设备，最终发现 15 个内存错误漏洞，其中包括了 8 个未知的漏洞。</span></p></li><li><p><a href='https://www.usenix.org/conference/usenixsecurity19/presentation/zheng'><span>FIRM-AFL: High-Throughput Greybox Fuzzing of IoT Firmware via Augmented Process Emulation</span></a><span>：由中科院信工所 Yaowen Zheng 发表在 </span><strong><span>USENIX Security &#39;19</span></strong><span> ， </span><a href='https://github.com/zyw-200/FirmAFL'><span>FIRM-AFL</span></a><span> 是第一个用于物联网固件的高质量灰盒模糊器，此工具的劣势在于只能 fuzz Firmadyne 能够正常模拟的固件。</span></p></li><li><p><a href='https://ieeexplore.ieee.org/document/8990098'><span>FIRMCORN: Vulnerability-Oriented Fuzzing of IoT Firmware via Optimized Virtual Execution</span></a><span>：发表在  </span><a href='https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6287639'><span>IEEE Access</span></a><span> 2020 年的期刊上，作为基于优化虚拟执行的 IoT 固件模糊测试框架 </span><a href='https://github.com/FIRMCORN-Fuzzing/FIRMCORN'><span>FIRMCORN</span></a><span>，作者声称是首次面向 IoT 固件的模糊测试框架。</span></p></li></ul><h2 id='blogs'><span>Blogs</span></h2><p><span>如果不想看这么多理论知识，只是想快速将工具运用于实际项目中，直接参考以下博客，即可对各种 fuzzing 工具快速入门。</span></p><p><strong><span>AFL</span></strong></p><ul><li><p><a href='https://www.freebuf.com/articles/system/191543.html'><span>AFL漏洞挖掘技术漫谈（一）：用AFL开始你的第一次Fuzzing</span></a></p></li><li><p><a href='https://www.freebuf.com/articles/system/197678.html'><span>AFL漏洞挖掘技术漫谈（二）：Fuzz结果分析和代码覆盖率</span></a><span> </span></p></li><li><p><a href='https://blog.csdn.net/song_lee/article/details/105082092'><span>深入分析 afl / qemu-mode(qemu模式) / afl-unicorn 编译及安装存在的问题以及相应的解决方案</span></a></p></li><li><p><a href='https://xz.aliyun.com/t/10315'><span>AFL二三事——源码分析（上篇）</span></a></p></li><li><p><a href='https://xz.aliyun.com/t/10316'><span>AFL二三事——源码分析（下篇）</span></a></p></li></ul><p><strong><span>boofuzz</span></strong></p><ul><li><p><a href='https://blog.csdn.net/song_lee/article/details/104334096'><span>IoT 设备网络协议模糊测试工具boofuzz实战</span></a></p></li></ul><p><strong><span>libfuzzer</span></strong></p><ul><li><p><a href='https://www.secpulse.com/archives/71898.html'><span>fuzz实战之libfuzzer</span></a></p></li></ul><p><strong><span>Peach</span></strong></p><ul><li><p><a href='https://www.freebuf.com/sectool/120650.html'><span>深入探究文件Fuzz工具之Peach实战</span></a><span> </span></p></li><li><p><a href='https://cloud.tencent.com/developer/article/1093368'><span>工控网络协议模糊测试：用peach对modbus协议进行模糊测试</span></a></p></li><li><p><a href='https://www.freebuf.com/sectool/219584.html'><span>Peach原理简介与实战：以Fuzz Web API为例</span></a><span> </span></p></li></ul><p><strong><span>内核 fuzz</span></strong></p><ul><li><p><a href='https://xz.aliyun.com/t/4760'><span>内核漏洞挖掘技术系列(1)——trinity</span></a><span> </span></p></li><li><p><a href='https://xz.aliyun.com/t/4800'><span>内核漏洞挖掘技术系列(2)——bochspwn</span></a><span> </span></p></li><li><p><a href='https://xz.aliyun.com/t/4921'><span>内核漏洞挖掘技术系列(3)——bochspwn-reloaded(1)</span></a></p></li><li><p><a href='https://xz.aliyun.com/t/4932'><span>内核漏洞挖掘技术系列(3)——bochspwn-reloaded(2)</span></a><span> </span></p></li><li><p><a href='https://xz.aliyun.com/t/5079'><span>内核漏洞挖掘技术系列(4)——syzkaller(1)</span></a><span> - syzkaller源码分析系列文章</span></p></li><li><p><a href='https://www.freebuf.com/sectool/323886.html'><span>Syzkaller入门知识总结</span></a><span> - syzkaller 入门</span></p></li><li><p><a href='https://www.freebuf.com/sectool/285699.html'><span>从0开始Fuzzing之旅: 使用Syzkaller进行Linux驱动漏洞挖掘</span></a><span> - Android 模拟器内核</span></p></li><li><p><a href='https://bbs.pediy.com/thread-265405.htm'><span>从0到1开始使用syzkaller进行Linux内核漏洞挖掘</span></a><span> - Linux 内核</span></p></li><li><p><a href='https://blog.senyuuri.info/2020/04/16/fuzzing-a-pixel-3a-kernel-with-syzkaller/'><span>Fuzzing a Pixel 3a Kernel with Syzkaller</span></a><span> - Android 手机</span></p></li></ul><p><span>其他</span></p><ul><li><p><a href='http://galaxylab.com.cn/%e5%9f%ba%e4%ba%8eunicorn%e5%92%8clibfuzzer%e7%9a%84%e6%a8%a1%e6%8b%9f%e6%89%a7%e8%a1%8cfuzzing/'><span>基于 Unicorn 和 LibFuzzer 的模拟执行 fuzzing</span></a><span> (2019)： 银河实验室对基于 unicorn 的模拟执行 fuzzing 技术进行了研究。在上次研究的基础上，进一步整合解决了部分问题，初步实现了基于 Unicorn 和 LibFuzzer 的模拟执行fuzzing 工具：</span><a href='https://github.com/PAGalaxyLab/uniFuzzer'><span>uniFuzzer</span></a></p></li><li><p><a href='https://www.freebuf.com/articles/endpoint/335783.html'><span>IoT固件Rehosting综述</span></a><span> - </span><strong><span>一篇相当不错的固件模拟综述</span></strong></p></li></ul><br /><hr /><h2 id='contribute'><span>Contribute</span></h2><p><span>如果你看到了认为比较好的有关模糊测试的资源，欢迎贡献本项目！请阅读</span><a href='https://github.com/liyansong2018/fuzzing-tutorial/blob/main/CONTRIBUTING.md'><span>贡献指南</span></a><span>。</span></p><h2 id='license'><span>License</span></h2><p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span>本作品采用</span><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><span>知识共享署名-相同方式共享 4.0 国际许可协议</span></a><span>进行许可。</span></p></div></div>
+
+<script>(function(){function e(e,n,i){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var t=e.target;t&&t!=this;t=t.parentNode)if(t.matches(n)){!1===i.call(t,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)}var t=document.body.parentElement,i=[],r=null,o=document.body.classList.contains("typora-export-collapse-outline");function a(){return t.scrollTop}e("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),u(),!1}),e("click",".outline-item",function(e){var t=this.querySelector(".outline-label");location.hash="#"+t.getAttribute("href"),o&&((t=this.closest(".outline-item-wrapper").classList).contains("outline-item-open")||t.add("outline-item-open"),d(),t.add("outline-item-active"))});function s(){var e=a();r=null;for(var t=0;t<i.length&&i[t][1]-e<60;t++)r=i[t]}function n(){c=setTimeout(function(){var n;i=[],n=a(),document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(e=>{var t=e.getAttribute("id");i.push([t,n+e.getBoundingClientRect().y])}),s(),u()},300)}var l,c,d=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},u=function(){if(r&&(d(),t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(r[0]):r[0])+'"]')))if(o){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var t,n=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");n;)n=(t=n).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")};window.addEventListener("scroll",function(e){l&&clearTimeout(l),l=setTimeout(function(){s(),u()},300)});window.addEventListener("resize",function(e){c&&clearTimeout(c),n()}),n()})();</script></body>
+</html>

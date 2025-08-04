@@ -1,17 +1,13 @@
----
-layout: default
----
-
 # Recent Papers/Blogs/Tools Related to Fuzzing
 
 The blog post contains classic fuzzing books, papers about fuzzing at information security top conferences over the years, commonly used fuzzing tools, and blogs that can quickly learn fuzzing tools.
 
-## 1 Books
+## Books
 
 - [The Fuzzing Book](https://www.fuzzingbook.org/) (2019)：This book is based on principles + code exercises, combined with practical exercises, to complete a fuzzing test framework from 0 to 1. If you want to write your own fuzzing framework, you can refer to this book.
 - [Fuzzing for Software Security Testing and Quality Assurance](https://www.amazon.com/Fuzzing-Software-Security-Testing-Assurance/dp/1608078507/) (2018)：This book introduces the idea of fuzzing into the software development life cycle. In fact, many efficient fuzzing tests are often considered in the development stage. The book discusses the development of fuzz tools, including not only some emerging open source tools, but also many commercial ones. How to choose the right fuzzer for software development projects is also one of the themes of this book.
 
-## 2 Articles&Papers
+## Articles&Papers
 
 This chapter contains top-level information security and classic papers in some journals. We just want to select some of them with relatively high technical value or relatively novel articles to facilitate subsequent learning.
 
@@ -28,8 +24,6 @@ This chapter contains top-level information security and classic papers in some 
 - [Effective File Format Fuzzing – Thoughts, Techniques and Results](https://www.youtube.com/watch?v=qTTwqFRD1H8)
 
 ### NDSS
-
-#### 2025
 
 - [Automatic Library Fuzzing through API Relation Evolvement, 2025](https://www.ndss-symposium.org/ndss-paper/automatic-library-fuzzing-through-api-relation-evolvement/)
 - [Blackbox Fuzzing of Distributed Systems with Multi-Dimensional Inputs and Symmetry-Based Feedback Pruning, 2025](https://www.ndss-symposium.org/ndss-paper/blackbox-fuzzing-of-distributed-systems-with-multi-dimensional-inputs-and-symmetry-based-feedback-pruning/)
@@ -228,7 +222,7 @@ This chapter contains top-level information security and classic papers in some 
 - [SlowFuzz: Automated Domain-Independent Detection of Algorithmic Complexity Vulnerabilities, 2017](https://arxiv.org/pdf/1708.08437.pdf)
 - [DIFUZE: Interface Aware Fuzzing for Kernel Drivers, 2017](https://acmccs.github.io/papers/p2123-corinaA.pdf)
 
-## 3 Tools
+## Tools
 
 Common and practical tools are included here, most of which have been practiced by the author and have a certain degree of universality. There are also some excellent tools that have not been maintained and updated for a long time and have very limited applicable scenarios, which are not included.
 
