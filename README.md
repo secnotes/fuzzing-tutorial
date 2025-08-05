@@ -176,6 +176,12 @@
 
 ## IEEE S&P
 
+### 2025
+
+- [FirmRCA: Towards Post-Fuzzing Analysis on ARM Embedded Firmware with Efficient Event-based Fault Localization, 2025](https://www.computer.org/csdl/proceedings-article/sp/2025/223600a002/21B7PVDny6I) - FirmRCA，这是一个专为**嵌入式固件**量身定制的实用故障定位框架。[代码已开源](https://github.com/NESA-Lab/FirmRCA)，作者来自浙江大学 NESA 实验室，基于Unicorn模拟器的 hook 机制、利用 Capstone 反汇编。
+- [Predator: Directed Web Application Fuzzing for Efficient Vulnerability Validation, 2025](https://www.computer.org/csdl/proceedings-article/sp/2025/223600a066/21B7Ray6BkA) - Predator，这是一个配备选择性动态插桩的定向模糊测试框架，用于 **Web 应用程序**漏洞检测和验证。暂未见开源，作者来自香港中文大学。
+- [RGFuzz: Rule-Guided Fuzzer for WebAssembly Runtimes, 2025](https://www.computer.org/csdl/proceedings-article/sp/2025/223600a003/21B7PWv1JGU) - 一个用于 WebAssembly 运行时的差分模糊测试工具 RGFuzz。备注：WebAssembly（Wasm）是一种新型的、可移植的、高效的二进制指令格式。[工具已开源](https://github.com/kaist-hacking/RGFuzz)，作者来自韩国科学技术院。
+
 ### 2024
 
 - [AFGen: Whole-Function Fuzzing for Applications and Libraries, 2024](https://www.computer.org/csdl/proceedings-article/sp/2024/313000a011/1RjE9PjiDss) - AFGen（全函数模糊测试应用和库）是一种用于应用程序和库的全函数模糊测试工具。它是一种基于符号执行的模糊测试技术，通过符号执行进行静态分析，[代码即将开源](https://github.com/Marsman1996/AFGen)，作者来自于中国科学院大学的[刘雨薇](https://www.computer.org/csdl/search/default?type=author&givenName=Yuwei&surname=Liu)。
