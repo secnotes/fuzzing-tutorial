@@ -96,6 +96,29 @@
 
 ## USENIX Security
 
+### 2025
+
+- [AidFuzzer: Adaptive Interrupt-Driven Firmware Fuzzing via Run-Time State Recognition, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/wang-jianqiang) - 一种针对固件仿真时，中断的模拟。文章来源于*亥姆霍兹信息安全中心* 的[王建强](https://wqqqy.cn/)，浙大本科毕业。
+
+- [GenHuzz: An Efficient Generative Hardware Fuzzer, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/wu-lichao) - 白盒硬件模糊测试框架，论文来自[吴立超](https://wu-lichao.github.io/)，德国达姆施塔特工业大学系统安全实验室的博士后研究员。
+- [Encarsia: Evaluating CPU Fuzzers via Automatic Bug Injection, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/bolcskei) - 针对 RISC-V 软硬件进行的 Fuzz 测试，来自*苏黎世联邦理工学院*。[Encarsia 开源链接](https://github.com/comsec-group/encarsia)。
+- [Lost in Translation: Enabling Confused Deputy Attacks on EDA Software with TransFuzz, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/solt) - 利用 EDA 软件的 bug 隐藏硬件木马。[知乎](https://zhuanlan.zhihu.com/p/1927138475397874487)上有一篇详细解读。
+- [NASS: Fuzzing All Native Android System Services with Interface Awareness and Coverage, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/mao) - 通过定制 Binder Server 接口，实现针对 Android 原生服务的 Fuzz 框架，[NASS 已开源](https://github.com/iromise/fans)。（2020 年的工作，旧酒装新壶）。
+- [LLFuzz: An Over-the-Air Dynamic Testing Framework for Cellular Baseband Lower Layers, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/hoang) - 针对基带和空口的 Fuzz 工具。论文来自韩国大田韩国科学技术院 [Hacking Lab](https://kaist-hacking.github.io/)。[工具已开源](https://github.com/SysSec-KAIST/LLFuzz)。
+- [Waltzz: WebAssembly Runtime Fuzzing with Stack-Invariant Transformation, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/zhang-lingming) -  Waltzz，一个专为 Wasm 运行时量身定制的实用 Fuzz 测试框架。论文来自浙江大学 [NESA 实验室](https://nesa.zju.edu.cn/webpage/news.html)。[看雪](https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458451152&idx=2&sn=4abbf7a643b93027529e12442608aca2&chksm=b18fcc5a86f8454cb6051aab6a45751ad736285e3f46e92436edb2b963b46bee27da5e0c9922&scene=27)上有一篇详细解读，[开源链接](https://zenodo.org/records/14718828)。
+- [MBFuzzer: A Multi-Party Protocol Fuzzer for MQTT Brokers, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/song-xiangpu) - 一个针对 MQTT 协议进行 Fuzz 的工具。[ctfiot](https://www.ctfiot.com/272328.html) 上有一篇详细解读，工作来自山东大学，[开源链接](https://zenodo.org/records/14710570)。
+- [ChainFuzz: Exploiting Upstream Vulnerabilities in Open-Source Supply Chains, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/deng) - ChainFuzz，这是一种通过生成概念验证 (PoC) 来验证下游软件中上游漏洞的自动化方法。工作来自复旦大学，[实验数据开源](https://github.com/vul337/IDFuzz)。
+- [IDFuzz: Intelligent Directed Grey-box Fuzzing, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/chen-yiyang) - 利用神经网络模型从历史变异输入中学习，并提取有用的经验，从而引导输入变异朝向目标代码。文章来自清华大学张超团队，貌似这个团队经常对覆盖反馈生命周期的每一阶段做优化，[实验数据开源](https://github.com/vul337/IDFuzz)。
+- [Robust, Efficient, and Widely Available Greybox Fuzzing for COTS Binaries with System Call Pattern Feedback, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/xiao-jifan) - 名为 SPFuzz 和 SPFuzz++ 的 Fuzz 工具，系统调用模式覆盖无需实现二进制插桩。[SAFuzz 已开源](https://github.com/Nova-xiao/SPFuzz)，基于 AFL 的改进。论文来自北京大学。
+- [BLuEMan: A Stateful Simulation-based Fuzzing Framework for Open-Source RTOS Bluetooth Low Energy Protocol Stacks, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/kao) -  BLuEMan，这是一个基于仿真的针对 BLE 的 Fuzz 测试框架，它将实时操作系统 (RTOS) 与基于软件的物理层模拟器集成在一起。[BLuEMan 已开源](https://github.com/zoolab-org/blueman.artifact)。论文来自台湾 *国立阳明交通大学*。
+- [ELFuzz: Efficient Input Generation via LLM-driven Synthesis Over Fuzzer Space, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/chen-chuyang) - 通过大模型进行 Fuzz 测试的演化。作者来自 *俄亥俄州立大学*，[elfuzz 已开源](https://github.com/OSUSecLab/elfuzz)。
+- [Hybrid Language Processor Fuzzing via LLM-Based Constraint Solving, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/yang-yupeng) - 利用 LLM 约束求解，对编译器或者解释器进行 Fuzz 测试。作者来自 *佐治亚理工学院*， [hlpfuzz 附件](https://zenodo.org/records/15606061)。
+- [From Alarms to Real Bugs: Multi-target Multi-step Directed Greybox Fuzzing for Static Analysis Result Verification, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/bao-andrew) - 第一个多目标、多步骤引导式模糊测试器，它利用从静态分析中获得的语义信息（即程序流）和相关性。工作来自 *明尼苏达大学双城分校*。
+- [Low-Cost and Comprehensive Non-textual Input Fuzzing with LLM-Synthesized Input Generators, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/zhang-kunpeng) - 使用大模型来合成并变异 Python 脚本形式的输入生成器，使其生成符合给定输入格式语法的数据。解决了大模型无法生成非文本用例的限制。[G2FUZZ 已开源](https://github.com/G2FUZZ/G2FUZZ)，这个工具看起来更容易工程化。论文来自 *香港科技大学*。
+- [Fuzzing the PHP Interpreter via Dataflow Fusion, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/jiang-yuancheng) - 针对 PHP 解释器的 Fuzz 工具。论文来自 *新加坡国立大学*。这篇论文被评为最佳论文，虽然有很多站点仍然使用 PHP 语言，但是 H5、Java、Rust 等正在侵蚀传统 Web 语言。 
+- [XSSky: Detecting XSS Vulnerabilities through Local Path-Persistent Fuzzing, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/shi-youkun) - 一个针对 PHP 中的 XSS 漏洞进行 Fuzz 测试的方案。工作来自 *复旦大学*，有限开源，限制访问。
+- [Effective Directed Fuzzing with Hierarchical Scheduling for Web Vulnerability Detection, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/lin-zihan) - 一种名为 WDFuzz 的新型定向 Fuzz 测试方法，针对 Web 应用程序。工作来自 *复旦大学*，有限开源，限制访问。
+
 ### 2024
 
 - [A Binary-level Thread Sanitizer or Why Sanitizing on the Binary Level is Hard, 2024](https://www.usenix.org/conference/usenixsecurity24/presentation/schilling) - 二进制 [TSAN](https://github.com/CISPA-SysSec/binary-tsan)（已开源），这是一种实现针对 Linux x86_64 二进制目标的数据竞争检测器。目前，已有 RETROWRITE 将 ASAN 白盒插桩应用于二进制插桩，但是还没有关于 MSAN/UBSAN/TSAN 的二进制实现。本文就是实现了一个 TSAN 的黑盒插桩工具。论文来自*亥姆霍兹信息安全中心*  Joschua Schilling。

@@ -68,6 +68,27 @@ This chapter contains top-level information security and classic papers in some 
 
 ### USENIX Security
 
+### 2025
+
+- [AidFuzzer: Adaptive Interrupt-Driven Firmware Fuzzing via Run-Time State Recognition, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/wang-jianqiang)
+- [GenHuzz: An Efficient Generative Hardware Fuzzer, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/wu-lichao)
+- [Encarsia: Evaluating CPU Fuzzers via Automatic Bug Injection, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/bolcskei)
+- [Lost in Translation: Enabling Confused Deputy Attacks on EDA Software with TransFuzz, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/solt)
+- [NASS: Fuzzing All Native Android System Services with Interface Awareness and Coverage, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/mao)
+- [LLFuzz: An Over-the-Air Dynamic Testing Framework for Cellular Baseband Lower Layers, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/hoang)
+- [Waltzz: WebAssembly Runtime Fuzzing with Stack-Invariant Transformation, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/zhang-lingming)
+- [MBFuzzer: A Multi-Party Protocol Fuzzer for MQTT Brokers, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/song-xiangpu)
+- [ChainFuzz: Exploiting Upstream Vulnerabilities in Open-Source Supply Chains, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/deng) 
+- [IDFuzz: Intelligent Directed Grey-box Fuzzing, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/chen-yiyang)
+- [Robust, Efficient, and Widely Available Greybox Fuzzing for COTS Binaries with System Call Pattern Feedback, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/xiao-jifan)
+- [BLuEMan: A Stateful Simulation-based Fuzzing Framework for Open-Source RTOS Bluetooth Low Energy Protocol Stacks, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/kao)
+- [ELFuzz: Efficient Input Generation via LLM-driven Synthesis Over Fuzzer Space, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/chen-chuyang)
+- [Hybrid Language Processor Fuzzing via LLM-Based Constraint Solving, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/yang-yupeng)
+- [From Alarms to Real Bugs: Multi-target Multi-step Directed Greybox Fuzzing for Static Analysis Result Verification, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/bao-andrew)
+- [Low-Cost and Comprehensive Non-textual Input Fuzzing with LLM-Synthesized Input Generators, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/zhang-kunpeng)
+- [Fuzzing the PHP Interpreter via Dataflow Fusion, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/jiang-yuancheng)
+- [XSSky: Detecting XSS Vulnerabilities through Local Path-Persistent Fuzzing, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/shi-youkun)
+- [Effective Directed Fuzzing with Hierarchical Scheduling for Web Vulnerability Detection, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/lin-zihan)
 - [A Binary-level Thread Sanitizer or Why Sanitizing on the Binary Level is Hard, 2024](https://www.usenix.org/conference/usenixsecurity24/presentation/schilling)
 - [Critical Code Guided Directed Greybox Fuzzing for Commits, 2024](https://www.usenix.org/conference/usenixsecurity24/presentation/xiang-yi)
 - [EL3XIR: Fuzzing COTS Secure Monitors, 2024](https://www.usenix.org/conference/usenixsecurity24/presentation/lindenmeier)
