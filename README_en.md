@@ -198,6 +198,17 @@ This chapter contains top-level information security and classic papers in some 
 
 ### ACM CCS
 
+- [RVISmith: Fuzzing Compilers for RVV Intrinsics, 2025](https://arxiv.org/abs/2507.03773)
+- [Fuzzing Processing Pipelines for Zero-Knowledge Circuits, 2025](https://arxiv.org/abs/2411.02077)
+- [Error Messages to Fuzzing: Detecting XPS Parsing Vulnerabilities in Windows Printing Components, 2025](https://ccs25files.zoolab.org/main/ccsfa/pChLGVk0/3719027.3744807.pdf)
+- [SyzSpec: Specification Generation for Linux Kernel Fuzzing via Under-Constrained Symbolic Execution, 2025](https://www.cs.ucr.edu/~zhiyunq/pub/ccs25_syzspec.pdf)
+- [SyzParam: Incorporating Runtime Parameters into Kernel Driver Fuzzing, 2025](https://arxiv.org/abs/2501.10002)
+- [Intent-aware Fuzzing for Android Hardened Application, 2025](https://s2-lab.github.io/assets/AHAFuzz_CCS25.pdf)
+- [A Qualitative Analysis of Fuzzing Tool Usability and Challenges, 2025](https://www.usenix.org/conference/soups2025/presentation/zhao-poster)
+- [Protocol-Aware Firmware Rehosting for Effective Fuzzing of Embedded Network Stacks, 2025](https://arxiv.org/abs/2509.13740)
+- [ConTest: Taming the Cyber-physical Input Space in Fuzz Testing with Control Theory, 2025](https://ccs25files.zoolab.org/main/ccsfb/6v0fxegK/3719027.3765129.pdf)
+- [DriveFuzz: Enhancing CPU Fuzzing via Diverse Instruction Construction, 2025](https://ccs25files.zoolab.org/main/ccsfb/Kao8sgTE/3719027.3765167.pdf)
+- [PromeFuzz: A Knowledge-Driven Approach to Fuzzing Harness Generation with Large Language Models, 2025](https://ccs25files.zoolab.org/main/ccsfb/Re4TSIGe/3719027.3765222.pdf)
 - [LIFTFUZZ: Validating Binary Lifters through Context-aware Fuzzing with GPT, 2024](https://dl.acm.org/doi/10.1145/3658644.3670276)
 - [https://github.com/zyt755/LIFTFUZZ, 2024](https://dl.acm.org/doi/10.1145/3658644.3670278)
 - [RANsacked: A Domain-Informed Approach for Fuzzing LTE and 5G RAN-Core Interfaces, 2024](https://dl.acm.org/doi/10.1145/3658644.3670320)

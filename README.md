@@ -266,6 +266,20 @@
 
 ## ACM CCS
 
+### 2025
+
+- [RVISmith: Fuzzing Compilers for RVV Intrinsics, 2025](https://arxiv.org/abs/2507.03773) - 针对 RVV 内部函数 RVI 的 Fuzz 工具。[RVISmith 开源链接](https://github.com/yibo2000/RVISmith)。
+- [Fuzzing Processing Pipelines for Zero-Knowledge Circuits, 2025](https://arxiv.org/abs/2411.02077) -首个针对零知识证明的 Circuit （电路是指一种逻辑或计算模型，用于定义验证一个问题所需的步骤和逻辑运算。） 进行系统性 Fuzz 测试的技术，已在 [Circuzz](https://github.com/Rigorous-Software-Engineering/circuzz) 初步实现。
+- [Error Messages to Fuzzing: Detecting XPS Parsing Vulnerabilities in Windows Printing Components, 2025](https://ccs25files.zoolab.org/main/ccsfa/pChLGVk0/3719027.3744807.pdf) - 检测 Windows 打印组件中的 XPS 解析漏洞。
+- [SyzSpec: Specification Generation for Linux Kernel Fuzzing via Under-Constrained Symbolic Execution, 2025](https://www.cs.ucr.edu/~zhiyunq/pub/ccs25_syzspec.pdf) - SyzSpec，通过符号执行生成更精准的系统调用描述，将 Syzkaller 手动编写的系统调用描述文件自动化，论文来自[郝宇 ](https://zhyfeng.github.io/)，就职于华为。
+- [SyzParam: Incorporating Runtime Parameters into Kernel Driver Fuzzing, 2025](https://arxiv.org/abs/2501.10002) - 通过静态分析提取不同驱动程序的运行时参数。
+- [Intent-aware Fuzzing for Android Hardened Application, 2025](https://s2-lab.github.io/assets/AHAFuzz_CCS25.pdf) - 基于 eBPF 的 AHA-Fuzz，首个针对 Android 应用的 Intent 感知灰盒 Fuzz 测试框架。[已开源](https://github.com/S2-Lab/AHA-fuzz)。
+- [A Qualitative Analysis of Fuzzing Tool Usability and Challenges, 2025](https://www.usenix.org/conference/soups2025/presentation/zhao-poster) - 本研究通过对来自不同领域的 Fuzz 测试用户进行 18 次半结构化访谈，探究了 Fuzz 测试的人性化一面。这些访谈探讨了参与者在 Fuzz 测试方面的工作流程、遇到的挫折和期望，为下一代 Fuzz 测试工具提供参考。
+- [Protocol-Aware Firmware Rehosting for Effective Fuzzing of Embedded Network Stacks, 2025](https://arxiv.org/abs/2509.13740) - 通过**固件网络协议**的模拟，相关工具 Pemu 可以透明地生成封装 Fuzz 测试数据的有效网络数据包，从而使 Fuzz 测试输入能够直接流入固件逻辑的更深层。
+- [ConTest: Taming the Cyber-physical Input Space in Fuzz Testing with Control Theory, 2025](https://ccs25files.zoolab.org/main/ccsfb/6v0fxegK/3719027.3765129.pdf) - 没有论文材料。
+- [DriveFuzz: Enhancing CPU Fuzzing via Diverse Instruction Construction, 2025](https://ccs25files.zoolab.org/main/ccsfb/Kao8sgTE/3719027.3765167.pdf) - 没有论文材料。
+- [PromeFuzz: A Knowledge-Driven Approach to Fuzzing Harness Generation with Large Language Models, 2025](https://ccs25files.zoolab.org/main/ccsfb/Re4TSIGe/3719027.3765222.pdf) -  没有论文材料。
+
 ### 2024
 
 - [LIFTFuzz: Validating Binary Lifters through Context-aware Fuzzing with GPT, 2024](https://dl.acm.org/doi/10.1145/3658644.3670276) - 所谓的 binay lifter，就是将二进制转化为统一的中间语言（IR），这是在逆向工程中常见的一种方式，LiftFuzz 是一个利用指令上下文感知 Fuzz 测试来验证 binary lifeter 的新框架。LiftFuzz 利用汇编语言模型来学习指令之间的交互，并利用这些知识生成测试用例，说要开源，但是一直没有[开源](https://github.com/zyt755/LIFTFuzz)。
