@@ -3,7 +3,7 @@
 # Recent Papers/Blogs/Tools Related to Fuzzing
 [<img src="logo/logo.png" align="right" width="30%">](https://github.com/secnotes/Fuzzing-tutorial)
 
-> Curated list of classic Fuzzing books, papers about Fuzzing at information security top conferences over the years, commonly used Fuzzing tools, and resources that can help us use Fuzzer easily. → [English](https://secnotes.github.io/Fuzzing-tutorial/index_en.html)
+> Curated list of classic Fuzzing books, papers about Fuzzing at information security top conferences over the years, commonly used Fuzzing tools, and resources that can help us use Fuzzer easily. → [English](https://secnotes.github.io/fuzzing-tutorial/index_en.html)
 
 本项目收录了经典的 Fuzzing 书籍、历年安全顶会上有关 Fuzzing 的经典论文、常用的 Fuzzing 工具、可以快速入手 Fuzzing 工具的博客，如果你有更多资源，欢迎贡献。
 
@@ -108,12 +108,12 @@
 - [MBFuzzer: A Multi-Party Protocol Fuzzer for MQTT Brokers, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/song-xiangpu) - 一个针对 MQTT 协议进行 Fuzz 的工具。[ctfiot](https://www.ctfiot.com/272328.html) 上有一篇详细解读，[开源链接](https://zenodo.org/records/14710570)。
 - [ChainFuzz: Exploiting Upstream Vulnerabilities in Open-Source Supply Chains, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/deng) - ChainFuzz，这是一种通过生成概念验证 (PoC) 来验证下游软件中上游漏洞的自动化方法。[实验数据开源](https://github.com/vul337/IDFuzz)。
 - [IDFuzz: Intelligent Directed Grey-box Fuzzing, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/chen-yiyang) - 利用神经网络模型从历史变异输入中学习，并提取有用的经验，从而引导输入变异朝向目标代码。文章来自清华大学张超团队，貌似这个团队经常对覆盖反馈生命周期的每一阶段做优化，[实验数据开源](https://github.com/vul337/IDFuzz)。
-- [Robust, Efficient, and Widely Available Greybox Fuzzing for COTS Binaries with System Call Pattern Feedback, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/xiao-jifan) - 名为 SPFuzz 和 SPFuzz++ 的 Fuzz 工具，系统调用模式覆盖无需实现二进制插桩。[SAFuzz 已开源](https://github.com/Nova-xiao/SPFuzz)，基于 AFL 的改进。
+- [Robust, Efficient, and Widely Available Greybox Fuzzing for COTS Binaries with System Call Pattern Feedback, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/xiao-jifan) - 这篇论文提出了一种**新的覆盖率**概念，而不是传统的基本块/边覆盖率统计维度，通过检测系统调用的模式（顺序、参数和返回值）变相实现覆盖率统计，具体算法见论文。[SAFuzz 已开源](https://github.com/Nova-xiao/SPFuzz)，基于 AFL 的改进。
 - [BLuEMan: A Stateful Simulation-based Fuzzing Framework for Open-Source RTOS Bluetooth Low Energy Protocol Stacks, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/kao) -  BLuEMan，这是一个基于仿真的针对 BLE 的 Fuzz 测试框架，它将实时操作系统 (RTOS) 与基于软件的物理层模拟器集成在一起。[BLuEMan 已开源](https://github.com/zoolab-org/blueman.artifact)。
 - [ELFuzz: Efficient Input Generation via LLM-driven Synthesis Over Fuzzer Space, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/chen-chuyang) - 通过大模型进行 Fuzz 测试的演化。[elFuzz 已开源](https://github.com/OSUSecLab/elFuzz)。
 - [Hybrid Language Processor Fuzzing via LLM-Based Constraint Solving, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/yang-yupeng) - 利用 LLM 约束求解，对编译器或者解释器进行 Fuzz 测试。[hlpFuzz 源码及附件](https://zenodo.org/records/15606061)。
-- [From Alarms to Real Bugs: Multi-target Multi-step Directed Greybox Fuzzing for Static Analysis Result Verification, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/bao-andrew) - 第一个多目标、多步骤引导式 Fuzz 测试器，它利用从静态分析中获得的语义信息（即程序流）和相关性。
-- [Low-Cost and Comprehensive Non-textual Input Fuzzing with LLM-Synthesized Input Generators, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/zhang-kunpeng) - 使用大模型来合成并变异 Python 脚本形式的输入生成器，使其生成符合给定输入格式语法的数据。解决了大模型无法生成非文本用例的限制。[G2Fuzz 已开源](https://github.com/G2Fuzz/G2Fuzz)，这个工具看起来更容易工程化。
+- [From Alarms to Real Bugs: Multi-target Multi-step Directed Greybox Fuzzing for Static Analysis Result Verification, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/bao-andrew) - 第一个多目标、多步骤引导式 Fuzz 测试工具，它利用从静态分析中获得的语义信息（即程序流）和相关性，更具来说，**只对静态分析的大量告警相关的调用栈上的基本块进行插桩**，从而验证告警的有效性。
+- [Low-Cost and Comprehensive Non-textual Input Fuzzing with LLM-Synthesized Input Generators, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/zhang-kunpeng) - 使用大模型的不同文件格式的**种子生成器**，使其生成符合给定输入格式语法的数据。解决了大模型无法生成非文本用例的限制。[G2Fuzz 已开源](https://github.com/G2Fuzz/G2Fuzz)，使用了 OpenAI 的接口。
 - [Fuzzing the PHP Interpreter via Dataflow Fusion, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/jiang-yuancheng) - 针对 PHP 解释器的 Fuzz 工具。这篇论文被评为最佳论文，虽然有很多站点仍然使用 PHP 语言，但是 H5、Java、Rust 等正在侵蚀传统 Web 语言。 
 - [XSSky: Detecting XSS Vulnerabilities through Local Path-Persistent Fuzzing, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/shi-youkun) - 一个针对 PHP 中的 XSS 漏洞进行 Fuzz 测试的方案。有限开源，限制访问。
 - [Effective Directed Fuzzing with Hierarchical Scheduling for Web Vulnerability Detection, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/lin-zihan) - 一种名为 WDFuzz 的新型定向 Fuzz 测试方法，针对 Web 应用程序。有限开源，限制访问。
