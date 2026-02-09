@@ -500,11 +500,37 @@ def get_current_date():
     return datetime.now().strftime("%Y-%m-%d")
 
 
+def copy_logo_if_exists():
+    """Copy logo from root logo directory to docs/logo directory if it exists"""
+    import shutil
+    import os
+
+    source_logo = "logo/logo.png"
+    dest_dir = "docs/logo"
+    dest_logo = "docs/logo/logo.png"
+
+    # Create destination directory if it doesn't exist
+    os.makedirs(dest_dir, exist_ok=True)
+
+    # Copy logo file if it exists
+    if os.path.exists(source_logo):
+        try:
+            shutil.copy2(source_logo, dest_logo)
+            print(f"Copied logo from {source_logo} to {dest_logo}")
+        except Exception as e:
+            print(f"Error copying logo: {str(e)}")
+    else:
+        print(f"Logo file {source_logo} does not exist, skipping copy")
+
+
 def main():
     """Main function to convert all markdown files in the root directory to HTML"""
 
     # Create docs directory if it doesn't exist
     os.makedirs('docs', exist_ok=True)
+
+    # Copy logo if it exists
+    copy_logo_if_exists()
 
     # Find all markdown files in the root directory
     markdown_files = glob.glob("*.md")
