@@ -1,0 +1,49 @@
+name: Convert Markdown to HTML
+
+on:
+  push:
+    paths:
+      - 'README.md'
+      - 'README_en.md'
+      - 'CONTRIBUTING.md'
+      - 'markdown_to_html.py'
+  workflow_dispatch:
+
+jobs:
+  convert-markdown:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install markdown
+
+    - name: Create docs directory
+      run: mkdir -p docs
+
+    - name: Run markdown to HTML conversion
+      run: python markdown_to_html.py
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs/
+        if [[ -n $(git status --porcelain docs/) ]]; then
+          git commit -m "Auto-update HTML files from Markdown [skip ci]"
+          git push
+        else
+          echo "No changes to commit"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -9,10 +9,6 @@
 
 <hr />
 
-## Table of Contents
-
-[TOC]
-
 ## Books
 
 - [The Fuzzing Book, 2019](https://www.Fuzzingbook.org/) - 该书以原理+代码练习为基础，从 0 到 1 完成一个 Fuzz 测试框架，结合实际的练习，如果想编写自己的测试框架，可以参考本书。

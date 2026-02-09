@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuzzing Tutorial - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        nav a:hover {
+            background-color: #34495e;
+        }
+
+        .main-content {
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+
+        .links-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .link-card {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .link-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .link-card a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .link-card a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .description {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #555;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .links-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Fuzzing Tutorial</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index_en.html">English</a></li>
+                        <li><a href="contributing.html">Contributing</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <h2 class="title">Fuzzing Tutorial</h2>
+            <p class="subtitle">Collection of Papers, Blogs, and Tools Related to Fuzzing</p>
+
+            <div class="description">
+                <p>This repository curates classic Fuzzing books, papers about Fuzzing at information security top conferences over the years, commonly used Fuzzing tools, and resources that can help us use Fuzzer easily.</p>
+            </div>
+
+            <div class="links-container">
+                <div class="link-card">
+                    <h3>中文版</h3>
+                    <p>中文版 Fuzzing 教程，收录了经典的 Fuzzing 书籍、历年安全顶会上有关 Fuzzing 的经典论文、常用的 Fuzzing 工具、可以快速入手 Fuzzing 工具的博客</p>
+                    <a href="index.html">View Chinese Version</a>
+                </div>
+
+                <div class="link-card">
+                    <h3>English Version</h3>
+                    <p>English version of the fuzzing tutorial containing classic fuzzing books, papers, tools, and blogs.</p>
+                    <a href="index_en.html">View English Version</a>
+                </div>
+
+                <div class="link-card">
+                    <h3>Contribute</h3>
+                    <p>Learn how to contribute to this project with guidelines for submitting issues and pull requests.</p>
+                    <a href="contributing.html">Contribution Guide</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Fuzzing Tutorial - Collection of Papers, Blogs, and Tools Related to Fuzzing</p>
+            <p>Last updated: 2026-02-09</p>
+        </footer>
+    </div>
+</body>
+</html>
