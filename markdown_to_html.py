@@ -183,7 +183,7 @@ def convert_markdown_to_html(input_file, output_dir):
             color: #2980b9;
             text-decoration: none;
             display: block;
-            padding: 0.25rem 0.5rem;
+            # padding: 0.25rem 0.5rem; 
             border-radius: 4px;
             transition: all 0.2s;
         }}
