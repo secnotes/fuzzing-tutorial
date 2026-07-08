@@ -30,6 +30,23 @@
 
 ## NDSS
 
+### 2026
+
+- [ADGFUZZ: Assignment Dependency-Guided Fuzzing for Robotic Vehicles, 2026](https://www.ndss-symposium.org/ndss-paper/adgfuzz-assignment-dependency-guided-fuzzing-for-robotic-vehicles/) - 针对机器车辆（Robotic Vehicle）控制软件的 Fuzz 框架，通过分析源码中赋值语句之间的依赖关系，专门挖掘赋值语句相关漏洞，作者已报告 16 个确认修复的 bug，[ADGFuzz 已开源](https://github.com/wyunc/ADGFuzz)。
+- [An LLM-Driven Fuzzing Framework for Detecting Logic Instruction Bugs in PLCs, 2026](https://www.ndss-symposium.org/ndss-paper/an-llm-driven-fuzzing-framework-for-detecting-logic-instruction-bugs-in-plcs/) - 首个面向异构 PLC 平台、自动化挖掘逻辑指令漏洞的 Fuzz 工具 LogicFuzz，利用大模型从手册中提取 bug 线索指导测试，在 3 家厂商 6 款 PLC 上发现 19 个指令级漏洞（含 4 个未知），暂未见开源。
+- [BSFuzzer: Context-Aware Semantic Fuzzing for BLE Logic Flaw Detection, 2026](https://www.ndss-symposium.org/ndss-paper/bsfuzzer-context-aware-semantic-fuzzing-for-ble-logic-flaw-detection/) - 针对蓝牙低功耗（BLE）逻辑缺陷的 Fuzz 工具，利用 LLM 智能体从蓝牙规范中解析出状态机与报文语义，实现上下文感知的语义级变异，超越传统字节级变异，[BSFuzz 已开源](https://github.com/yangting111/BSFuzz)。
+- [DOM-XSS Detection via Webpage Interaction Fuzzing and URL Component Synthesis, 2026](https://www.ndss-symposium.org/ndss-paper/dom-xss-detection-via-webpage-interaction-fuzzing-and-url-component-synthesis/) - 用于检测 DOM 型 XSS 的分析基础设施 SWIPE，通过 Fuzz 生成用户交互以触发事件处理器，并结合 URL 组件合成来定位漏洞，暂未见开源。
+- [FirmAgent: Leveraging Fuzzing to Assist LLM Agents with IoT Firmware Vulnerability Discovery, 2026](https://www.ndss-symposium.org/ndss-paper/firmagent-leveraging-fuzzing-to-assist-llm-agents-with-iot-firmware-vulnerability-discovery/) - 针对 IoT 固件的混合方案 FirmAgent，先用 Fuzz 收集运行时输入点（污点源）并重建潜在漏洞路径，再由大模型智能体辅助推理发现漏洞，作者团队为清华大学张超组（vul337），[FirmAgent 已开源](https://github.com/vul337/FirmAgent)，[看雪解读](https://bbs.kanxue.com/thread-291020.htm)。
+- [Fuzzilicon: A Post-Silicon Microcode-Guided x86 CPU Fuzzer, 2026](https://www.ndss-symposium.org/ndss-paper/fuzzilicon-a-post-silicon-microcode-guided-x86-cpu-fuzzer/) - 首个针对真实 **x86 CPU** 的流片后（post-silicon）Fuzz 框架，能够深入微码（microcode）进行内省，对 Intel Core 9–14 代处理器进行 Fuzz 测试，该论文获 **NDSS 2026 杰出论文奖**，暂未见开源。
+- [GoldenFuzz: Generative Golden Reference Hardware Fuzzing, 2026](https://www.ndss-symposium.org/ndss-paper/goldenfuzz-generative-golden-reference-hardware-fuzzing/) - 两阶段的硬件 Fuzz 框架，将测试用例精炼与覆盖率/漏洞检测解耦，并利用定制的语言模型生成语义合法的 RISC-V 指令块，暂未见开源。
+- [HyperMirage: Direct State Manipulation in Hybrid Virtual CPU Fuzzing, 2026](https://www.ndss-symposium.org/ndss-paper/hypermirage-direct-state-manipulation-in-hybrid-virtual-cpu-fuzzing/) - 针对虚拟机监视器（hypervisor）CPU 仿真接口的 Fuzz 工具，提出"直接状态操纵"自动变异 fuzzing 所消费的 VM 状态，免去手工构造种子的繁琐，在 Xen/KVM 中发现 11 个已确认 bug，[HyperMirage 已开源](https://github.com/tum-itsec/hypermirage)。
+- [MUTATO: Enhancing Fuzz Drivers with Adaptive API Option Mutation, 2026](https://www.ndss-symposium.org/ndss-paper/mutato-enhancing-fuzz-drivers-with-adaptive-api-option-mutation/) - 一种与具体 Fuzzer 无关的 fuzz driver 增强方法，在变异输入数据的同时，依据覆盖率反馈自适应地变异 C/C++ API 的选项参数，覆盖更多选项组合下的代码路径，暂未见开源。
+- [PhyFuzz: Detecting Sensor Vulnerabilities with Physical Signal Fuzzing, 2026](https://www.ndss-symposium.org/ndss-paper/phyfuzz-detecting-sensor-vulnerabilities-with-physical-signal-fuzzing/) - 提出"物理信号 Fuzz"新范式，通过注入物理测试信号挖掘传感器漏洞，研究传感器的性能极限、故障与偏置如何被攻击者转化为安全漏洞，暂未见开源。
+- [PortRush: Detect Write Port Contention Side-Channel Vulnerabilities via Hardware Fuzzing, 2026](https://www.ndss-symposium.org/ndss-paper/portrush-detect-write-port-contention-side-channel-vulnerabilities-via-hardware-fuzzing/) - 在 RTL 层级检测写端口竞争（write port contention）侧信道漏洞的 Fuzz 框架，通过最大化写请求覆盖率的"竞争引导硬件 Fuzz"自动触发写端口竞争，暂未见开源。
+- [ReFuzz: Reusing Tests for Processor Fuzzing with Contextual Bandits, 2026](https://www.ndss-symposium.org/ndss-paper/refuzz-reusing-tests-for-processor-fuzzing-with-contextual-bandits/) - 自适应的处理器 Fuzz 框架，利用上下文赌博机（contextual bandit）复用先前处理器上高效的测试用例，作为对新处理器进行 Fuzz 的种子，加速处理器设计的测试，暂未见开源。
+- [RTCON: Context-Adaptive Function-Level Fuzzing for RTOS Kernels, 2026](https://www.ndss-symposium.org/ndss-paper/rtcon-context-adaptive-function-level-fuzzing-for-rtos-kernels/) - 针对实时操作系统（RTOS）内核的函数级 Fuzz 工具，在 Fuzz 过程中自适应地生成函数上下文，可对内核中任意目标函数进行测试，发现 27 个 bug（25 个新漏洞），崩溃分类精度达 92.7%，[RTCON 已开源](https://github.com/kaist-hacking/RTCON)。
+- [SYSYPHUZZ: the Pressure of More Coverage, 2026](https://www.ndss-symposium.org/ndss-paper/sysyphuzz-the-pressure-of-more-coverage/) - 一个内核 Fuzz 工具，通过施加"覆盖率压力"有针对性地探索传统 Fuzzer 难以触达的欠测试代码区域，提升内核漏洞挖掘效果，来自 EPFL HexHive 团队，[Sysyphuzz 已开源](https://github.com/HexHive/Sysyphuzz)。
+
 ### 2025
 
 - [Automatic Library Fuzzing through API Relation Evolvement, 2025](https://www.ndss-symposium.org/ndss-paper/automatic-library-Fuzzing-through-api-relation-evolvement/) - 通过 API 列表的组合调用进行测试。为了解决隐式API调用规范的问题提出了**关系学习阶段**，即通过更改 API 调用顺序观察执行状态的变化来推断API 关系。
