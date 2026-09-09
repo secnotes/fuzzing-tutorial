@@ -164,6 +164,20 @@ This chapter contains top-level information security and classic papers in some 
 
 ### IEEE S&P
 
+- [Batch Me If You Can: Coverage-guided RPKI Fuzzing at Scale, 2026](https://ieeexplore.ieee.org/document/11573494)
+- [Camveil: Unveiling Security Camera Vulnerabilities through Multi-Protocol Coordinated Fuzzing, 2026](https://ieeexplore.ieee.org/document/11573550)
+- [deepSURF: Detecting Memory Safety Vulnerabilities in Rust Through Fuzzing LLM-Augmented Harnesses, 2026](https://ieeexplore.ieee.org/document/11573565)
+- [Fizzle: A Framework for Deterministic and Reproducible Network Fuzzing, 2026](https://ieeexplore.ieee.org/document/11573941)
+- [Fuzzing the Physical Space: Physics-Aware Testing of Black-Box Industrial Control Systems, 2026](https://ieeexplore.ieee.org/document/11573458)
+- [Jazzer: Coverage-Guided Fuzzing for Semantic Vulnerabilities in the Java Ecosystem, 2026](https://ieeexplore.ieee.org/document/11573447)
+- [PILOT: Command-line Interface Fuzzing via Path-Guided, Iterative Large Language Model Prompting, 2026](https://ieeexplore.ieee.org/document/11573510)
+- [SmuFuzz: Enable Deep System Management Mode Fuzzing in Fully Featured UEFI Runtime Environment, 2026](https://ieeexplore.ieee.org/document/11573420)
+- [Specializing Language Models for Textual Fuzzing via Reinforcement Learning, 2026](https://ieeexplore.ieee.org/document/11573566)
+- [StepStone: LLM-Based GPU Kernel Driver Fuzzing via User-Space Libraries, 2026](https://ieeexplore.ieee.org/document/11573613)
+- [Stop Starving or Stuffing Me: Boosting Firmware Fuzzing Efficiency with On-demand Input Delivery, 2026](https://ieeexplore.ieee.org/document/11573407)
+- [TrigFuzz: Triggering Conditions Guided Directed Fuzzing, 2026](https://ieeexplore.ieee.org/document/11573637)
+- [Web Application Vulnerability Repair via Context-Aware Fault Localization and Directed Differential Fuzzing, 2026](https://ieeexplore.ieee.org/document/11573512)
+- [zkFuzz: Foundation and Framework for Effective Fuzzing of Zero-Knowledge Circuits, 2026](https://ieeexplore.ieee.org/document/11573528)
 - [FirmRCA: Towards Post-Fuzzing Analysis on ARM Embedded Firmware with Efficient Event-based Fault Localization, 2025](https://www.computer.org/csdl/proceedings-article/sp/2025/223600a002/21B7PVDny6I)
 - [Predator: Directed Web Application Fuzzing for Efficient Vulnerability Validation, 2025](https://www.computer.org/csdl/proceedings-article/sp/2025/223600a066/21B7Ray6BkA)
 - [RGFuzz: Rule-Guided Fuzzer for WebAssembly Runtimes, 2025](https://www.computer.org/csdl/proceedings-article/sp/2025/223600a003/21B7PWv1JGU)

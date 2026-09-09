@@ -211,6 +211,23 @@
 
 ## IEEE S&P
 
+### 2026
+
+- [Batch Me If You Can: Coverage-guided RPKI Fuzzing at Scale, 2026](https://ieeexplore.ieee.org/document/11573494) - 针对 RPKI（资源公钥基础设施，互联网 BGP 路由安全的基础）实现的**大规模覆盖引导 Fuzzing**，工具 CAT 吞吐量提升 66 倍，发现 21 个未知漏洞（8 个 CVE，最高 CVSS 9.8）。
+- [Camveil: Unveiling Security Camera Vulnerabilities through Multi-Protocol Coordinated Fuzzing, 2026](https://ieeexplore.ieee.org/document/11573550) - 针对监控摄像头的 **多协议协同 Fuzz** 工具，同一设备的多个协议（如 ONVIF、RTSP 等）实现存在关联交互，跨协议协同测试可挖掘单协议 Fuzz 难以发现的漏洞。
+- [deepSURF: Detecting Memory Safety Vulnerabilities in Rust Through Fuzzing LLM-Augmented Harnesses, 2026](https://ieeexplore.ieee.org/document/11573565) - 针对 **Rust 生态**的内存安全漏洞挖掘，利用大模型增强/合成 harness，对 unsafe 代码依赖及 Rust-C 混合库进行 Fuzz。
+- [Fizzle: A Framework for Deterministic and Reproducible Network Fuzzing, 2026](https://ieeexplore.ieee.org/document/11573941) - 一个**确定性、可复现**的网络 Fuzz 框架，解决网络 Fuzz 中非确定性（时序、并发）导致 crash 难以复现的痛点。
+- [Fuzzing the Physical Space: Physics-Aware Testing of Black-Box Industrial Control Systems, 2026](https://ieeexplore.ieee.org/document/11573458) - 面向工控系统（ICS）的**物理信号感知 Fuzz**，对黑盒设备的物理过程建模并注入物理量扰动，与 NDSS 2026 的 PhyFuzz 思路相近。
+- [Jazzer: Coverage-Guided Fuzzing for Semantic Vulnerabilities in the Java Ecosystem, 2026](https://ieeexplore.ieee.org/document/11573447) - 谷歌 OSS-Fuzz 中 Java 生态的主力 Fuzzer Jazzer 论文化，除内存错误外还检测 **SSRF、路径遍历、反序列化等语义类漏洞**，[Jazzer 已开源](https://github.com/CodeIntelligenceTesting/jazzer)。
+- [PILOT: Command-line Interface Fuzzing via Path-Guided, Iterative Large Language Model Prompting, 2026](https://ieeexplore.ieee.org/document/11573510) - 利用大模型**迭代式路径引导提示**生成命令行参数组合，对 **CLI 程序**进行 Fuzz。
+- [SmuFuzz: Enable Deep System Management Mode Fuzzing in Fully Featured UEFI Runtime Environment, 2026](https://ieeexplore.ieee.org/document/11573420) - 针对完整 UEFI 运行时环境中 **SMM（系统管理模式）** 的 Fuzz 工具，与 RSFuzzer（S&P 2023）一脉相承。
+- [Specializing Language Models for Textual Fuzzing via Reinforcement Learning, 2026](https://ieeexplore.ieee.org/document/11573566) - 通过**强化学习特化语言模型**用于文本 Fuzz，探索 LLM 生成测试输入与 RL 反馈结合的新范式。
+- [StepStone: LLM-Based GPU Kernel Driver Fuzzing via User-Space Libraries, 2026](https://ieeexplore.ieee.org/document/11573613) - 基于 LLM 的 **GPU 内核驱动 Fuzz**，借助用户态库构造合法输入以深入驱动代码路径。
+- [Stop Starving or Stuffing Me: Boosting Firmware Fuzzing Efficiency with On-demand Input Delivery, 2026](https://ieeexplore.ieee.org/document/11573407) - 针对嵌入式固件 Fuzz 的**按需输入投递**方案，解决外设/MMIO 输入"饥饿或过载"导致的效率问题。
+- [TrigFuzz: Triggering Conditions Guided Directed Fuzzing, 2026](https://ieeexplore.ieee.org/document/11573637) - **触发条件引导的定向 Fuzz**，以漏洞触发条件为导航目标改进 DGF。
+- [Web Application Vulnerability Repair via Context-Aware Fault Localization and Directed Differential Fuzzing, 2026](https://ieeexplore.ieee.org/document/11573512) - 将上下文感知故障定位与**定向差分 Fuzz** 应用于 Web 应用**漏洞修复**（而非发现）的尝试。
+- [zkFuzz: Foundation and Framework for Effective Fuzzing of Zero-Knowledge Circuits, 2026](https://ieeexplore.ieee.org/document/11573528) - 针对零知识证明电路（ZK circuits）的 Fuzz 基础设施与框架，挖掘 ZK 应用中的电路级漏洞。
+
 ### 2025
 
 - [FirmRCA: Towards Post-Fuzzing Analysis on ARM Embedded Firmware with Efficient Event-based Fault Localization, 2025](https://www.computer.org/csdl/proceedings-article/sp/2025/223600a002/21B7PVDny6I) - FirmRCA，这是一个专为**嵌入式固件**量身定制的实用故障定位框架。[代码已开源](https://github.com/NESA-Lab/FirmRCA)，基于Unicorn模拟器的 hook 机制、利用 Capstone 反汇编。
