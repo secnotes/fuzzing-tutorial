@@ -82,6 +82,10 @@ This chapter contains top-level information security and classic papers in some 
 
 ### USENIX Security
 
+- [FirmReBugger: A Benchmark Framework for Monolithic Firmware Fuzzers, 2026](https://www.usenix.org/conference/usenixsecurity26/presentation/duong)
+- [PANGOLIN: Fuzzing Multilingual IoT Firmware with LLM-Driven Code Analysis, 2026](https://www.usenix.org/conference/usenixsecurity26/presentation/jia-zhipeng)
+- [CombiSan: Unifying Software Sanitizers for Comprehensive Fuzzing, 2026](https://www.usenix.org/conference/usenixsecurity26/presentation/marini)
+- [Bond: Constraint-Directed Fuzzing for Automated Validation of Taint Analysis Results in Linux-based IoT Firmware, 2026](https://www.usenix.org/conference/usenixsecurity26/presentation/peng-jiaqian)
 - [AidFuzzer: Adaptive Interrupt-Driven Firmware Fuzzing via Run-Time State Recognition, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/wang-jianqiang)
 - [GenHuzz: An Efficient Generative Hardware Fuzzer, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/wu-lichao)
 - [Encarsia: Evaluating CPU Fuzzers via Automatic Bug Injection, 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/bolcskei)
