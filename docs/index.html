@@ -681,6 +681,13 @@
 <li><a href="https://www.ndss-symposium.org/wp-content/uploads/2017/09/ndss201702A-1LeePaper.pdf">DELTA: A Security Assessment Framework for Software-Defined Networks, 2017</a> - 对 SDN 设计的安全评估框架。</li>
 </ul>
 <h2 id="usenix-security">USENIX Security</h2>
+<h3 id="2026_1">2026</h3>
+<ul>
+<li><a href="https://www.usenix.org/conference/usenixsecurity26/presentation/duong">FirmReBugger: A Benchmark Framework for Monolithic Firmware Fuzzers, 2026</a> - 一个<strong>单片（Monolithic）固件 Fuzzer 的基准评估框架</strong>（类似固件版 FuzzBench），提出用 C 语法表达式描述漏洞的 bug oracle 与解释器，自动区分 detected/triggered/reached 等状态，并配套含 313 个 bug oracle 的 FirmBench 真实二进制基准集，耗时 10 CPU 年复现评估了 9 个 SOTA 固件 Fuzzer，<a href="https://github.com/FirmReBugger/FirmReBugger">FirmReBugger 已开源</a>。</li>
+<li><a href="https://www.usenix.org/conference/usenixsecurity26/presentation/jia-zhipeng">PANGOLIN: Fuzzing Multilingual IoT Firmware with LLM-Driven Code Analysis, 2026</a> - 针对<strong>多语言（C/Python/Lua 等混用）IoT 设备</strong>的 Fuzz 方案，利用 LLM 分析 API 分发机制识别前端未暴露的隐藏接口，再由 LLM 智能体跨语言分析生成输入参数规约，并以响应驱动反馈修正规约，实现语义感知 Fuzz，发现 68 个未知漏洞（为 SOTA 工具 LABRADOR 的 2.96 倍），来自信息工程大学与清华大学张超团队，暂未见开源。</li>
+<li><a href="https://www.usenix.org/conference/usenixsecurity26/presentation/marini">CombiSan: Unifying Software Sanitizers for Comprehensive Fuzzing, 2026</a> - 一个<strong>统一 ASan/MSan/UBSan 的 Fuzz 优化型 sanitizer</strong>，用统一的 shadow memory 同时跟踪每个字节的可寻址性与初始化状态，并将问题分析推迟到测试用例执行完毕，避免不同 sanitizer 的 bug 相互掩盖；在 OSS-Fuzz 每日测试的 10 个程序中发现 81 个新 bug，平均比串行运行 ASan+UBSan 和 MSan 快 1.7 倍，<a href="https://github.com/vusec/combisan">CombiSan 已开源</a>。</li>
+<li><a href="https://www.usenix.org/conference/usenixsecurity26/presentation/peng-jiaqian">Bond: Constraint-Directed Fuzzing for Automated Validation of Taint Analysis Results in Linux-based IoT Firmware, 2026</a> - 用<strong>定向 Fuzz 自动验证污点分析报告</strong>的框架，将三类约束与六种语义类型融入变异实现约束引导的输入生成，对 19 台设备的 2,776 条污点报告验证出 1,349 条真实漏洞（含 155 个未知漏洞，108 个已获 CVE/PSV 编号），对已知漏洞召回率 91.67%，来自中科院信工所团队，暂未见开源。</li>
+</ul>
 <h3 id="2025_1">2025</h3>
 <ul>
 <li><a href="https://www.usenix.org/conference/usenixsecurity25/presentation/wang-jianqiang">AidFuzzer: Adaptive Interrupt-Driven Firmware Fuzzing via Run-Time State Recognition, 2025</a> - 一种针对固件仿真时，中断的模拟。</li>
@@ -782,7 +789,7 @@
 <li><a href="https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/schumilo">kAFL: Hardware-Assisted Feedback Fuzzing for OS Kernels, 2017</a> - 对于内核的 Fuzzing，崩溃往往会导致系统重启，内核中的任意一个错误都可能带来深远影响。论文提出的独立于<em>操作系统</em>和<em>硬件辅助的方式</em>解决了覆盖指导的内核模糊问题：利用虚拟机管理程序和英特尔的 <em>Processor Trace</em>（PT）技术。 </li>
 </ul>
 <h2 id="ieee-sp">IEEE S&amp;P</h2>
-<h3 id="2026_1">2026</h3>
+<h3 id="2026_2">2026</h3>
 <ul>
 <li><a href="https://ieeexplore.ieee.org/document/11573494">Batch Me If You Can: Coverage-guided RPKI Fuzzing at Scale, 2026</a> - 针对 RPKI（资源公钥基础设施，互联网 BGP 路由安全的基础）实现的<strong>大规模覆盖引导 Fuzzing</strong>，工具 CAT 吞吐量提升 66 倍，发现 21 个未知漏洞（8 个 CVE，最高 CVSS 9.8）。</li>
 <li><a href="https://ieeexplore.ieee.org/document/11573550">Camveil: Unveiling Security Camera Vulnerabilities through Multi-Protocol Coordinated Fuzzing, 2026</a> - 针对监控摄像头的 <strong>多协议协同 Fuzz</strong> 工具，同一设备的多个协议（如 ONVIF、RTSP 等）实现存在关联交互，跨协议协同测试可挖掘单协议 Fuzz 难以发现的漏洞。</li>
@@ -1033,7 +1040,7 @@
 
             <footer>
                 <p>Fuzzing Tutorial - Collection of Papers, Blogs, and Tools Related to Fuzzing</p>
-                <p>Last updated: 2026-09-10</p>
+                <p>Last updated: 2026-11-17</p>
             </footer>
         </div>
 
@@ -1060,6 +1067,7 @@
     <li class="toc-item has-children">
         <span class="toc-toggle" aria-expanded="false">▸</span><a href="#usenix-security">USENIX Security</a>
         <ul class="toc-children">
+    <li class="toc-item"><span class="toc-toggle-spacer"></span><a href="#2026">2026</a></li>
     <li class="toc-item"><span class="toc-toggle-spacer"></span><a href="#2025">2025</a></li>
     <li class="toc-item"><span class="toc-toggle-spacer"></span><a href="#2024">2024</a></li>
     <li class="toc-item"><span class="toc-toggle-spacer"></span><a href="#2023">2023</a></li>
